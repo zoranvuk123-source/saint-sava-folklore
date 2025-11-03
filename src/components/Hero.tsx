@@ -1,51 +1,66 @@
 import { ChevronDown } from "lucide-react";
+import illustrationFrontPage from "@/assets/illustration-front-page.png";
 
 const Hero = () => {
   const scrollToGallery = () => {
-    document.getElementById("videos")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("cultural-showcase")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: "url('https://svetisavaoplenac.ca/wp-content/uploads/2024/10/IMG_3983-scaled-600x400.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 hero-gradient" />
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary/5 via-background to-secondary/5">
+      {/* Decorative Background Pattern */}
+      <div className="absolute inset-0 z-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)',
+          backgroundSize: '40px 40px'
+        }} />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fade-in-up">
-          Celebrate
-          <span className="block text-gradient">Serbian Culture</span>
-        </h1>
-        <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto opacity-95 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-          Explore the vibrant traditions of Sv Sava Oplenac Folklorna Grupa through dance, music, and community
-        </p>
+      <div className="relative z-10 container mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+          {/* Text Content */}
+          <div className="text-center lg:text-left">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up">
+              Celebrate
+              <span className="block text-primary">Serbian Culture</span>
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-foreground/80 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+              Explore the vibrant traditions of Sv Sava Oplenac Folklorna Grupa through dance, music, and community
+            </p>
+            <div className="flex gap-4 justify-center lg:justify-start animate-fade-in" style={{ animationDelay: "0.4s" }}>
+              <button
+                onClick={scrollToGallery}
+                className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-elegant transition-all hover:scale-105"
+              >
+                Explore Gallery
+              </button>
+              <a
+                href="#photos"
+                className="px-8 py-4 bg-secondary text-secondary-foreground rounded-lg font-semibold hover:shadow-elegant transition-all hover:scale-105"
+              >
+                View Photos
+              </a>
+            </div>
+          </div>
+
+          {/* Illustration */}
+          <div className="animate-fade-in" style={{ animationDelay: "0.3s" }}>
+            <img
+              src={illustrationFrontPage}
+              alt="Serbian Folk Dancers"
+              className="w-full max-w-2xl mx-auto drop-shadow-2xl"
+            />
+          </div>
+        </div>
         
         <button
           onClick={scrollToGallery}
-          className="mt-8 animate-bounce"
+          className="mt-12 animate-bounce mx-auto lg:mx-0 flex items-center justify-center lg:justify-start"
           aria-label="Scroll to gallery"
         >
-          <ChevronDown className="w-12 h-12 mx-auto opacity-80 hover:opacity-100 transition-opacity" />
+          <ChevronDown className="w-12 h-12 text-primary opacity-80 hover:opacity-100 transition-opacity" />
         </button>
-      </div>
-
-      {/* Decorative bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0 z-10">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" className="w-full">
-          <path 
-            fill="hsl(var(--background))" 
-            d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"
-          />
-        </svg>
       </div>
     </section>
   );
