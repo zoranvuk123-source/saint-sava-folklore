@@ -1,5 +1,9 @@
 import { Clock, Users, MapPin, Heart, Mail } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import opankeIcon from "@/assets/icons/opanke-icon.png";
+import sajkacaIcon from "@/assets/icons/sajkaca-icon.png";
+import serbianFlagIcon from "@/assets/icons/serbian-flag-icon.png";
+import koloCircleIcon from "@/assets/icons/kolo-circle-icon.png";
 
 const JoinUs = () => {
   const groupImages = [
@@ -8,10 +12,12 @@ const JoinUs = () => {
     "https://svetisavaoplenac.ca/wp-content/uploads/2023/11/Carassauga-May-2023-Dj-1-e1699570872787-600x400.jpg",
     "https://svetisavaoplenac.ca/wp-content/uploads/2023/10/IMG_0645-1-scaled-600x400.jpg"
   ];
+
+  const folkIcons = [opankeIcon, sajkacaIcon, serbianFlagIcon, koloCircleIcon];
   const groups = [
     {
       name: "Group 3",
-      icon: "👶",
+      iconLabel: "Opanke (Traditional Shoes)",
       ageRange: "Ages 3 to 7",
       time: "Weekly practices from 5:30 until 6:30 PM",
       note: "After practice meet with Otac Zlatibor in the church.",
@@ -19,7 +25,7 @@ const JoinUs = () => {
     },
     {
       name: "Group 2",
-      icon: "🦅",
+      iconLabel: "Šajkača (Traditional Cap)",
       ageRange: "Ages 8 to 12",
       time: "Weekly practices from 6:30 until 7:30 PM",
       note: "With choreographer + performances as scheduled. Meet Otac Zlatibor before practice at 6 PM.",
@@ -27,7 +33,7 @@ const JoinUs = () => {
     },
     {
       name: "Group 1",
-      icon: "👤",
+      iconLabel: "Serbian Flag",
       ageRange: "Ages 13+",
       time: "Weekly practices from 7:30 until 9 PM",
       note: "+ performances as scheduled. Meet Otac Zlatibor at 7 PM before your practice.",
@@ -35,7 +41,7 @@ const JoinUs = () => {
     },
     {
       name: "Recreational",
-      icon: "🏆",
+      iconLabel: "Kolo Circle",
       ageRange: "All Ages",
       time: "Coming Soon",
       note: "Hoping to come in the future. Will be open to all ages! Please feel free to contact us.",
@@ -89,8 +95,12 @@ const JoinUs = () => {
                 <div className={`absolute inset-0 bg-gradient-to-b ${group.color} opacity-90`} />
                 
                 {/* Icon Overlay */}
-                <div className="absolute top-4 right-4 bg-white/90 rounded-full p-3 shadow-lg">
-                  <span className="text-3xl">{group.icon}</span>
+                <div className="absolute top-4 right-4 bg-white/95 rounded-xl p-3 shadow-lg">
+                  <img 
+                    src={folkIcons[index]} 
+                    alt={group.iconLabel}
+                    className="w-12 h-12 object-contain"
+                  />
                 </div>
               </div>
 
