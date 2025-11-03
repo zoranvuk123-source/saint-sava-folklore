@@ -11,7 +11,7 @@ const Gallery = () => {
   const { t } = useLanguage();
   const [selectedYear, setSelectedYear] = useState("all");
 
-  const years = ["2020", "2019", "2018", "2017", "2016"];
+  const years = ["2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016"];
 
   // Gallery data organized by year
   const galleryData = {
@@ -59,6 +59,28 @@ const Gallery = () => {
     ],
     "2020": [
       { src: "/gallery/2020/2020-02-11_1.jpg", alt: "February 2020" }
+    ],
+    "2021": [
+      { src: "/gallery/2021/2021-06-01_1.jpg", alt: "June 2021" }
+    ],
+    "2022": [
+      { src: "/gallery/2022/2022-02-13_1.jpg", alt: "February 2022" },
+      { src: "/gallery/2022/2022-05-22_1.jpg", alt: "May 2022" },
+      { src: "/gallery/2022/2022-05-30_1.jpg", alt: "May 2022" }
+    ],
+    "2023": [
+      { src: "/gallery/2023/2023-02-05_1.jpg", alt: "February 2023" },
+      { src: "/gallery/2023/2023-05-28_1.jpg", alt: "May 2023" },
+      { src: "/gallery/2023/2023-05-31_1.jpg", alt: "May 2023" },
+      { src: "/gallery/2023/2023-06-04_1.jpg", alt: "June 2023" }
+    ],
+    "2024": [
+      { src: "/gallery/2024/2024-02-04_1.jpg", alt: "February 2024" },
+      { src: "/gallery/2024/2024-05-26_1.jpg", alt: "May 2024" },
+      { src: "/gallery/2024/2024-06-02_1.jpg", alt: "June 2024" }
+    ],
+    "2025": [
+      { src: "/gallery/2025/2025-02-02_1.jpg", alt: "February 2025" }
     ]
   };
 
