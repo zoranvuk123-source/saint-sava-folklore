@@ -6,10 +6,12 @@ import VideoGallery from "@/components/VideoGallery";
 import PhotoGallery from "@/components/PhotoGallery";
 import Footer from "@/components/Footer";
 import LanguageToggle from "@/components/LanguageToggle";
+import Header from "@/components/Header";
 
 const Index = () => {
   return (
     <main className="min-h-screen">
+      <Header />
       <LanguageToggle />
       <Hero />
       <div id="cultural-showcase">

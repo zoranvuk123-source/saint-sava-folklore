@@ -1,6 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import Footer from "@/components/Footer";
 import LanguageToggle from "@/components/LanguageToggle";
+import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -10,6 +11,7 @@ const History = () => {
 
   return (
     <main className="min-h-screen bg-background">
+      <Header />
       <LanguageToggle />
       
       <div className="container mx-auto px-4 py-12 max-w-4xl">

@@ -118,6 +118,16 @@ const translations = {
     "history.performances": "Folklorna Grupa Oplenac nastavila je da neguje kolektivni srpski identitet kroz svoje nastupe. Nastupali su na Expo-u 1986. u Vankuveru, na posvećenju naše parohije Crkve Svih Srpskih Svetitelja u junu 2002, putovali su u Srbiju nekoliko puta i organizovali mnoge folklorističke događaje, uključujući godišnji ručak za prikupljanje sredstava za Manastir Sveta Petka blizu Paraćina, Srbija, gde starije kaluđerice brinu o 80 odraslih osoba sa invaliditetom. Oplenac je bio radost gledati kako nastupa na posvećenju naše crkve 2002. godine, trodnevnom događaju, kada su naši igrači proveli bezbroj sati pripremajući se za ovaj jedinstveni događaj. Takođe, naša grupa je preuzela organizaciju godišnje multikulturalne proslavе vikenda pod nazivom Carassauga i osvojila je mnoge prestižne nagrade uključujući nekoliko za najbolju izložbenu prostoriju naše srpske kulture i tradicija.",
     "history.nameChange": "Inicijativa za promenu naziva folklorne grupe Oplenac je predložena 2017. godine. Razlog je bio da se izbegne zabuna između dve grupe sa istim imenom u istom gradu. Odlučeno je da se zadrži deo Oplenac i doda njegovo prvobitno ime Sv. Sava. Zato je današnji naziv grupe Folklorna Grupa Sv. Sava Oplenac.",
     "history.conclusion": "Folklorna Grupa Sv. Sava Oplenac je prošla kroz nekoliko reorganizacija tokom svog postojanja, ali je uspela da napreduje i folklorno igranje je postalo najpopularnija aktivnost zahvaljujući podršci naše dece, roditelja i zajednice. Srpska Pravoslavna Crkva je odigrala značajnu ulogu u razvoju organizacije. Dok su druge igračke grupe granale dalje od crkve, Sveti Sava Oplenac je ostao snažno povezan. Kulturni rast i očuvanje zajednice u celini bili bi nemogući bez crkve.",
+    
+    // Navigation
+    "nav.home": "Početna",
+    "nav.about": "O Nama",
+    "nav.history": "Istorija",
+    "nav.join": "Pridružite Se",
+    "nav.groups": "Naše Grupe",
+    "nav.community": "Zajednica",
+    "nav.calendar": "Kalendar",
+    "nav.contact": "Kontakt",
   },
   "sr-cyrillic": {
     // Hero
@@ -228,6 +238,16 @@ const translations = {
     "history.performances": "Фолклорна Група Опленац наставила је да негује колективни српски идентитет кроз своје наступе. Наступали су на Expo-у 1986. у Ванкуверу, на посвећењу наше парохије Цркве Свих Српских Светитеља у јуну 2002, путовали су у Србију неколико пута и организовали многе фолклористичке догађаје, укључујући годишњи ручак за прикупљање средстава за Манастир Света Петка близу Параћина, Србија, где старије калуђерице брину о 80 одраслих особа са инвалидитетом. Опленац је био радост гледати како наступа на посвећењу наше цркве 2002. године, тродневном догађају, када су наши играчи провели безброј сати припремајући се за овај јединствени догађај. Такође, наша група је преузела организацију годишње мултикултуралне прославе викенда под називом Carassauga и освојила је многе престижне награде укључујући неколико за најбољу излож��ену просторију наше српске културе и традиција.",
     "history.nameChange": "Иницијатива за промену назива фолклорне групе Опленац је предложена 2017. године. Разлог је био да се избегне забуна између две групе са истим именом у истом граду. Одлучено је да се задржи део Опленац и дода његово првобитно име Св. Сава. Зато је данашњи назив групе Фолклорна Група Св. Сава Опленац.",
     "history.conclusion": "Фолклорна Група Св. Сава Опленац је прошла кроз неколико реорганизација током свог постојања, али је успела да напредује и фолклорно играње је постало најпопуларнија активност захваљујући подршци наше деце, родитеља и заједнице. Српска Православна Црква је одиграла значајну улогу у развоју организације. Док су друге играчке групе гранале даље од цркве, Свети Сава Опленац је остао снажно повезан. Културни раст и очување заједнице у целини били би немогући без цркве.",
+    
+    // Navigation
+    "nav.home": "Почетна",
+    "nav.about": "О Нама",
+    "nav.history": "Историја",
+    "nav.join": "Придружите Се",
+    "nav.groups": "Наше Групе",
+    "nav.community": "Заједница",
+    "nav.calendar": "Календар",
+    "nav.contact": "Контакт",
   },
   en: {
     // Hero
@@ -338,6 +358,16 @@ const translations = {
     "history.performances": "The Oplenac Folklore Ensemble continued to nurture a collective Serbian identity through their performances. They performed at Expo in 1986 in Vancouver, the Consecration of our parish's All Serbian Saints Serbian Orthodox Church in June 2002, travelled to Serbia several times and hosted many folk-fest events, including the annual fundraising lunch for the Saint Petka Monastery near Paraćin, Serbia, where elderly nuns are taking care of 80 adult disabled individuals. Oplenac was a joy to watch perform at the 2002 consecration of our church, a 3 day event, when our dancers spent countless hours preparing for this once-in-a-lifetime event. Also, our group took up the organization of the annual multicultural weekend celebration called Carassauga and has won many prestigious awards including several for the best display room of our Serbian culture and traditions.",
     "history.nameChange": "Initiative to change the Oplenac folklore group's name was proposed in 2017. The reason was to avoid confusion between the two groups with the same name in the same town. It was decided to keep the Oplenac part and add its original name of Saint Sava. This is why today's group name is Saint Sava Oplenac Folklore Ensemble.",
     "history.conclusion": "Saint Sava Oplenac Folklore Ensemble has gone through several reorganizations during its existence, but has managed to progress and folk-dancing became the most popular activity thanks to the support of our children, parents and community. The Serbian Orthodox church has played a significant role in the development of the organization. While other dance groups were branching away from the church, Sveti Sava Oplenac has stayed strongly connected. Cultural growth and preservation of the community as a whole would be impossible without the church.",
+    
+    // Navigation
+    "nav.home": "Home",
+    "nav.about": "About Us",
+    "nav.history": "History",
+    "nav.join": "Join Us",
+    "nav.groups": "Our Groups",
+    "nav.community": "Community",
+    "nav.calendar": "Calendar",
+    "nav.contact": "Contact",
   },
 };
 
