@@ -1,14 +1,27 @@
 import { Mail, MapPin, Calendar } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
+import illustrationFrontPage from "@/assets/illustration-front-page.png";
 
 const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="relative bg-secondary text-secondary-foreground overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
+    <>
+      {/* Illustration Banner */}
+      <div className="w-full bg-background/5 py-8">
+        <div className="container mx-auto px-4">
+          <img
+            src={illustrationFrontPage}
+            alt="Serbian Folk Dancers"
+            className="w-full max-w-5xl mx-auto"
+          />
+        </div>
+      </div>
+
+      <footer className="relative bg-secondary text-secondary-foreground overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
         <img 
           src="https://svetisavaoplenac.ca/wp-content/uploads/2023/11/ChurchHallAllGrps-600x400.jpg"
           alt="Folklorna Grupa Group Photo"
@@ -76,7 +89,8 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 

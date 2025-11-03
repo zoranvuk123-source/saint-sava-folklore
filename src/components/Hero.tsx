@@ -62,9 +62,9 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Text Content */}
-          <div className="text-center lg:text-left">
+          <div className="text-center">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up">
               {t("hero.celebrate")}
               <span className="block text-primary">{t("hero.serbian.culture")}</span>
@@ -72,7 +72,7 @@ const Hero = () => {
             <p className="text-xl md:text-2xl mb-8 text-foreground/80 animate-fade-in" style={{ animationDelay: "0.2s" }}>
               {t("hero.subtitle")}
             </p>
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start animate-fade-in" style={{ animationDelay: "0.4s" }}>
+            <div className="flex flex-wrap gap-4 justify-center animate-fade-in" style={{ animationDelay: "0.4s" }}>
               <button
                 onClick={scrollToGallery}
                 className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-elegant transition-all hover:scale-105"
@@ -94,19 +94,11 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Illustration */}
-          <div className="animate-fade-in" style={{ animationDelay: "0.3s" }}>
-            <img
-              src={illustrationFrontPage}
-              alt="Serbian Folk Dancers"
-              className="w-full max-w-2xl mx-auto drop-shadow-2xl"
-            />
-          </div>
         </div>
         
         <button
           onClick={scrollToGallery}
-          className="mt-12 animate-bounce mx-auto lg:mx-0 flex items-center justify-center lg:justify-start"
+          className="mt-12 animate-bounce mx-auto flex items-center justify-center"
           aria-label="Scroll to gallery"
         >
           <ChevronDown className="w-12 h-12 text-primary opacity-80 hover:opacity-100 transition-opacity" />
