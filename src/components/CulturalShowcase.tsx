@@ -16,12 +16,12 @@ const CulturalShowcase = () => {
     {
       badge: badgeTradicija,
       title: t("showcase.tradition"),
-      photos: [photoTradicija1, photoTradicija2]
+      photos: [photoTradicija1, photoZajedno2]
     },
     {
       badge: badgeZajedno,
       title: t("showcase.dance.together"),
-      photos: [photoZajedno1, photoZajedno2]
+      photos: [photoZajedno1, photoTradicija2]
     },
     {
       badge: badgeSnazno,
