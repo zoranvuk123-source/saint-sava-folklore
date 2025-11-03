@@ -289,7 +289,16 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguageState] = useState<Language>(() => {
     const saved = localStorage.getItem("language");
-    return (saved as Language) || "sr-latin"; // Serbian Latin as default
+    // Migrate old "sr" value to "sr-latin"
+    if (saved === "sr") {
+      localStorage.setItem("language", "sr-latin");
+      return "sr-latin";
+    }
+    // Validate the saved language exists in translations
+    if (saved && (saved === "sr-latin" || saved === "sr-cyrillic" || saved === "en")) {
+      return saved as Language;
+    }
+    return "sr-latin"; // Serbian Latin as default
   });
 
   useEffect(() => {
@@ -302,7 +311,9 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const t = (key: string): string => {
-    return translations[language][key] || key;
+    // Fallback to sr-latin if language doesn't exist in translations
+    const langTranslations = translations[language] || translations["sr-latin"];
+    return langTranslations[key] || key;
   };
 
   return (
