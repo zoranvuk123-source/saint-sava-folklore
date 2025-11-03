@@ -11,7 +11,7 @@ const Gallery = () => {
   const { t } = useLanguage();
   const [selectedYear, setSelectedYear] = useState("all");
 
-  const years = ["2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016"];
+  const years = ["2018", "2017", "2016"];
 
   // Gallery data organized by year
   const galleryData = {
@@ -44,43 +44,7 @@ const Gallery = () => {
       { src: "/gallery/2018/2018-05-14_2.jpg", alt: "May 2018" },
       { src: "/gallery/2018/2018-05-22_1.jpg", alt: "May 2018" },
       { src: "/gallery/2018/2018-05-28_1.jpg", alt: "May 2018" },
-      { src: "/gallery/2018/2018-05-28_2.jpg", alt: "May 2018" },
-      { src: "/gallery/2018/2018-06-05_1.jpg", alt: "June 2018" },
-      { src: "/gallery/2018/2018-11-16_1.jpg", alt: "November 2018" }
-    ],
-    "2019": [
-      { src: "/gallery/2019/2019-02-05_1.jpg", alt: "February 2019" },
-      { src: "/gallery/2019/2019-04-14_1.jpg", alt: "April 2019" },
-      { src: "/gallery/2019/2019-05-28_1.jpg", alt: "May 2019" },
-      { src: "/gallery/2019/2019-05-30_1.jpg", alt: "May 2019" },
-      { src: "/gallery/2019/2019-06-03_1.jpg", alt: "June 2019" },
-      { src: "/gallery/2019/2019-10-30_1.jpg", alt: "October 2019" },
-      { src: "/gallery/2019/2019-11-03_1.jpg", alt: "November 2019" }
-    ],
-    "2020": [
-      { src: "/gallery/2020/2020-02-11_1.jpg", alt: "February 2020" }
-    ],
-    "2021": [
-      { src: "/gallery/2021/2021-06-01_1.jpg", alt: "June 2021" }
-    ],
-    "2022": [
-      { src: "/gallery/2022/2022-02-13_1.jpg", alt: "February 2022" },
-      { src: "/gallery/2022/2022-05-22_1.jpg", alt: "May 2022" },
-      { src: "/gallery/2022/2022-05-30_1.jpg", alt: "May 2022" }
-    ],
-    "2023": [
-      { src: "/gallery/2023/2023-02-05_1.jpg", alt: "February 2023" },
-      { src: "/gallery/2023/2023-05-28_1.jpg", alt: "May 2023" },
-      { src: "/gallery/2023/2023-05-31_1.jpg", alt: "May 2023" },
-      { src: "/gallery/2023/2023-06-04_1.jpg", alt: "June 2023" }
-    ],
-    "2024": [
-      { src: "/gallery/2024/2024-02-04_1.jpg", alt: "February 2024" },
-      { src: "/gallery/2024/2024-05-26_1.jpg", alt: "May 2024" },
-      { src: "/gallery/2024/2024-06-02_1.jpg", alt: "June 2024" }
-    ],
-    "2025": [
-      { src: "/gallery/2025/2025-02-02_1.jpg", alt: "February 2025" }
+      { src: "/gallery/2018/2018-05-28_2.jpg", alt: "May 2018" }
     ]
   };
 
