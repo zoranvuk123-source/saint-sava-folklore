@@ -4,13 +4,14 @@ import opankeIcon from "@/assets/icons/opanke-icon.png";
 import sajkacaIcon from "@/assets/icons/sajkaca-icon.png";
 import serbianFlagIcon from "@/assets/icons/serbian-flag-icon.png";
 import koloCircleIcon from "@/assets/icons/kolo-circle-icon.png";
+import group3Photo from "@/assets/group3-photo.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const JoinUs = () => {
   const { t } = useLanguage();
   
   const groupImages = [
-    "https://svetisavaoplenac.ca/wp-content/uploads/2024/10/IMG_3993-scaled-600x400.jpg",
+    group3Photo,
     "https://svetisavaoplenac.ca/wp-content/uploads/2024/10/IMG_3982-scaled-600x400.jpg",
     "https://svetisavaoplenac.ca/wp-content/uploads/2023/11/Carassauga-May-2023-Dj-1-e1699570872787-600x400.jpg",
     "https://svetisavaoplenac.ca/wp-content/uploads/2023/10/IMG_0645-1-scaled-600x400.jpg"
