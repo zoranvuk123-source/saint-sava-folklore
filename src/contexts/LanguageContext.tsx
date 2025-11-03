@@ -128,6 +128,63 @@ const translations = {
     "nav.community": "Zajednica",
     "nav.calendar": "Kalendar",
     "nav.contact": "Kontakt",
+    
+    // About Page
+    "about.mission": "Negujemo srpsku kulturnu tradiciju kroz igru, muziku i zajednicu, pružajući prostor gde sve generacije mogu da uče, rastu i slave naše nasleđe.",
+    "about.team.title": "Trenutni Tim",
+    "about.president": "Predsednik",
+    "about.vicePresident": "Potpredsednik",
+    "about.treasurer": "Blagajnik",
+    "about.secretary": "Sekretar",
+    "about.volunteers": "Kao i mnogi posvećeni volonteri koji čine našu grupu mogućom.",
+    "about.choreographers.title": "Trenutni Koreografi",
+    "about.choreographer.tba": "Informacije biće ažurirane uskoro.",
+    "about.choreographer.groups": "Radi sa svim dobnim grupama",
+    "about.practice.title": "Raspored Vežbi",
+    "about.signup": "Nove prijave su dobrodošle u bilo koje vreme tokom godine!",
+    
+    // Groups Page
+    "groups.subtitle": "Naše grupe se sastaju nedeljno da vežbaju tradicionalne srpske igre, od najmlađih do odraslih.",
+    "groups.practice": "Vreme Vežbi",
+    "groups.choreographer": "Koreograf",
+    "groups.interested": "Zainteresovani da se pridružite?",
+    "groups.contact": "Kontaktirajte nas da saznate više o našim grupama i kako se možete uključiti.",
+    
+    // Community Page
+    "community.subtitle": "Zajedno gradimo zajednicu koja slavi srpsku kulturu i tradicije kroz događaje, nastupe i druženje.",
+    "community.carassauga.title": "Carassauga Festival",
+    "community.carassauga.description": "Godišnje učestvujemo u Carassauga festivalu, prikazujući srpsku kulturu, kuhinju i folklor hiljadama posetilaca.",
+    "community.festivals.title": "Kulturni Nastupi",
+    "community.festivals.description": "Nastupamo na raznim festivalima i događajima širom regije, reprezentujući srpsku zajednicu.",
+    "community.church.title": "Crkvena Zajednica",
+    "community.church.description": "Naša grupa je duboko povezana sa Srpskom Pravoslavnom Crkvom Sv. Sava i učestvuje u crkvenim proslavama.",
+    "community.charity.title": "Dobrotvorne Aktivnosti",
+    "community.charity.description": "Podržavamo dobrotvorne organizacije, uključujući Manastir Sveta Petka u Srbiji.",
+    "community.join.title": "Postanite Deo Naše Zajednice",
+    "community.join.description": "Pozivamo sve koji žele da slave srpsku kulturu da se pridruže našoj zajednici. Svi su dobrodošli!",
+    
+    // Calendar Page
+    "calendar.subtitle": "Pregledajte naš raspored vežbi i predstojeće događaje.",
+    "calendar.practice.title": "Nedeljne Vežbe",
+    "calendar.events.title": "Predstojeći Događaji",
+    "calendar.carassauga.date": "Maj - Datum biće potvrđen",
+    "calendar.carassauga.location": "Mississauga, ON",
+    "calendar.carassauga.description": "Godišnji multikulturalni festival gde nastupamo i prikazujemo srpsku kulturu.",
+    "calendar.folkorama.name": "Folkorama",
+    "calendar.folkorama.date": "Avgust - Datum biće potvrđen",
+    "calendar.folkorama.location": "Toronto, ON",
+    "calendar.folkorama.description": "Proslava kulture sa nastupima i tradicionalnom hranom.",
+    "calendar.more": "Više događaja će biti najavljeno. Pratite nas za ažuriranja!",
+    
+    // Contact Page
+    "contact.subtitle": "Kontaktirajte nas za više informacija ili da se pridružite našoj grupi.",
+    "contact.email.title": "Pošaljite nam Email",
+    "contact.location.title": "Posetite Nas",
+    "contact.schedule.title": "Vreme Vežbi",
+    "contact.phone.title": "Pozovite Nas",
+    "contact.phone.coming": "Broj telefona biće uskoro dostupan",
+    "contact.cta.title": "Spremni da Zaplesate?",
+    "contact.cta.description": "Kontaktirajte nas danas da saznate više o našoj grupi i kako možete postati deo naše zajednice!",
   },
   "sr-cyrillic": {
     // Hero
@@ -248,6 +305,63 @@ const translations = {
     "nav.community": "Заједница",
     "nav.calendar": "Календар",
     "nav.contact": "Контакт",
+    
+    // About Page
+    "about.mission": "Негујемо српску културну традицију кроз игру, музику и заједницу, пружајући простор где све генерације могу да уче, расту и славе наше наслеђе.",
+    "about.team.title": "Тренутни Тим",
+    "about.president": "Председник",
+    "about.vicePresident": "Потпредседник",
+    "about.treasurer": "Благајник",
+    "about.secretary": "Секретар",
+    "about.volunteers": "Као и многи посвећени волонтери који чине нашу групу могућом.",
+    "about.choreographers.title": "Тренутни Кореографи",
+    "about.choreographer.tba": "Информације биће ажуриране ускоро.",
+    "about.choreographer.groups": "Ради са свим добним групама",
+    "about.practice.title": "Распоред Вежби",
+    "about.signup": "Нове пријаве су добродошле у било које време током године!",
+    
+    // Groups Page
+    "groups.subtitle": "Наше групе се састају недељно да вежбају традиционалне српске игре, од најмлађих до одраслих.",
+    "groups.practice": "Време Вежби",
+    "groups.choreographer": "Кореограф",
+    "groups.interested": "Заинтересовани да се придружите?",
+    "groups.contact": "Контактирајте нас да сазнате више о нашим групама и како се можете укључити.",
+    
+    // Community Page
+    "community.subtitle": "Заједно градимо заједницу која слави српску културу и традиције кроз догађаје, наступе и дружење.",
+    "community.carassauga.title": "Carassauga Фестивал",
+    "community.carassauga.description": "Годишње учествујемо у Carassauga фестивалу, приказујући српску културу, кухињу и фолклор хиљадама посетилаца.",
+    "community.festivals.title": "Културни Наступи",
+    "community.festivals.description": "Наступамо на разним фестивалима и догађајима широм региона, репрезентујући српску заједницу.",
+    "community.church.title": "Црквена Заједница",
+    "community.church.description": "Наша група је дубоко повезана са Српском Православном Црквом Св. Сава и учествује у црквеним прославама.",
+    "community.charity.title": "Добротворне Активности",
+    "community.charity.description": "Подржавамо добротворне организације, укључујући Манастир Света Петка у Србији.",
+    "community.join.title": "Постаните Део Наше Заједнице",
+    "community.join.description": "Позивамо све који желе да славе српску културу да се придруже нашој заједници. Сви су добродошли!",
+    
+    // Calendar Page
+    "calendar.subtitle": "Прегледајте наш распоред вежби и предстојеће догађаје.",
+    "calendar.practice.title": "Недељне Вежбе",
+    "calendar.events.title": "Предстојећи Догађаји",
+    "calendar.carassauga.date": "Мај - Датум биће потврђен",
+    "calendar.carassauga.location": "Mississauga, ON",
+    "calendar.carassauga.description": "Годишњи мултикултурални фестивал где наступамо и приказујемо српску културу.",
+    "calendar.folkorama.name": "Фолкорама",
+    "calendar.folkorama.date": "Август - Датум биће потврђен",
+    "calendar.folkorama.location": "Toronto, ON",
+    "calendar.folkorama.description": "Прослава културе са наступима и традиционалном храном.",
+    "calendar.more": "Више догађаја ће бити најављено. Пратите нас за ажурирања!",
+    
+    // Contact Page
+    "contact.subtitle": "Контактирајте нас за више информација или да се придружите нашој групи.",
+    "contact.email.title": "Пошаљите нам Email",
+    "contact.location.title": "Посетите Нас",
+    "contact.schedule.title": "Време Вежби",
+    "contact.phone.title": "Позовите Нас",
+    "contact.phone.coming": "Број телефона биће ускоро доступан",
+    "contact.cta.title": "Спремни да Заплешете?",
+    "contact.cta.description": "Контактирајте нас данас да сазнате више о нашој групи и како можете постати део наше заједнице!",
   },
   en: {
     // Hero
@@ -368,6 +482,63 @@ const translations = {
     "nav.community": "Community",
     "nav.calendar": "Calendar",
     "nav.contact": "Contact",
+    
+    // About Page
+    "about.mission": "We nurture Serbian cultural traditions through dance, music, and community, providing a space where all generations can learn, grow, and celebrate our heritage.",
+    "about.team.title": "Current Team",
+    "about.president": "President",
+    "about.vicePresident": "Vice President",
+    "about.treasurer": "Treasurer",
+    "about.secretary": "Secretary",
+    "about.volunteers": "Along with many dedicated volunteers who make our group possible.",
+    "about.choreographers.title": "Current Choreographers",
+    "about.choreographer.tba": "Information will be updated soon.",
+    "about.choreographer.groups": "Works with all age groups",
+    "about.practice.title": "Practice Schedule",
+    "about.signup": "New registrations welcome anytime throughout the year!",
+    
+    // Groups Page
+    "groups.subtitle": "Our groups meet weekly to practice traditional Serbian dances, from the youngest to adults.",
+    "groups.practice": "Practice Time",
+    "groups.choreographer": "Choreographer",
+    "groups.interested": "Interested in Joining?",
+    "groups.contact": "Contact us to learn more about our groups and how you can get involved.",
+    
+    // Community Page
+    "community.subtitle": "Together we build a community that celebrates Serbian culture and traditions through events, performances, and fellowship.",
+    "community.carassauga.title": "Carassauga Festival",
+    "community.carassauga.description": "We participate annually in the Carassauga festival, showcasing Serbian culture, cuisine, and folklore to thousands of visitors.",
+    "community.festivals.title": "Cultural Performances",
+    "community.festivals.description": "We perform at various festivals and events throughout the region, representing the Serbian community.",
+    "community.church.title": "Church Community",
+    "community.church.description": "Our group is deeply connected with Saint Sava Serbian Orthodox Church and participates in church celebrations.",
+    "community.charity.title": "Charitable Activities",
+    "community.charity.description": "We support charitable organizations, including Saint Petka Monastery in Serbia.",
+    "community.join.title": "Become Part of Our Community",
+    "community.join.description": "We welcome everyone who wants to celebrate Serbian culture to join our community. All are welcome!",
+    
+    // Calendar Page
+    "calendar.subtitle": "View our practice schedule and upcoming events.",
+    "calendar.practice.title": "Weekly Practices",
+    "calendar.events.title": "Upcoming Events",
+    "calendar.carassauga.date": "May - Date TBC",
+    "calendar.carassauga.location": "Mississauga, ON",
+    "calendar.carassauga.description": "Annual multicultural festival where we perform and showcase Serbian culture.",
+    "calendar.folkorama.name": "Folkorama",
+    "calendar.folkorama.date": "August - Date TBC",
+    "calendar.folkorama.location": "Toronto, ON",
+    "calendar.folkorama.description": "Cultural celebration featuring performances and traditional food.",
+    "calendar.more": "More events will be announced. Follow us for updates!",
+    
+    // Contact Page
+    "contact.subtitle": "Contact us for more information or to join our group.",
+    "contact.email.title": "Send Us an Email",
+    "contact.location.title": "Visit Us",
+    "contact.schedule.title": "Practice Times",
+    "contact.phone.title": "Call Us",
+    "contact.phone.coming": "Phone number coming soon",
+    "contact.cta.title": "Ready to Dance?",
+    "contact.cta.description": "Contact us today to learn more about our group and how you can become part of our community!",
   },
 };
 
