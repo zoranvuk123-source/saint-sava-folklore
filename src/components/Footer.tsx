@@ -30,7 +30,8 @@ const Footer = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/95 to-secondary/80" />
       </div>
 
-      <div className="relative z-10 container mx-auto py-12 px-6 md:px-8">
+      <div className="relative z-10 py-12">
+        <div className="container mx-auto px-6 md:px-8 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* About */}
           <div>
@@ -87,6 +88,7 @@ const Footer = () => {
           <p className="text-sm opacity-75">
             {t("footer.rights")}
           </p>
+        </div>
         </div>
       </div>
       </footer>
