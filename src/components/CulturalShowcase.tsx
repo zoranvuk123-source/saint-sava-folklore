@@ -54,7 +54,7 @@ const CulturalShowcase = () => {
             >
               {/* Badge on the left */}
               <div className="flex justify-center md:justify-end">
-                <div className="w-48 h-48 rounded-full overflow-hidden shadow-card hover:shadow-elegant transition-all duration-300 hover:scale-105">
+                <div className="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden shadow-card hover:shadow-elegant transition-all duration-300 hover:scale-105">
                   <img
                     src={row.badge}
                     alt={row.title}
