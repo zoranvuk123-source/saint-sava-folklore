@@ -78,26 +78,29 @@ const JoinUs = () => {
           <p className="text-muted-foreground">{t("join.location.description")}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {groups.map((group, index) => (
             <Card key={index} className="overflow-hidden border-0 shadow-card hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 group/card">
-              <div className="relative h-48 overflow-hidden">
-                <img src={groupImages[index]} alt={`${group.name} dancers`} className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110" />
-                <div className={`absolute inset-0 bg-gradient-to-b ${group.color} opacity-90`} />
-                <div className="absolute top-4 right-4 bg-white/95 rounded-xl p-3 shadow-lg">
-                  <img src={folkIcons[index]} alt={group.iconLabel} className="w-12 h-12 object-contain" />
+              <div className="relative">
+                <div className="grid grid-cols-2 gap-0.5">
+                  <div className="aspect-square overflow-hidden">
+                    <img src={groupImages[index]} alt={`${group.name} dancers`} className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110" />
+                  </div>
+                  <div className={`aspect-square flex items-center justify-center bg-gradient-to-br ${group.color}`}>
+                    <img src={folkIcons[index]} alt={group.iconLabel} className="w-16 h-16 object-contain" />
+                  </div>
                 </div>
               </div>
-              <CardHeader className="pb-3">
-                <CardTitle className="text-2xl font-bold">{group.name}</CardTitle>
-                <p className="text-sm text-muted-foreground font-semibold">{group.ageRange}</p>
+              <CardHeader className="p-4 pb-2">
+                <CardTitle className="text-lg font-bold leading-tight">{group.name}</CardTitle>
+                <p className="text-xs text-muted-foreground font-semibold">{group.ageRange}</p>
               </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-start gap-2">
-                  <Clock className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                  <p className="font-semibold">{group.time}</p>
+              <CardContent className="p-4 pt-0 space-y-2">
+                <div className="flex items-start gap-1.5">
+                  <Clock className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                  <p className="text-xs font-semibold leading-tight">{group.time}</p>
                 </div>
-                <p className="text-sm text-muted-foreground pl-7">{group.note}</p>
+                <p className="text-xs text-muted-foreground leading-tight">{group.note}</p>
               </CardContent>
             </Card>
           ))}
