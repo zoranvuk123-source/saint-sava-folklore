@@ -22,7 +22,7 @@ const Footer = () => {
           {/* About */}
           <div>
             <h3 className="text-2xl font-bold mb-4">Свети Сава Опленац</h3>
-            <p className="text-sm opacity-90 mb-4">Фолкорна Група</p>
+            <p className="text-sm opacity-90 mb-4">Фолклорни Ансамбл</p>
             <p className="text-sm opacity-75 mb-4">
               {t("footer.about")}
             </p>
@@ -49,8 +49,8 @@ const Footer = () => {
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                 <span>
                   {t("join.location.church")}<br />
-                  1375 Blundell Rd<br />
-                  Mississauga, ON L4Y 1M6
+                  2520 Dixie Rd<br />
+                  Mississauga, ON
                 </span>
               </div>
             </div>
@@ -63,7 +63,7 @@ const Footer = () => {
               <Calendar className="w-4 h-4 mt-1 flex-shrink-0" />
               <div>
                 <p className="font-semibold">{t("footer.thursday")}</p>
-                <p className="opacity-75">{t("footer.time")}</p>
+                <p className="opacity-75">5:45 - 9:30 p.m.</p>
                 <p className="opacity-75 mt-2">{t("footer.new.dancers")}</p>
               </div>
             </div>
