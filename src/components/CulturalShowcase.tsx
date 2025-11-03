@@ -1,86 +1,81 @@
-import zaigramoVeselo from "@/assets/zaigramo-veselo.png";
-import tradicija from "@/assets/tradicija.png";
-import snaznoIgra from "@/assets/snazno-igra.png";
-import koloDancers from "@/assets/kolo-dancers.png";
+import badgeTradicija from "@/assets/badge-tradicija.jpg";
+import badgeZajedno from "@/assets/badge-zajedno.jpg";
+import badgeSnazno from "@/assets/badge-snazno.jpg";
+import photoTradicija1 from "@/assets/photo-tradicija-1.jpg";
+import photoTradicija2 from "@/assets/photo-tradicija-2.jpg";
+import photoZajedno1 from "@/assets/photo-zajedno-1.jpg";
+import photoZajedno2 from "@/assets/photo-zajedno-2.jpg";
+import photoSnazno1 from "@/assets/photo-snazno-1.jpg";
+import photoSnazno2 from "@/assets/photo-snazno-2.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const CulturalShowcase = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
 
-  const showcaseItems = [
+  const showcaseRows = [
     {
-      image: zaigramoVeselo,
-      title: t("showcase.dance.together"),
-      subtitle: (language === "sr-latin" || language === "sr-cyrillic") ? t("showcase.dance.together.en") : t("showcase.dance.together"),
-      isIllustration: true
-    },
-    {
-      image: "https://svetisavaoplenac.ca/wp-content/uploads/2024/10/IMG_3993-scaled-600x400.jpg",
+      badge: badgeTradicija,
       title: t("showcase.tradition"),
-      subtitle: (language === "sr-latin" || language === "sr-cyrillic") ? t("showcase.tradition.en") : t("showcase.tradition"),
-      isIllustration: false
+      photos: [photoTradicija1, photoTradicija2]
     },
     {
-      image: snaznoIgra,
+      badge: badgeZajedno,
+      title: t("showcase.dance.together"),
+      photos: [photoZajedno1, photoZajedno2]
+    },
+    {
+      badge: badgeSnazno,
       title: t("showcase.strength"),
-      subtitle: (language === "sr-latin" || language === "sr-cyrillic") ? t("showcase.strength.en") : t("showcase.strength"),
-      isIllustration: true
-    },
-    {
-      image: "https://svetisavaoplenac.ca/wp-content/uploads/2024/10/IMG_3982-scaled-600x400.jpg",
-      title: t("showcase.kolo"),
-      subtitle: (language === "sr-latin" || language === "sr-cyrillic") ? t("showcase.kolo.en") : t("showcase.kolo"),
-      isIllustration: false
-    },
-    {
-      image: tradicija,
-      title: t("showcase.tradition"),
-      subtitle: (language === "sr-latin" || language === "sr-cyrillic") ? t("showcase.tradition.en") : t("showcase.tradition"),
-      isIllustration: true
-    },
-    {
-      image: "https://svetisavaoplenac.ca/wp-content/uploads/2023/11/Carassauga-May-2023-Dj-1-e1699570872787-600x400.jpg",
-      title: t("showcase.dance.together"),
-      subtitle: (language === "sr-latin" || language === "sr-cyrillic") ? t("showcase.dance.together.en") : t("showcase.dance.together"),
-      isIllustration: false
+      photos: [photoSnazno1, photoSnazno2]
     }
   ];
 
   return (
     <section className="py-12 px-4 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">
-            {t("showcase.title")} <span className="text-primary">{t("showcase.cultural")}</span>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold mb-3">
+            <span className="text-primary">Sveti Sava</span> OPLENAC
           </h2>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto">
             {t("showcase.subtitle")}
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
-          {showcaseItems.map((item, index) => (
+        <div className="space-y-8">
+          {showcaseRows.map((row, rowIndex) => (
             <div
-              key={index}
-              className="group relative overflow-hidden rounded-lg transition-all duration-300 hover:shadow-elegant hover:-translate-y-1 animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              key={rowIndex}
+              className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center animate-fade-in"
+              style={{ animationDelay: `${rowIndex * 0.2}s` }}
             >
-              <div className="aspect-square overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className={`w-full h-full transition-transform duration-500 group-hover:scale-110 ${
-                    item.isIllustration ? 'object-contain bg-gradient-to-br from-primary/10 to-accent/10 p-4' : 'object-cover'
-                  }`}
-                />
+              {/* Badge on the left */}
+              <div className="flex justify-center md:justify-end">
+                <div className="w-48 h-48 rounded-full overflow-hidden shadow-card hover:shadow-elegant transition-all duration-300 hover:scale-105">
+                  <img
+                    src={row.badge}
+                    alt={row.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
-                <h3 className="text-sm font-bold text-white leading-tight mb-1">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-white/90 italic leading-tight">
-                  {item.subtitle}
-                </p>
+
+              {/* Two photos on the right */}
+              <div className="md:col-span-2 grid grid-cols-2 gap-4">
+                {row.photos.map((photo, photoIndex) => (
+                  <div
+                    key={photoIndex}
+                    className="group relative overflow-hidden rounded-lg transition-all duration-300 hover:shadow-elegant hover:-translate-y-1"
+                  >
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src={photo}
+                        alt={`${row.title} ${photoIndex + 1}`}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           ))}
