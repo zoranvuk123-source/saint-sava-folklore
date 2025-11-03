@@ -1,16 +1,58 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Mail, Heart } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 const Gallery = () => {
   const { t } = useLanguage();
   const [selectedYear, setSelectedYear] = useState("all");
+  const [storagePhotos, setStoragePhotos] = useState<{ src: string; alt: string; year: string }[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const years = ["2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016"];
+
+  // Fetch images from Supabase storage
+  useEffect(() => {
+    const fetchStorageImages = async () => {
+      try {
+        const { data, error } = await supabase.storage
+          .from('gallery-images')
+          .list('', { sortBy: { column: 'name', order: 'desc' } });
+
+        if (error) throw error;
+
+        const photos = await Promise.all(
+          data.map(async (file) => {
+            const { data: publicUrl } = supabase.storage
+              .from('gallery-images')
+              .getPublicUrl(file.name);
+            
+            // Extract year from filename (assuming format: YYYY-MM-DD_N.jpg or YYYY/)
+            const yearMatch = file.name.match(/^(\d{4})/);
+            const year = yearMatch ? yearMatch[1] : "2025";
+            
+            return {
+              src: publicUrl.publicUrl,
+              alt: `Gallery ${file.name}`,
+              year
+            };
+          })
+        );
+
+        setStoragePhotos(photos);
+      } catch (error) {
+        console.error('Error fetching images:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStorageImages();
+  }, []);
 
   // Gallery data organized by year
   const galleryData = {
@@ -84,14 +126,22 @@ const Gallery = () => {
   };
 
   const getAllPhotos = () => {
-    return Object.values(galleryData).flat();
+    const localPhotos = Object.values(galleryData).flat();
+    return [...localPhotos, ...storagePhotos];
   };
 
   const getFilteredPhotos = () => {
     if (selectedYear === "all") {
       return getAllPhotos();
     }
-    return galleryData[selectedYear as keyof typeof galleryData] || [];
+    
+    // Filter local photos by year from galleryData keys
+    const localFiltered = galleryData[selectedYear as keyof typeof galleryData] || [];
+    
+    // Filter storage photos by their year property
+    const storageFiltered = storagePhotos.filter(photo => photo.year === selectedYear);
+    
+    return [...localFiltered, ...storageFiltered];
   };
 
   return (
@@ -147,8 +197,13 @@ const Gallery = () => {
               </div>
 
               {/* Photo Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {getFilteredPhotos().map((photo, index) => (
+              {loading ? (
+                <div className="text-center py-12">
+                  <p className="text-muted-foreground">Loading gallery...</p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                  {getFilteredPhotos().map((photo, index) => (
                   <div
                     key={index}
                     className="group relative overflow-hidden rounded-lg aspect-square cursor-pointer transition-all duration-300 hover:shadow-elegant hover:-translate-y-1"
@@ -159,9 +214,10 @@ const Gallery = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
-                ))}
-              </div>
-            </TabsContent>
+                    ))}
+                  </div>
+                )}
+              </TabsContent>
 
             {/* Videos Section */}
             <TabsContent value="videos" className="space-y-8">
