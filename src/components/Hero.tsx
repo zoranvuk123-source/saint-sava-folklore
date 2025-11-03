@@ -44,7 +44,7 @@ const Hero = () => {
             <p className="text-xl md:text-2xl mb-8 text-foreground/80 animate-fade-in" style={{ animationDelay: "0.2s" }}>
               {t("hero.subtitle")}
             </p>
-            <div className="flex gap-4 justify-center lg:justify-start animate-fade-in" style={{ animationDelay: "0.4s" }}>
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start animate-fade-in" style={{ animationDelay: "0.4s" }}>
               <button
                 onClick={scrollToGallery}
                 className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-elegant transition-all hover:scale-105"
@@ -56,6 +56,12 @@ const Hero = () => {
                 className="px-8 py-4 bg-secondary text-secondary-foreground rounded-lg font-semibold hover:shadow-elegant transition-all hover:scale-105"
               >
                 {t("hero.photos")}
+              </a>
+              <a
+                href="/history"
+                className="px-8 py-4 bg-accent text-accent-foreground rounded-lg font-semibold hover:shadow-elegant transition-all hover:scale-105"
+              >
+                {t("history.title")}
               </a>
             </div>
           </div>

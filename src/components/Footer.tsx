@@ -1,5 +1,6 @@
 import { Mail, MapPin, Calendar } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -22,9 +23,15 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold mb-4">Свети Сава Опленац</h3>
             <p className="text-sm opacity-90 mb-4">Фолкорна Група</p>
-            <p className="text-sm opacity-75">
+            <p className="text-sm opacity-75 mb-4">
               {t("footer.about")}
             </p>
+            <Link 
+              to="/history" 
+              className="inline-flex items-center text-sm font-semibold opacity-90 hover:opacity-100 transition-opacity underline"
+            >
+              {t("history.title")} →
+            </Link>
           </div>
 
           {/* Contact */}
