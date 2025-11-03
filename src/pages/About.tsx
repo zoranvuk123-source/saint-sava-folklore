@@ -49,6 +49,7 @@ const About = () => {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ filter: "grayscale(100%)" }}
           onLoadedData={() => setVideoLoaded(true)}
           poster="/hero-fallback.png"
         >
@@ -59,7 +60,10 @@ const About = () => {
         {!videoLoaded && (
           <div 
             className="absolute inset-0 w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: "url('/hero-fallback.png')" }}
+            style={{ 
+              backgroundImage: "url('/hero-fallback.png')",
+              filter: "grayscale(100%)"
+            }}
           />
         )}
 
