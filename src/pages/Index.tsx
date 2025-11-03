@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import CulturalShowcase from "@/components/CulturalShowcase";
 import AboutKolo from "@/components/AboutKolo";
+import JoinUs from "@/components/JoinUs";
 import VideoGallery from "@/components/VideoGallery";
 import PhotoGallery from "@/components/PhotoGallery";
 import Footer from "@/components/Footer";
@@ -13,6 +14,7 @@ const Index = () => {
         <CulturalShowcase />
       </div>
       <AboutKolo />
+      <JoinUs />
       <VideoGallery />
       <PhotoGallery />
       <Footer />
