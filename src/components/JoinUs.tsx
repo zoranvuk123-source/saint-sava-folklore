@@ -85,7 +85,7 @@ const JoinUs = () => {
               <div className="relative">
                 <div className="grid grid-cols-2 gap-0.5">
                   <div className="aspect-square overflow-hidden">
-                    <img src={groupImages[index]} alt={`${group.name} dancers`} className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110" />
+                    <img src={groupImages[index]} alt={`${group.name} dancers`} className={`w-full h-full transition-transform duration-500 group-hover/card:scale-110 ${index === 0 ? 'object-contain' : 'object-cover'}`} />
                   </div>
                   <div className={`aspect-square flex items-center justify-center bg-gradient-to-br ${group.color}`}>
                     <img src={folkIcons[index]} alt={group.iconLabel} className="w-16 h-16 object-contain" />
