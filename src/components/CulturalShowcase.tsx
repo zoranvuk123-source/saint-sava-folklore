@@ -1,6 +1,6 @@
 import badgeTradicija from "@/assets/badge-tradicija.jpg";
 import badgeZajedno from "@/assets/badge-zajedno.jpg";
-import badgeSnazno from "@/assets/badge-snazno.jpg";
+import snaznoIgra from "@/assets/snazno-igra.png";
 import photoTradicija1 from "@/assets/photo-tradicija-1.jpg";
 import photoTradicija2 from "@/assets/photo-tradicija-2.jpg";
 import photoZajedno1 from "@/assets/photo-zajedno-1.jpg";
@@ -16,17 +16,20 @@ const CulturalShowcase = () => {
     {
       badge: badgeTradicija,
       title: t("showcase.tradition"),
-      photos: [photoTradicija1, photoZajedno2]
+      photos: [photoTradicija1, photoZajedno1],
+      isBadge: true
     },
     {
       badge: badgeZajedno,
       title: t("showcase.dance.together"),
-      photos: [photoZajedno1, photoTradicija2]
+      photos: [photoTradicija2, photoZajedno2],
+      isBadge: true
     },
     {
-      badge: badgeSnazno,
+      badge: snaznoIgra,
       title: t("showcase.strength"),
-      photos: [photoSnazno1, photoSnazno2]
+      photos: [photoSnazno1, photoSnazno2],
+      isBadge: false
     }
   ];
 
@@ -55,7 +58,7 @@ const CulturalShowcase = () => {
                   <img
                     src={row.badge}
                     alt={row.title}
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full ${row.isBadge ? 'object-cover' : 'object-contain bg-gradient-to-br from-primary/10 to-accent/10 p-4'}`}
                   />
                 </div>
               </div>
