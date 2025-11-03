@@ -10,7 +10,7 @@ const Footer = () => {
     <>
       {/* Illustration Banner */}
       <div className="w-full bg-background/5 py-8">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-8">
           <img
             src={illustrationFrontPage}
             alt="Serbian Folk Dancers"
@@ -30,7 +30,7 @@ const Footer = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/95 to-secondary/80" />
       </div>
 
-      <div className="relative z-10 container mx-auto py-12 px-4">
+      <div className="relative z-10 container mx-auto py-12 px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* About */}
           <div>
