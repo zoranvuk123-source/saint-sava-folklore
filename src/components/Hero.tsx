@@ -1,28 +1,56 @@
 import { ChevronDown } from "lucide-react";
 import illustrationFrontPage from "@/assets/illustration-front-page.png";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
   const { t } = useLanguage();
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const video = document.getElementById('homepage-hero-video') as HTMLVideoElement;
+    if (video) {
+      video.play().catch(() => {
+        // Video autoplay failed, that's ok
+      });
+    }
+  }, []);
+
   const scrollToGallery = () => {
     document.getElementById("cultural-showcase")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-      {/* Background Image - Black & White with Transparency */}
-      <div className="absolute inset-0 z-0">
+      {/* Video Background */}
+      <video
+        id="homepage-hero-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ filter: "grayscale(100%) blur(3px)" }}
+        onLoadedData={() => setVideoLoaded(true)}
+        poster="/hero-fallback.png"
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
+
+      {/* Fallback Image */}
+      {!videoLoaded && (
         <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://svetisavaoplenac.ca/wp-content/uploads/2024/10/IMG_3983-scaled-600x400.jpg')",
-            filter: "grayscale(100%)",
-            opacity: 0.15
+          className="absolute inset-0 w-full h-full bg-cover bg-center"
+          style={{ 
+            backgroundImage: "url('/hero-fallback.png')",
+            filter: "grayscale(100%) blur(3px)"
           }}
         />
-        {/* Gradient Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95" />
-      </div>
+      )}
+
+      {/* Dark Overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95" />
+
 
       {/* Decorative Pattern */}
       <div className="absolute inset-0 z-0 opacity-5">
