@@ -40,12 +40,21 @@ const Footer = () => {
             <p className="text-sm opacity-75 mb-4">
               {t("footer.about")}
             </p>
-            <Link 
-              to="/history" 
-              className="inline-flex items-center text-sm font-semibold opacity-90 hover:opacity-100 transition-opacity underline"
-            >
-              {t("history.title")} →
-            </Link>
+            <div className="space-y-2">
+              <Link 
+                to="/history" 
+                className="inline-flex items-center text-sm font-semibold opacity-90 hover:opacity-100 transition-opacity underline"
+              >
+                {t("history.title")} →
+              </Link>
+              <br />
+              <Link 
+                to="/sponsorships" 
+                className="inline-flex items-center text-sm font-semibold opacity-90 hover:opacity-100 transition-opacity underline"
+              >
+                {t("sponsorships.title")} →
+              </Link>
+            </div>
           </div>
 
           {/* Contact */}

@@ -99,6 +99,25 @@ const translations = {
     "footer.time": "5:30 - 9:00 uveče",
     "footer.new.dancers": "Novi igrači su uvek dobrodošli!",
     "footer.rights": "© 2025 Folklorna grupa Sveti Sava Oplenac. Sva prava zadržana.",
+
+    // Sponsorships
+    "sponsorships.title": "Sponzorstva",
+    "sponsorships.subtitle": "Pomozite nam da očuvamo srpsku tradiciju i kulturu. Vaša podrška omogućava nam da nastavimo sa radom, nastupima i proslavama naše baštine.",
+    "sponsorships.bronze.title": "Donator",
+    "sponsorships.bronze.benefit1": "Ime ili ime kompanije na zidu donatora u našem prostoru",
+    "sponsorships.silver.title": "Srebrni Sponzor",
+    "sponsorships.silver.benefit1": "Logo ili ime na poleđini putničkih majica",
+    "sponsorships.gold.title": "Zlatni Sponzor",
+    "sponsorships.gold.benefit1": "Logo ili ime na rukavu putničkih majica",
+    "sponsorships.platinum.title": "Glavni Sponzor",
+    "sponsorships.platinum.benefit1": "Naznačeni kao glavni sponzor na svim štampanim kalendarima",
+    "sponsorships.platinum.benefit2": "Istaknuti na našoj veb stranici kao glavni sponzor",
+    "sponsorships.platinum.benefit3": "Priznanje na svim događajima i nastupima",
+    "sponsorships.spots.available": "mesta dostupno",
+    "sponsorships.cta.title": "Želite da postanete sponzor?",
+    "sponsorships.cta.description": "Javite nam se da saznate više o mogućnostima sponzorstva i kako vaša podrška može pomoći našoj grupi.",
+    "sponsorships.cta.button": "Kontaktirajte nas",
+    "sponsorships.tax.info": "Folklorna Grupa Sveti Sava Oplenac je neprofitna organizacija. Molimo kontaktirajte nas za više informacija o poreskim olakšicama.",
     
     // History
     "history.back": "Nazad na Početnu",
@@ -278,6 +297,25 @@ const translations = {
     "footer.time": "5:30 - 9:00 увече",
     "footer.new.dancers": "Нови играчи су увек добродошли!",
     "footer.rights": "© 2025 Фолклорна група Свети Сава Опленац. Сва права задржана.",
+
+    // Sponsorships
+    "sponsorships.title": "Спонзорства",
+    "sponsorships.subtitle": "Помозите нам да очувамо српску традицију и културу. Ваша подршка омогућава нам да наставимо са радом, наступима и прославама наше баштине.",
+    "sponsorships.bronze.title": "Донатор",
+    "sponsorships.bronze.benefit1": "Име или име компаније на зиду донатора у нашем простору",
+    "sponsorships.silver.title": "Сребрни Спонзор",
+    "sponsorships.silver.benefit1": "Лого или име на полеђини путничких мајица",
+    "sponsorships.gold.title": "Златни Спонзор",
+    "sponsorships.gold.benefit1": "Лого или име на рукаву путничких мајица",
+    "sponsorships.platinum.title": "Главни Спонзор",
+    "sponsorships.platinum.benefit1": "Назначени као главни спонзор на свим штампаним календарима",
+    "sponsorships.platinum.benefit2": "Истакнути на нашој веб страници као главни спонзор",
+    "sponsorships.platinum.benefit3": "Признање на свим догађајима и наступима",
+    "sponsorships.spots.available": "места доступно",
+    "sponsorships.cta.title": "Желите да постанете спонзор?",
+    "sponsorships.cta.description": "Јавите нам се да сазнате више о могућностима спонзорства и како ваша подршка може помоћи нашој групи.",
+    "sponsorships.cta.button": "Контактирајте нас",
+    "sponsorships.tax.info": "Фолклорна Група Свети Сава Опленац је непрофитна организација. Молимо контактирајте нас за више информација о пореским олакшицама.",
     
     // History
     "history.back": "Назад на Почетну",
@@ -457,6 +495,25 @@ const translations = {
     "footer.time": "5:30 PM - 9:00 PM",
     "footer.new.dancers": "New dancers welcome!",
     "footer.rights": "© 2025 Sveti Sava Oplenac Folklorna Grupa. All Rights Reserved.",
+
+    // Sponsorships
+    "sponsorships.title": "Sponsorships",
+    "sponsorships.subtitle": "Help us preserve Serbian tradition and culture. Your support enables us to continue our work, performances, and celebrations of our heritage.",
+    "sponsorships.bronze.title": "Supporter",
+    "sponsorships.bronze.benefit1": "Name or company name on our donor support wall on site",
+    "sponsorships.silver.title": "Silver Sponsor",
+    "sponsorships.silver.benefit1": "Logo or name on back of travel t-shirts",
+    "sponsorships.gold.title": "Gold Sponsor",
+    "sponsorships.gold.benefit1": "Logo or name on sleeve of travel t-shirts",
+    "sponsorships.platinum.title": "Title Sponsor",
+    "sponsorships.platinum.benefit1": "Named as title sponsor on all print event schedules and calendars",
+    "sponsorships.platinum.benefit2": "Featured on our website as title sponsor",
+    "sponsorships.platinum.benefit3": "Recognition at all events and performances",
+    "sponsorships.spots.available": "spots available",
+    "sponsorships.cta.title": "Interested in Sponsoring?",
+    "sponsorships.cta.description": "Contact us to learn more about sponsorship opportunities and how your support can help our group.",
+    "sponsorships.cta.button": "Contact Us",
+    "sponsorships.tax.info": "Sveti Sava Oplenac Folklorna Grupa is a non-profit organization. Please contact us for more information about tax benefits.",
     
     // History
     "history.back": "Back to Home",
