@@ -4,7 +4,7 @@ import row1Photo2 from "@/assets/row1-photo2.png";
 import row2Badge from "@/assets/row2-badge.png";
 import row2Photo1 from "@/assets/row2-photo1.png";
 import row2Photo2 from "@/assets/row2-photo2.png";
-import row3Badge from "@/assets/row3-badge.png";
+import row3Badge from "@/assets/row3-badge-new.png";
 import row3Photo1 from "@/assets/row3-photo1.png";
 import row3Photo2 from "@/assets/row3-photo2.png";
 import { useLanguage } from "@/contexts/LanguageContext";
