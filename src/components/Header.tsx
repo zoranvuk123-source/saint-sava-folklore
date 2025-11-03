@@ -3,11 +3,15 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
+import logoLatin from "@/assets/logo-latin.png";
+import logoCyrillic from "@/assets/logo-cyrillic.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  
+  const logo = language === "sr-cyrillic" ? logoCyrillic : logoLatin;
 
   const navItems = [
     { path: "/", label: t("nav.home") },
@@ -25,8 +29,12 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <span className="text-xl font-bold text-primary">Свети Сава Опленац</span>
+        <Link to="/" className="flex items-center">
+          <img 
+            src={logo} 
+            alt="Sveti Sava Oplenac"
+            className="h-12 w-auto transition-opacity hover:opacity-80"
+          />
         </Link>
 
         {/* Desktop Navigation */}
