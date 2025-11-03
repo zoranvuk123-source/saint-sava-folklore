@@ -12,7 +12,7 @@ const translations = {
   "sr-latin": {
     // Hero
     "hero.celebrate": "Proslavite",
-    "hero.serbian.culture": "srpsku kulturu",
+    "hero.serbian.culture": "Srpsku Kulturu",
     "hero.subtitle": "Otkrijte bogate tradicije folklorne grupe Sveti Sava Oplenac kroz igru, muziku i zajednicu",
     "hero.explore": "Pogledajte galeriju",
     "hero.photos": "Prelistajte fotografije",
@@ -191,7 +191,7 @@ const translations = {
   "sr-cyrillic": {
     // Hero
     "hero.celebrate": "Прославите",
-    "hero.serbian.culture": "српску културу",
+    "hero.serbian.culture": "Српску Културу",
     "hero.subtitle": "Откријте богате традиције фолклорне групе Свети Сава Опленац кроз игру, музику и заједницу",
     "hero.explore": "Погледајте галерију",
     "hero.photos": "Прелистајте фотографије",
