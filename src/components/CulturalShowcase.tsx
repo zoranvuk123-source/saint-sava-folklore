@@ -16,13 +16,13 @@ const CulturalShowcase = () => {
     {
       badge: badgeTradicija,
       title: t("showcase.tradition"),
-      photos: [photoTradicija1, photoZajedno1],
+      photos: [photoTradicija1, photoTradicija2],
       isBadge: true
     },
     {
       badge: badgeZajedno,
       title: t("showcase.dance.together"),
-      photos: [photoTradicija2, photoZajedno2],
+      photos: [photoZajedno1, photoZajedno2],
       isBadge: true
     },
     {
@@ -37,8 +37,8 @@ const CulturalShowcase = () => {
     <section className="py-12 px-4 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-3">
-            <span className="text-primary">Sveti Sava</span> OPLENAC
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            {t("showcase.title")} <span className="text-primary">{t("showcase.cultural")}</span>
           </h2>
           <p className="text-base text-muted-foreground max-w-2xl mx-auto">
             {t("showcase.subtitle")}
