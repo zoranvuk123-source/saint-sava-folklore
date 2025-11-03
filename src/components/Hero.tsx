@@ -1,7 +1,9 @@
 import { ChevronDown } from "lucide-react";
 import illustrationFrontPage from "@/assets/illustration-front-page.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
   const scrollToGallery = () => {
     document.getElementById("cultural-showcase")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -36,24 +38,24 @@ const Hero = () => {
           {/* Text Content */}
           <div className="text-center lg:text-left">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up">
-              Celebrate
-              <span className="block text-primary">Serbian Culture</span>
+              {t("hero.celebrate")}
+              <span className="block text-primary">{t("hero.serbian.culture")}</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-foreground/80 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              Explore the vibrant traditions of Sv Sava Oplenac Folklorna Grupa through dance, music, and community
+              {t("hero.subtitle")}
             </p>
             <div className="flex gap-4 justify-center lg:justify-start animate-fade-in" style={{ animationDelay: "0.4s" }}>
               <button
                 onClick={scrollToGallery}
                 className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-elegant transition-all hover:scale-105"
               >
-                Explore Gallery
+                {t("hero.explore")}
               </button>
               <a
                 href="#photos"
                 className="px-8 py-4 bg-secondary text-secondary-foreground rounded-lg font-semibold hover:shadow-elegant transition-all hover:scale-105"
               >
-                View Photos
+                {t("hero.photos")}
               </a>
             </div>
           </div>

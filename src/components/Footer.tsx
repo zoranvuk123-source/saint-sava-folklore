@@ -1,6 +1,9 @@
 import { Mail, MapPin, Calendar } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="relative bg-secondary text-secondary-foreground overflow-hidden">
       {/* Background Image */}
@@ -17,16 +20,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* About */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">Sveti Sava Oplenac</h3>
-            <p className="text-sm opacity-90 mb-4">Folklorna Grupa</p>
+            <h3 className="text-2xl font-bold mb-4">Свети Сава Опленац</h3>
+            <p className="text-sm opacity-90 mb-4">Фолкорна Група</p>
             <p className="text-sm opacity-75">
-              Celebrating Serbian culture through traditional dance, music, and community since our establishment.
+              {t("footer.about")}
             </p>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-bold mb-4 text-lg">Contact Us</h4>
+            <h4 className="font-bold mb-4 text-lg">{t("footer.contact")}</h4>
             <div className="space-y-3">
               <a 
                 href="mailto:saintsavaoplenac@gmail.com" 
@@ -37,20 +40,20 @@ const Footer = () => {
               </a>
               <div className="flex items-start gap-2 text-sm opacity-90">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>St. Sava Serbian Orthodox Church<br />Mississauga, ON</span>
+                <span>{t("join.location.church")}<br />Mississauga, ON</span>
               </div>
             </div>
           </div>
 
           {/* Practice Times */}
           <div>
-            <h4 className="font-bold mb-4 text-lg">Practice Schedule</h4>
+            <h4 className="font-bold mb-4 text-lg">{t("footer.schedule")}</h4>
             <div className="flex items-start gap-2 text-sm opacity-90">
               <Calendar className="w-4 h-4 mt-1 flex-shrink-0" />
               <div>
-                <p className="font-semibold">Every Thursday</p>
-                <p className="opacity-75">5:30 PM - 9:00 PM</p>
-                <p className="opacity-75 mt-2">New dancers welcome!</p>
+                <p className="font-semibold">{t("footer.thursday")}</p>
+                <p className="opacity-75">{t("footer.time")}</p>
+                <p className="opacity-75 mt-2">{t("footer.new.dancers")}</p>
               </div>
             </div>
           </div>
@@ -58,7 +61,7 @@ const Footer = () => {
 
         <div className="border-t border-white/20 pt-6 text-center">
           <p className="text-sm opacity-75">
-            © {new Date().getFullYear()} Sveti Sava Oplenac Folklorna Grupa. All Rights Reserved.
+            {t("footer.rights")}
           </p>
         </div>
       </div>

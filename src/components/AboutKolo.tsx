@@ -1,6 +1,9 @@
 import serbianPattern from "@/assets/serbian-pattern.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const AboutKolo = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20 px-4 relative overflow-hidden">
       {/* Background Image with Overlay */}
@@ -24,10 +27,10 @@ const AboutKolo = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            What is <span className="text-primary">Kolo?</span>
+            {t("kolo.title")} <span className="text-primary">{t("kolo.kolo")}</span>
           </h2>
           <p className="text-lg text-muted-foreground italic">
-            UNESCO Intangible Cultural Heritage of Humanity
+            {t("kolo.unesco")}
           </p>
         </div>
 
@@ -48,40 +51,40 @@ const AboutKolo = () => {
           <div className="space-y-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <div className="prose prose-lg max-w-none">
               <p className="text-lg leading-relaxed">
-                <strong className="text-primary">Kolo</strong> is a collective and very popular traditional folk dance in Serbia where a group of people — usually several dozen, at the very least three — hold each other by the hands or around the waist dancing, ideally in a circle, hence the name.
+                <strong className="text-primary">Коло</strong> {t("kolo.intro")}
               </p>
               
               <p className="text-lg leading-relaxed">
-                Kolo is connected with beliefs and rituals of the Serbs, like the <em>Koledo</em> (winter solstice) and the old <em>Kolo</em> (wheel, ring) ritual celebrating the new year with solar symbolism. The water used in these ceremonies bathes <em>"Božić"</em> (young god) — in Serbian, <em>"Bog"</em> means god and <em>"ić"</em> means small, young.
+                {t("kolo.connected")}
               </p>
 
               <blockquote className="border-l-4 border-primary pl-4 italic text-muted-foreground my-6">
-                "Kolo dance represents a powerful symbol of Serbian national identity and mutual connectivity. The ring symbolizes the closed Universum, and our art includes round forms and music vibrations in the same form."
-                <footer className="text-sm mt-2">— Blagoje Misic</footer>
+                {t("kolo.quote")}
+                <footer className="text-sm mt-2">{t("kolo.quote.author")}</footer>
               </blockquote>
 
               <p className="text-lg leading-relaxed">
-                The kolo dance is performed from the Balkans to the Baltic Sea, from the East through Dniester. It has always symbolized the nation's unity on common ideals and wishes — a continual and unbreakable line which makes unity and collective spirit of our people.
+                {t("kolo.balkans")}
               </p>
 
               <div className="bg-secondary/10 rounded-lg p-6 mt-6">
-                <h3 className="font-bold text-xl mb-3 text-secondary">Dance Characteristics</h3>
+                <h3 className="font-bold text-xl mb-3 text-secondary">{t("kolo.characteristics")}</h3>
                 <ul className="space-y-2 text-base">
                   <li className="flex items-start">
                     <span className="text-primary mr-2">•</span>
-                    <span>Rhythms: <strong>2/8, 7/8, or 9/8</strong> depending on regional variations</span>
+                    <span>{t("kolo.rhythms")}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2">•</span>
-                    <span>Instruments: Accordion, frula, tamburica, or harmonica</span>
+                    <span>{t("kolo.instruments")}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2">•</span>
-                    <span>Almost no movement above the waist — the art is in the footwork</span>
+                    <span>{t("kolo.movement")}</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2">•</span>
-                    <span>Simple to learn, but virtuosity comes from ornamental elements and syncopation</span>
+                    <span>{t("kolo.simple")}</span>
                   </li>
                 </ul>
               </div>

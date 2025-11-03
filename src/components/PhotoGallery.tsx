@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Photo {
   url: string;
@@ -27,11 +28,19 @@ const photos: Photo[] = [
   { url: "https://svetisavaoplenac.ca/wp-content/uploads/2023/11/Carassauga-Fashion-Show-May-2023-e1699551868515-600x400.jpg", alt: "Fashion Show", category: "Costumes" },
 ];
 
-const categories = ["All", "Performance", "Festival", "Costumes", "Community", "Behind the Scenes"];
-
 const PhotoGallery = () => {
+  const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+
+  const categories = [
+    { key: "All", label: t("photos.all") },
+    { key: "Performance", label: t("photos.performance") },
+    { key: "Festival", label: "Festival" },
+    { key: "Costumes", label: t("photos.costumes") },
+    { key: "Community", label: t("photos.community") },
+    { key: "Behind the Scenes", label: t("photos.behind") }
+  ];
 
   const filteredPhotos = selectedCategory === "All" 
     ? photos 
@@ -42,22 +51,22 @@ const PhotoGallery = () => {
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Photo <span className="text-primary">Gallery</span>
+            {t("photos.title")} <span className="text-primary">{t("photos.gallery")}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Capturing moments from our performances, festivals, and community gatherings
+            {t("photos.subtitle")}
           </p>
 
           {/* Category Filter */}
           <div className="flex flex-wrap justify-center gap-3 mb-8">
             {categories.map((category) => (
               <Badge
-                key={category}
-                variant={selectedCategory === category ? "default" : "outline"}
+                key={category.key}
+                variant={selectedCategory === category.key ? "default" : "outline"}
                 className="cursor-pointer px-4 py-2 text-sm transition-all hover:scale-105"
-                onClick={() => setSelectedCategory(category)}
+                onClick={() => setSelectedCategory(category.key)}
               >
-                {category}
+                {category.label}
               </Badge>
             ))}
           </div>

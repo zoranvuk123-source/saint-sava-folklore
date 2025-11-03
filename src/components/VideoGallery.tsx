@@ -1,5 +1,6 @@
 import { Play } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Video {
   title: string;
@@ -48,15 +49,17 @@ const videos: Video[] = [
 ];
 
 const VideoGallery = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="videos" className="py-20 px-4 bg-muted/30">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Performance <span className="text-primary">Videos</span>
+            {t("videos.title")} <span className="text-primary">{t("videos.performances")}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Experience our captivating performances showcasing traditional Serbian dances and cultural celebrations
+            {t("videos.subtitle")}
           </p>
         </div>
 
@@ -90,7 +93,7 @@ const VideoGallery = () => {
                   
                   <div className="p-4 bg-card">
                     <div className="text-xs font-semibold text-primary mb-2 uppercase tracking-wide">
-                      {video.category}
+                      {video.category === "Dance" ? t("videos.dance") : t("videos.festival")}
                     </div>
                     <h3 className="font-semibold text-lg line-clamp-2 group-hover:text-primary transition-colors">
                       {video.title}

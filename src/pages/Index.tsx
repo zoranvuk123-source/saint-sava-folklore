@@ -5,10 +5,12 @@ import JoinUs from "@/components/JoinUs";
 import VideoGallery from "@/components/VideoGallery";
 import PhotoGallery from "@/components/PhotoGallery";
 import Footer from "@/components/Footer";
+import LanguageToggle from "@/components/LanguageToggle";
 
 const Index = () => {
   return (
     <main className="min-h-screen">
+      <LanguageToggle />
       <Hero />
       <div id="cultural-showcase">
         <CulturalShowcase />

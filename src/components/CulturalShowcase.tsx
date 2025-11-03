@@ -2,31 +2,34 @@ import zaigramoVeselo from "@/assets/zaigramo-veselo.png";
 import tradicija from "@/assets/tradicija.png";
 import snaznoIgra from "@/assets/snazno-igra.png";
 import koloDancers from "@/assets/kolo-dancers.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CulturalShowcase = () => {
+  const { t, language } = useLanguage();
+
   const showcaseItems = [
     {
       image: zaigramoVeselo,
-      title: "Заједно заиграјмо весело",
-      subtitle: "Let's Dance Together Joyfully",
+      title: t("showcase.dance.together"),
+      subtitle: language === "sr" ? t("showcase.dance.together.en") : t("showcase.dance.together"),
       bgColor: "bg-gradient-to-br from-primary/10 to-accent/10"
     },
     {
       image: tradicija,
-      title: "Традиција се гради",
-      subtitle: "Tradition is Being Built",
+      title: t("showcase.tradition"),
+      subtitle: language === "sr" ? t("showcase.tradition.en") : t("showcase.tradition"),
       bgColor: "bg-gradient-to-br from-secondary/10 to-primary/10"
     },
     {
       image: snaznoIgra,
-      title: "Снажно се игра и пјева",
-      subtitle: "Dancing and Singing with Strength",
+      title: t("showcase.strength"),
+      subtitle: language === "sr" ? t("showcase.strength.en") : t("showcase.strength"),
       bgColor: "bg-gradient-to-br from-accent/10 to-secondary/10"
     },
     {
       image: koloDancers,
-      title: "Играмо коло",
-      subtitle: "We Dance the Kolo",
+      title: t("showcase.kolo"),
+      subtitle: language === "sr" ? t("showcase.kolo.en") : t("showcase.kolo"),
       bgColor: "bg-gradient-to-br from-primary/5 to-muted"
     }
   ];
@@ -36,10 +39,10 @@ const CulturalShowcase = () => {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Our <span className="text-primary">Cultural Identity</span>
+            {t("showcase.title")} <span className="text-primary">{t("showcase.cultural")}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Celebrating Serbian heritage through dance, music, and tradition
+            {t("showcase.subtitle")}
           </p>
         </div>
 
