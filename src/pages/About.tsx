@@ -4,9 +4,20 @@ import LanguageToggle from "@/components/LanguageToggle";
 import Header from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Music, Calendar } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const About = () => {
   const { t } = useLanguage();
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const video = document.getElementById('hero-video') as HTMLVideoElement;
+    if (video) {
+      video.play().catch(() => {
+        // Video autoplay failed, that's ok
+      });
+    }
+  }, []);
 
   const teamMembers = [
     { role: t("about.president"), name: "TBA" },
@@ -28,10 +39,45 @@ const About = () => {
       <Header />
       <LanguageToggle />
       
+      {/* Immersive Video Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Video Background */}
+        <video
+          id="hero-video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          onLoadedData={() => setVideoLoaded(true)}
+          poster="/hero-fallback.png"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
+
+        {/* Fallback Image */}
+        {!videoLoaded && (
+          <div 
+            className="absolute inset-0 w-full h-full bg-cover bg-center"
+            style={{ backgroundImage: "url('/hero-fallback.png')" }}
+          />
+        )}
+
+        {/* Dark Overlay (40-50% opacity) */}
+        <div className="absolute inset-0 bg-black/45" />
+
+        {/* Centered Text Content */}
+        <div className="relative z-10 text-center px-4 animate-fade-in" style={{ animationDuration: "2s" }}>
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-white font-serif">
+            Свети Сава Опленац
+          </h1>
+          <p className="text-2xl md:text-3xl lg:text-4xl text-white/95 font-serif tracking-wide">
+            Храм – Наслеђе – Вера – Уметност
+          </p>
+        </div>
+      </section>
+      
       <div className="container mx-auto px-4 py-12 max-w-6xl">
-        <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center">
-          {t("nav.about")}
-        </h1>
         
         {/* Mission Statement */}
         <Card className="mb-12 border-0 shadow-card">
