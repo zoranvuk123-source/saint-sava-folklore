@@ -7,8 +7,22 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary/5 via-background to-secondary/5">
-      {/* Decorative Background Pattern */}
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+      {/* Background Image - Black & White with Transparency */}
+      <div className="absolute inset-0 z-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('https://svetisavaoplenac.ca/wp-content/uploads/2024/10/IMG_3983-scaled-600x400.jpg')",
+            filter: "grayscale(100%)",
+            opacity: 0.15
+          }}
+        />
+        {/* Gradient Overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95" />
+      </div>
+
+      {/* Decorative Pattern */}
       <div className="absolute inset-0 z-0 opacity-5">
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)',
