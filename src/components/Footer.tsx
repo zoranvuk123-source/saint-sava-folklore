@@ -47,7 +47,11 @@ const Footer = () => {
               </a>
               <div className="flex items-start gap-2 text-sm opacity-90">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>{t("join.location.church")}<br />Mississauga, ON</span>
+                <span>
+                  {t("join.location.church")}<br />
+                  1375 Blundell Rd<br />
+                  Mississauga, ON L4Y 1M6
+                </span>
               </div>
             </div>
           </div>

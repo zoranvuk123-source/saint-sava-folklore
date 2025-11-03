@@ -51,8 +51,17 @@ const Contact = () => {
                   <h3 className="font-semibold mb-2">{t("contact.location.title")}</h3>
                   <p className="text-sm text-muted-foreground">
                     {t("join.location.church")}<br />
-                    Mississauga, ON
+                    1375 Blundell Rd<br />
+                    Mississauga, ON L4Y 1M6
                   </p>
+                  <a 
+                    href="https://maps.google.com/?q=1375+Blundell+Rd,+Mississauga,+ON+L4Y+1M6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-primary hover:underline mt-2 inline-block"
+                  >
+                    {t("contact.location.directions")}
+                  </a>
                 </div>
               </div>
             </CardContent>
@@ -91,6 +100,22 @@ const Contact = () => {
             </CardContent>
           </Card>
         </div>
+
+        {/* Map Section */}
+        <Card className="border-0 shadow-card mb-12 overflow-hidden">
+          <CardContent className="p-0">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2890.8147982668!2d-79.64534!3d43.58635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b47db8e2a87bd%3A0x5b3c7c3c7c3c7c3c!2s1375%20Blundell%20Rd%2C%20Mississauga%2C%20ON%20L4Y%201M6!5e0!3m2!1sen!2sca!4v1234567890"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="St. Sava Serbian Orthodox Church Location"
+            />
+          </CardContent>
+        </Card>
 
         <Card className="border-0 shadow-card bg-gradient-to-r from-primary to-secondary text-primary-foreground">
           <CardContent className="p-8 text-center">
