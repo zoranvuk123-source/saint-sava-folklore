@@ -1,6 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import Footer from "@/components/Footer";
-import LanguageToggle from "@/components/LanguageToggle";
 import Header from "@/components/Header";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, MapPin, Calendar, Phone } from "lucide-react";
@@ -11,7 +10,6 @@ const Contact = () => {
   return (
     <main className="min-h-screen bg-background">
       <Header />
-      <LanguageToggle />
       
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">

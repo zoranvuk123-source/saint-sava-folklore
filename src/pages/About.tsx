@@ -1,6 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import Footer from "@/components/Footer";
-import LanguageToggle from "@/components/LanguageToggle";
 import Header from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Music, Calendar } from "lucide-react";
@@ -37,7 +36,6 @@ const About = () => {
   return (
     <main className="min-h-screen bg-background">
       <Header />
-      <LanguageToggle />
       
       {/* Immersive Video Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Header from "@/components/Header";
-import LanguageToggle from "@/components/LanguageToggle";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card } from "@/components/ui/card";
@@ -98,7 +97,6 @@ const Gallery = () => {
   return (
     <main className="min-h-screen bg-background">
       <Header />
-      <LanguageToggle />
       
       <div className="pt-24 pb-12 px-4">
         <div className="container mx-auto max-w-7xl">

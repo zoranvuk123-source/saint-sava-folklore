@@ -1,6 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import Footer from "@/components/Footer";
-import LanguageToggle from "@/components/LanguageToggle";
 import Header from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar as CalendarIcon, Clock, MapPin } from "lucide-react";
@@ -53,7 +52,6 @@ const Calendar = () => {
   return (
     <main className="min-h-screen bg-background">
       <Header />
-      <LanguageToggle />
       
       <div className="container mx-auto px-4 py-12 max-w-6xl">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
