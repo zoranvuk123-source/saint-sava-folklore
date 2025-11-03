@@ -1,17 +1,36 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Languages } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import logoLatin from "@/assets/logo-latin.png";
 import logoCyrillic from "@/assets/logo-cyrillic.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const { t, language } = useLanguage();
+  const { t, language, setLanguage } = useLanguage();
   
   const logo = language === "sr-cyrillic" ? logoCyrillic : logoLatin;
+
+  const getLanguageLabel = () => {
+    switch (language) {
+      case "sr-latin":
+        return "SR";
+      case "sr-cyrillic":
+        return "СР";
+      case "en":
+        return "EN";
+      default:
+        return "SR";
+    }
+  };
 
   const navItems = [
     { path: "/", label: t("nav.home") },
@@ -52,6 +71,40 @@ const Header = () => {
               {item.label}
             </Link>
           ))}
+          
+          {/* Desktop Language Toggle */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="outline"
+                size="sm"
+                className="bg-background/95 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all"
+              >
+                <Languages className="w-4 h-4 mr-2" />
+                <span className="font-semibold">{getLanguageLabel()}</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="bg-background/95 backdrop-blur-sm z-[100]">
+              <DropdownMenuItem 
+                onClick={() => setLanguage("sr-latin")}
+                className="cursor-pointer"
+              >
+                <span className="font-semibold">SR (Latin)</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => setLanguage("en")}
+                className="cursor-pointer"
+              >
+                <span className="font-semibold">EN (English)</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => setLanguage("sr-cyrillic")}
+                className="cursor-pointer"
+              >
+                <span className="font-semibold">СР (Ћирилица)</span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         {/* Mobile Menu Button */}
@@ -83,6 +136,51 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
+            
+            {/* Mobile Language Toggle */}
+            <div className="pt-2 border-t">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full bg-background/95 backdrop-blur-sm shadow-lg"
+                  >
+                    <Languages className="w-4 h-4 mr-2" />
+                    <span className="font-semibold">{getLanguageLabel()}</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="center" className="bg-background/95 backdrop-blur-sm z-[100]">
+                  <DropdownMenuItem 
+                    onClick={() => {
+                      setLanguage("sr-latin");
+                      setIsOpen(false);
+                    }}
+                    className="cursor-pointer"
+                  >
+                    <span className="font-semibold">SR (Latin)</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem 
+                    onClick={() => {
+                      setLanguage("en");
+                      setIsOpen(false);
+                    }}
+                    className="cursor-pointer"
+                  >
+                    <span className="font-semibold">EN (English)</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem 
+                    onClick={() => {
+                      setLanguage("sr-cyrillic");
+                      setIsOpen(false);
+                    }}
+                    className="cursor-pointer"
+                  >
+                    <span className="font-semibold">СР (Ћирилица)</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
         </div>
       )}
