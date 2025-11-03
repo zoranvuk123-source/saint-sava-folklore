@@ -1,12 +1,12 @@
-import badgeTradicija from "@/assets/badge-tradicija.jpg";
-import badgeZajedno from "@/assets/badge-zajedno.jpg";
-import snaznoIgra from "@/assets/snazno-igra.png";
-import photoTradicija1 from "@/assets/photo-tradicija-1.jpg";
-import photoTradicija2 from "@/assets/photo-tradicija-2.jpg";
-import photoZajedno1 from "@/assets/photo-zajedno-1.jpg";
-import photoZajedno2 from "@/assets/photo-zajedno-2.jpg";
-import photoSnazno1 from "@/assets/photo-snazno-1.jpg";
-import photoSnazno2 from "@/assets/photo-snazno-2.jpg";
+import row1Badge from "@/assets/row1-badge.png";
+import row1Photo1 from "@/assets/row1-photo1.png";
+import row1Photo2 from "@/assets/row1-photo2.png";
+import row2Badge from "@/assets/row2-badge.png";
+import row2Photo1 from "@/assets/row2-photo1.png";
+import row2Photo2 from "@/assets/row2-photo2.png";
+import row3Badge from "@/assets/row3-badge.png";
+import row3Photo1 from "@/assets/row3-photo1.png";
+import row3Photo2 from "@/assets/row3-photo2.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const CulturalShowcase = () => {
@@ -14,22 +14,22 @@ const CulturalShowcase = () => {
 
   const showcaseRows = [
     {
-      badge: badgeTradicija,
+      badge: row1Badge,
       title: t("showcase.tradition"),
-      photos: [photoTradicija1, photoTradicija2],
+      photos: [row1Photo1, row1Photo2],
       isBadge: true
     },
     {
-      badge: badgeZajedno,
+      badge: row2Badge,
       title: t("showcase.dance.together"),
-      photos: [photoZajedno1, photoZajedno2],
+      photos: [row2Photo1, row2Photo2],
       isBadge: true
     },
     {
-      badge: snaznoIgra,
+      badge: row3Badge,
       title: t("showcase.strength"),
-      photos: [photoSnazno1, photoSnazno2],
-      isBadge: false
+      photos: [row3Photo1, row3Photo2],
+      isBadge: true
     }
   ];
 
