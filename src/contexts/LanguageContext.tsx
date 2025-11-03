@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-type Language = "sr" | "en";
+type Language = "sr-latin" | "en" | "sr-cyrillic";
 
 interface LanguageContextType {
   language: Language;
@@ -9,7 +9,98 @@ interface LanguageContextType {
 }
 
 const translations = {
-  sr: {
+  "sr-latin": {
+    // Hero
+    "hero.celebrate": "Proslavite",
+    "hero.serbian.culture": "Srpsku Kulturu",
+    "hero.subtitle": "Istražite žive tradicije Sv. Sava Oplenac Folklorne Grupe kroz igru, muziku i zajednicu",
+    "hero.explore": "Istražite Galeriju",
+    "hero.photos": "Pogledajte Fotografije",
+    
+    // Cultural Showcase
+    "showcase.title": "Naš",
+    "showcase.cultural": "Kulturni Identitet",
+    "showcase.subtitle": "Proslavljamo srpsko nasleđe kroz igru, muziku i tradiciju",
+    "showcase.dance.together": "Zajedno zaigrajmo veselo",
+    "showcase.dance.together.en": "Let's Dance Together Joyfully",
+    "showcase.tradition": "Tradicija se gradi",
+    "showcase.tradition.en": "Tradition is Being Built",
+    "showcase.strength": "Snažno se igra i pjeva",
+    "showcase.strength.en": "Dancing and Singing with Strength",
+    "showcase.kolo": "Igramo kolo",
+    "showcase.kolo.en": "We Dance the Kolo",
+    
+    // About Kolo
+    "kolo.title": "Šta je",
+    "kolo.kolo": "Kolo?",
+    "kolo.unesco": "UNESCO Nematerijalno Kulturno Nasleđe Čovečanstva",
+    "kolo.intro": "je kolektivna i veoma popularna veoma stara narodna igra u Srbiji gde grupa ljudi — obično nekoliko desetina, najmanje troje — drže jedni druge za ruke ili oko pojasa igraju, idealno u krugu, otuda i ime.",
+    "kolo.connected": "Kolo je povezano sa brojnim verovanjima i ritualima Srba, kao što je Koledo (zimski solsticij) i stari Kolo (točak, prsten) ritual proslavljanja nove godine sa sunčanom simbolikom. Voda koja se koristi u ovim ceremonijama kupa \"Božića\" (mladog boga) — na srpskom, \"Bog\" znači bog a \"ić\" znači mali, mlad.",
+    "kolo.quote": "\"Kolo predstavlja moćan simbol srpskog nacionalnog identiteta i međusobne povezanosti. Krug simbolizuje zatvoreni Univerzum, a naša umetnost uključuje okrugle forme i muzičke vibracije u istoj formi.\"",
+    "kolo.quote.author": "— Blagoje Misić",
+    "kolo.balkans": "Kolo se igra od Balkana do Baltičkog mora, sa istoka kroz Dnjestar. Uvek je simbolizovao jedinstvo nacije na zajedničkim idealima i željama — kontinuiranu i nerazbojiru liniju koja čini jedinstvo i kolektivni duh našeg naroda.",
+    "kolo.characteristics": "Karakteristike Igre",
+    "kolo.rhythms": "Ritmovi: 2/8, 7/8, ili 9/8 u zavisnosti od regionalnih varijacija",
+    "kolo.instruments": "Instrumenti: Harmonika, frula, tamburica ili usna harmonika",
+    "kolo.movement": "Skoro bez pokreta iznad pojasa — umetnost je u koraku",
+    "kolo.simple": "Jednostavno za učenje, ali virtuoznost dolazi od ornamentalnih elemenata i sinkopacije",
+    
+    // Join Us
+    "join.title": "Pridružite Se Našoj",
+    "join.group": "Foklornoj Grupi",
+    "join.subtitle": "Uvek primamo nove igrače, od početnika do odraslih. Svi su dobrodošli da se pridruže našoj porodici!",
+    "join.all.welcome": "Svi nivoi veština su dobrodošli",
+    "join.location.title": "Mesto Vežbi",
+    "join.location.church": "Srpska Pravoslavna Crkva Sv. Sava",
+    "join.location.description": "Vežbe se održavaju nedeljno u crkvi. Sastanak sa Otcem Zlatiborom kao što je navedeno za svaku grupu.",
+    "join.group3": "Grupa 3",
+    "join.group2": "Grupa 2",
+    "join.group1": "Grupa 1",
+    "join.recreational": "Rekreativna",
+    "join.ages.3to7": "Uzrast 3 do 7",
+    "join.ages.8to12": "Uzrast 8 do 12",
+    "join.ages.13plus": "Uzrast 13+",
+    "join.ages.all": "Svi Uzrasti",
+    "join.group3.time": "Nedeljne vežbe od 5:30 do 6:30 uveče",
+    "join.group3.note": "Posle vežbe sastanak sa Otcem Zlatiborom u crkvi.",
+    "join.group2.time": "Nedeljne vežbe od 6:30 do 7:30 uveče",
+    "join.group2.note": "Sa horeografom + nastupi po rasporedu. Sastanak sa Otcem Zlatiborom pre vežbe u 6 uveče.",
+    "join.group1.time": "Nedeljne vežbe od 7:30 do 9 uveče",
+    "join.group1.note": "+ nastupi po rasporedu. Sastanak sa Otcem Zlatiborom u 7 uveče pre vežbe.",
+    "join.recreational.time": "Uskoro",
+    "join.recreational.note": "Nadamo se da će doći u budućnosti. Biće otvoreno za sve uzraste! Slobodno nas kontaktirajte.",
+    "join.ready.title": "Spremni da Igrate?",
+    "join.ready.subtitle": "Bez obzira da li ste potpuni početnik ili imate iskustva, dobrodošli ste da se pridružite našoj zajednici srpskog narodnog plesa. Doživite radost tradicionalne igre, muzike i kulture!",
+    "join.contact": "Kontaktirajte Nas",
+    "join.watch": "Pogledajte Naše Nastupe",
+    
+    // Videos
+    "videos.title": "Nastupi",
+    "videos.performances": "Video Zapisi",
+    "videos.subtitle": "Doživite naše zadivljujuće nastupe koji prikazuju tradicionalne srpske igre i kulturne proslave",
+    "videos.dance": "Igra",
+    "videos.festival": "Karasauga Festival",
+    
+    // Photos
+    "photos.title": "Foto",
+    "photos.gallery": "Galerija",
+    "photos.subtitle": "Snimci trenutaka sa naših nastupa, festivala i društvenih okupljanja",
+    "photos.all": "Sve",
+    "photos.performance": "Nastup",
+    "photos.costumes": "Nošnje",
+    "photos.community": "Zajednica",
+    "photos.behind": "Iza Scene",
+    
+    // Footer
+    "footer.about": "Proslavljamo srpsku kulturu kroz tradicionalnu igru, muziku i zajednicu od našeg osnivanja.",
+    "footer.contact": "Kontaktirajte Nas",
+    "footer.schedule": "Raspored Vežbi",
+    "footer.thursday": "Svakog Četvrtka",
+    "footer.time": "5:30 uveče - 9:00 uveče",
+    "footer.new.dancers": "Novi igrači dobrodošli!",
+    "footer.rights": "© 2025 Sveti Sava Oplenac Folklorna Grupa. Sva Prava Zadržana.",
+  },
+  "sr-cyrillic": {
     // Hero
     "hero.celebrate": "Прославите",
     "hero.serbian.culture": "Српску Културу",
@@ -198,7 +289,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguageState] = useState<Language>(() => {
     const saved = localStorage.getItem("language");
-    return (saved as Language) || "sr"; // Serbian as default
+    return (saved as Language) || "sr-latin"; // Serbian Latin as default
   });
 
   useEffect(() => {

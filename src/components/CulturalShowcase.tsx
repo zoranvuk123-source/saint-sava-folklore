@@ -11,25 +11,25 @@ const CulturalShowcase = () => {
     {
       image: zaigramoVeselo,
       title: t("showcase.dance.together"),
-      subtitle: language === "sr" ? t("showcase.dance.together.en") : t("showcase.dance.together"),
+      subtitle: (language === "sr-latin" || language === "sr-cyrillic") ? t("showcase.dance.together.en") : t("showcase.dance.together"),
       bgColor: "bg-gradient-to-br from-primary/10 to-accent/10"
     },
     {
       image: tradicija,
       title: t("showcase.tradition"),
-      subtitle: language === "sr" ? t("showcase.tradition.en") : t("showcase.tradition"),
+      subtitle: (language === "sr-latin" || language === "sr-cyrillic") ? t("showcase.tradition.en") : t("showcase.tradition"),
       bgColor: "bg-gradient-to-br from-secondary/10 to-primary/10"
     },
     {
       image: snaznoIgra,
       title: t("showcase.strength"),
-      subtitle: language === "sr" ? t("showcase.strength.en") : t("showcase.strength"),
+      subtitle: (language === "sr-latin" || language === "sr-cyrillic") ? t("showcase.strength.en") : t("showcase.strength"),
       bgColor: "bg-gradient-to-br from-accent/10 to-secondary/10"
     },
     {
       image: koloDancers,
       title: t("showcase.kolo"),
-      subtitle: language === "sr" ? t("showcase.kolo.en") : t("showcase.kolo"),
+      subtitle: (language === "sr-latin" || language === "sr-cyrillic") ? t("showcase.kolo.en") : t("showcase.kolo"),
       bgColor: "bg-gradient-to-br from-primary/5 to-muted"
     }
   ];
