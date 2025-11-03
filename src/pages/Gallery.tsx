@@ -11,15 +11,52 @@ const Gallery = () => {
   const { t } = useLanguage();
   const [selectedYear, setSelectedYear] = useState("all");
 
-  const years = ["2024", "2023", "2022", "2021", "2020"];
+  const years = ["2018", "2017", "2016"];
 
-  // Placeholder structure - will be populated with actual photos
-  const galleryItems = {
-    "2024": [],
-    "2023": [],
-    "2022": [],
-    "2021": [],
-    "2020": [],
+  // Gallery data organized by year
+  const galleryData = {
+    "2016": [
+      { src: "/gallery/2016/2016-12-25_1.jpg", alt: "December 2016" },
+      { src: "/gallery/2016/2016-12-27_1.jpg", alt: "December 2016" },
+      { src: "/gallery/2016/2016-12-30_1.jpg", alt: "December 2016" }
+    ],
+    "2017": [
+      { src: "/gallery/2017/2017-02-23_1.jpg", alt: "February 2017" },
+      { src: "/gallery/2017/2017-04-08_1.jpg", alt: "April 2017" },
+      { src: "/gallery/2017/2017-05-28_1.jpg", alt: "May 2017" },
+      { src: "/gallery/2017/2017-05-29_1.jpg", alt: "May 2017" },
+      { src: "/gallery/2017/2017-05-29_2.jpg", alt: "May 2017" },
+      { src: "/gallery/2017/2017-05-30_1.jpg", alt: "May 2017" },
+      { src: "/gallery/2017/2017-05-30_2.jpg", alt: "May 2017" },
+      { src: "/gallery/2017/2017-05-30_3.jpg", alt: "May 2017" },
+      { src: "/gallery/2017/2017-05-30_4.jpg", alt: "May 2017" },
+      { src: "/gallery/2017/2017-06-01_1.jpg", alt: "June 2017" },
+      { src: "/gallery/2017/2017-06-16_1.jpg", alt: "June 2017" },
+      { src: "/gallery/2017/2017-08-11_1.jpg", alt: "August 2017" },
+      { src: "/gallery/2017/2017-10-01_1.jpg", alt: "October 2017" },
+      { src: "/gallery/2017/2017-11-05_1.jpg", alt: "November 2017" }
+    ],
+    "2018": [
+      { src: "/gallery/2018/2018-02-04_1.jpg", alt: "February 2018" },
+      { src: "/gallery/2018/2018-02-06_1.jpg", alt: "February 2018" },
+      { src: "/gallery/2018/2018-04-14_1.jpg", alt: "April 2018" },
+      { src: "/gallery/2018/2018-05-14_1.jpg", alt: "May 2018" },
+      { src: "/gallery/2018/2018-05-14_2.jpg", alt: "May 2018" },
+      { src: "/gallery/2018/2018-05-22_1.jpg", alt: "May 2018" },
+      { src: "/gallery/2018/2018-05-28_1.jpg", alt: "May 2018" },
+      { src: "/gallery/2018/2018-05-28_2.jpg", alt: "May 2018" }
+    ]
+  };
+
+  const getAllPhotos = () => {
+    return Object.values(galleryData).flat();
+  };
+
+  const getFilteredPhotos = () => {
+    if (selectedYear === "all") {
+      return getAllPhotos();
+    }
+    return galleryData[selectedYear as keyof typeof galleryData] || [];
   };
 
   return (
@@ -75,11 +112,20 @@ const Gallery = () => {
                 ))}
               </div>
 
-              {/* Photo Grid - Placeholder */}
-              <div className="text-center py-12">
-                <p className="text-muted-foreground text-lg">
-                  Photo gallery will be populated with images organized by year
-                </p>
+              {/* Photo Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {getFilteredPhotos().map((photo, index) => (
+                  <div
+                    key={index}
+                    className="group relative overflow-hidden rounded-lg aspect-square cursor-pointer transition-all duration-300 hover:shadow-elegant hover:-translate-y-1"
+                  >
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                ))}
               </div>
             </TabsContent>
 
@@ -87,7 +133,7 @@ const Gallery = () => {
             <TabsContent value="videos" className="space-y-8">
               <div className="text-center py-12">
                 <p className="text-muted-foreground text-lg">
-                  Video gallery will be populated with performance videos
+                  Video gallery coming soon
                 </p>
               </div>
             </TabsContent>
