@@ -70,11 +70,11 @@ const CulturalShowcase = () => {
                     key={photoIndex}
                     className="group relative overflow-hidden rounded-lg transition-all duration-300 hover:shadow-elegant hover:-translate-y-1"
                   >
-                    <div className="aspect-[4/3] overflow-hidden">
+                    <div className="w-full h-full overflow-hidden">
                       <img
                         src={photo}
                         alt={`${row.title} ${photoIndex + 1}`}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
                       />
                     </div>
                   </div>
