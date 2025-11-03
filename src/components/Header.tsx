@@ -15,6 +15,7 @@ const Header = () => {
     { path: "/history", label: t("nav.history") },
     { path: "/join", label: t("nav.join") },
     { path: "/groups", label: t("nav.groups") },
+    { path: "/gallery", label: t("nav.gallery") },
     { path: "/community", label: t("nav.community") },
     { path: "/calendar", label: t("nav.calendar") },
     { path: "/contact", label: t("nav.contact") },
