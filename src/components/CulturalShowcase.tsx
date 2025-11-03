@@ -54,11 +54,11 @@ const CulturalShowcase = () => {
             >
               {/* Badge on the left */}
               <div className="flex justify-center md:justify-end">
-                <div className="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden shadow-card hover:shadow-elegant transition-all duration-300 hover:scale-105">
+                <div className="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden shadow-card hover:shadow-elegant transition-all duration-300 hover:scale-105 bg-transparent">
                   <img
                     src={row.badge}
                     alt={row.title}
-                    className={`w-full h-full ${row.isBadge ? 'object-cover' : 'object-contain bg-gradient-to-br from-primary/10 to-accent/10 p-4'}`}
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
