@@ -101,13 +101,13 @@ const translations = {
     "footer.rights": "© 2025 Folklorna grupa Sveti Sava Oplenac. Sva prava zadržana.",
 
     // Sponsorships
-    "sponsorships.title": "Sponzorstva",
+    "sponsorships.title": "Sponzori",
     "sponsorships.support": "Podržite Našu Zajednicu",
     "sponsorships.subtitle": "Pomozite nam da očuvamo srpsku tradiciju i kulturu. Vaša podrška omogućava nam da nastavimo sa radom, nastupima i proslavama naše baštine.",
     "sponsorships.thankyou.title": "Hvala vam od srca",
     "sponsorships.thankyou.message1": "Bez vaše velikodušne podrške, bilo bi veoma teško nastaviti sa našim radom. Svaki doprinos, bez obzira na iznos, direktno pomaže da sačuvamo naše kulturno nasleđe i omogućimo budućim generacijama da uče i slave srpske tradicije.",
     "sponsorships.thankyou.message2": "Vaša podrška pokriva troškove kostima, muzike, prostora za probe, putovanja na festivale i sve što je potrebno da naša grupa nastavi da raste. Zahvaljujući vama, možemo da ostanemo aktivni i da predstavljamo našu kulturu sa ponosom.",
-    "sponsorships.levels.title": "Nivoi sponzorstva",
+    "sponsorships.levels.title": "Nivo Sponzora",
     "sponsorships.levels.subtitle": "Izaberite nivo koji vam najbolje odgovara i postanite deo naše priče",
     "sponsorships.bronze.title": "Donator",
     "sponsorships.bronze.placement": "Vaše ime ili ime kompanije biće istaknuto na našem zidu donatora u crkvenoj sali, gde ga vide svi članovi zajednice i posetioci.",
@@ -303,13 +303,13 @@ const translations = {
     "footer.rights": "© 2025 Фолклорна група Свети Сава Опленац. Сва права задржана.",
 
     // Sponsorships
-    "sponsorships.title": "Спонзорства",
+    "sponsorships.title": "Спонзори",
     "sponsorships.support": "Подржите Нашу Заједницу",
     "sponsorships.subtitle": "Помозите нам да очувамо српску традицију и културу. Ваша подршка омогућава нам да наставимо са радом, наступима и прославама наше баштине.",
     "sponsorships.thankyou.title": "Хвала вам од срца",
     "sponsorships.thankyou.message1": "Без ваше великодушне подршке, било би веома тешко наставити са нашим радом. Сваки допринос, без обзира на износ, директно помаже да сачувамо наше културно наслеђе и омогућимо будућим генерацијама да уче и славе српске традиције.",
     "sponsorships.thankyou.message2": "Ваша подршка покрива трошкове костима, музике, простора за пробе, путовања на фестивале и све што је потребно да наша група настави да расте. Захваљујући вама, можемо да останемо активни и да представљамо нашу културу са поносом.",
-    "sponsorships.levels.title": "Нивои спонзорства",
+    "sponsorships.levels.title": "Ниво Спонзора",
     "sponsorships.levels.subtitle": "Изаберите ниво који вам најбоље одговара и постаните део наше приче",
     "sponsorships.bronze.title": "Донатор",
     "sponsorships.bronze.placement": "Ваше име или име компаније биће истакнуто на нашем зиду донатора у црквеној сали, где га виде сви чланови заједнице и посетиоци.",
