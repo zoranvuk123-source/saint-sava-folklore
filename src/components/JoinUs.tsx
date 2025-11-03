@@ -1,7 +1,13 @@
-import { Clock, Users, MapPin, Heart } from "lucide-react";
+import { Clock, Users, MapPin, Heart, Mail } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const JoinUs = () => {
+  const groupImages = [
+    "https://svetisavaoplenac.ca/wp-content/uploads/2024/10/IMG_3993-scaled-600x400.jpg",
+    "https://svetisavaoplenac.ca/wp-content/uploads/2024/10/IMG_3982-scaled-600x400.jpg",
+    "https://svetisavaoplenac.ca/wp-content/uploads/2023/11/Carassauga-May-2023-Dj-1-e1699570872787-600x400.jpg",
+    "https://svetisavaoplenac.ca/wp-content/uploads/2023/10/IMG_0645-1-scaled-600x400.jpg"
+  ];
   const groups = [
     {
       name: "Group 3",
@@ -71,11 +77,25 @@ const JoinUs = () => {
           {groups.map((group, index) => (
             <Card 
               key={index}
-              className={`overflow-hidden border-0 shadow-card hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br ${group.color}`}
+              className="overflow-hidden border-0 shadow-card hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 group/card"
             >
+              {/* Background Image */}
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={groupImages[index]} 
+                  alt={`${group.name} dancers`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-b ${group.color} opacity-90`} />
+                
+                {/* Icon Overlay */}
+                <div className="absolute top-4 right-4 bg-white/90 rounded-full p-3 shadow-lg">
+                  <span className="text-3xl">{group.icon}</span>
+                </div>
+              </div>
+
               <CardHeader className="pb-3">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-4xl">{group.icon}</span>
                   <div>
                     <CardTitle className="text-2xl font-bold">{group.name}</CardTitle>
                     <p className="text-sm text-muted-foreground font-semibold">{group.ageRange}</p>
@@ -94,25 +114,37 @@ const JoinUs = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="bg-primary text-primary-foreground rounded-2xl p-8 md:p-12 text-center">
-          <Users className="w-16 h-16 mx-auto mb-4" />
-          <h3 className="text-3xl font-bold mb-4">Ready to Dance?</h3>
-          <p className="text-lg mb-6 opacity-95 max-w-2xl mx-auto">
-            Whether you&apos;re a complete beginner or have experience, we welcome you to join our Serbian folk dance community. Come experience the joy of traditional dance, music, and culture!
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a
-              href="mailto:info@svetisavaoplenac.ca"
-              className="px-8 py-4 bg-white text-primary rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all hover:scale-105 shadow-lg"
-            >
-              Contact Us to Join
-            </a>
-            <a
-              href="#videos"
-              className="px-8 py-4 bg-secondary text-secondary-foreground rounded-lg font-semibold hover:bg-secondary/90 transition-all hover:scale-105"
-            >
-              Watch Our Performances
-            </a>
+        <div className="relative overflow-hidden bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-2xl">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img 
+              src="https://svetisavaoplenac.ca/wp-content/uploads/2024/10/IMG_3983-scaled-600x400.jpg"
+              alt="Serbian Folklore Dancers"
+              className="w-full h-full object-cover opacity-20"
+            />
+          </div>
+          
+          <div className="relative z-10 p-8 md:p-12 text-center">
+            <Users className="w-16 h-16 mx-auto mb-4" />
+            <h3 className="text-3xl font-bold mb-4">Ready to Dance?</h3>
+            <p className="text-lg mb-6 opacity-95 max-w-2xl mx-auto">
+              Whether you&apos;re a complete beginner or have experience, we welcome you to join our Serbian folk dance community. Come experience the joy of traditional dance, music, and culture!
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <a
+                href="mailto:saintsavaoplenac@gmail.com"
+                className="px-8 py-4 bg-white text-primary rounded-lg font-semibold hover:bg-accent hover:text-accent-foreground transition-all hover:scale-105 shadow-lg inline-flex items-center gap-2"
+              >
+                <Mail className="w-5 h-5" />
+                Contact Us to Join
+              </a>
+              <a
+                href="#videos"
+                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white border-2 border-white/50 rounded-lg font-semibold hover:bg-white/20 transition-all hover:scale-105"
+              >
+                Watch Our Performances
+              </a>
+            </div>
           </div>
         </div>
       </div>

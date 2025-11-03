@@ -2,8 +2,18 @@ import serbianPattern from "@/assets/serbian-pattern.png";
 
 const AboutKolo = () => {
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-muted/30 to-background relative overflow-hidden">
-      {/* Background Pattern */}
+    <section className="py-20 px-4 relative overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0">
+        <img 
+          src="https://svetisavaoplenac.ca/wp-content/uploads/2023/11/Carassauga-May-2023-600x400.jpg"
+          alt="Kolo dance background"
+          className="w-full h-full object-cover opacity-5"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-muted/80 via-background/95 to-background" />
+      </div>
+
+      {/* Decorative Patterns */}
       <div className="absolute top-10 right-10 opacity-5 w-64 h-64 animate-spin" style={{ animationDuration: "60s" }}>
         <img src={serbianPattern} alt="" className="w-full h-full" />
       </div>
