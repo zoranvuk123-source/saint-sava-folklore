@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heart, Users, Calendar, Award } from "lucide-react";
+import insideChurch from "@/assets/inside-church.jpg";
 
 const Community = () => {
   const { t } = useLanguage();
@@ -24,7 +25,7 @@ const Community = () => {
       icon: Users,
       title: t("community.church.title"),
       description: t("community.church.description"),
-      image: "https://svetisavaoplenac.ca/wp-content/uploads/2023/11/ChurchHallAllGrps-600x400.jpg"
+      image: insideChurch
     },
     {
       icon: Heart,
