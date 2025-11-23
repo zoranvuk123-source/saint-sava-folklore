@@ -19,7 +19,8 @@ const Groups = () => {
       icon: folkIcons[0],
       ageRange: t("join.ages.3to7"),
       time: t("join.group3.time"),
-      choreographer: "TBA",
+      artisticDirector: "Desa Djonin",
+      instructor: "Teodora Gojovic",
       description: t("join.group3.note"),
       color: "from-primary/20 to-accent/20"
     },
@@ -28,7 +29,8 @@ const Groups = () => {
       icon: folkIcons[1],
       ageRange: t("join.ages.8to12"),
       time: t("join.group2.time"),
-      choreographer: "TBA",
+      artisticDirector: "Desa Djonin",
+      instructor: "Angelika Jakopovic",
       description: t("join.group2.note"),
       color: "from-secondary/20 to-primary/20"
     },
@@ -37,7 +39,8 @@ const Groups = () => {
       icon: folkIcons[2],
       ageRange: t("join.ages.13plus"),
       time: t("join.group1.time"),
-      choreographer: "TBA",
+      artisticDirector: "Desa Djonin",
+      instructor: "Ivan Stanisic",
       description: t("join.group1.note"),
       color: "from-accent/20 to-secondary/20"
     },
@@ -46,7 +49,8 @@ const Groups = () => {
       icon: folkIcons[3],
       ageRange: t("join.ages.all"),
       time: t("join.recreational.time"),
-      choreographer: "TBA",
+      artisticDirector: "TBA",
+      instructor: "TBA",
       description: t("join.recreational.note"),
       color: "from-primary/10 to-muted"
     }
@@ -89,9 +93,15 @@ const Groups = () => {
                 </div>
                 <div className="flex items-start gap-2">
                   <Music className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold text-sm">{t("groups.choreographer")}</p>
-                    <p className="text-sm text-muted-foreground">{group.choreographer}</p>
+                  <div className="space-y-1">
+                    <div>
+                      <p className="font-semibold text-sm">{t("groups.artisticDirector")}</p>
+                      <p className="text-sm text-muted-foreground">{group.artisticDirector}</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-sm">{t("groups.instructor")}</p>
+                      <p className="text-sm text-muted-foreground">{group.instructor}</p>
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">

@@ -173,7 +173,8 @@ const translations = {
     // Groups Page
     "groups.subtitle": "Naše grupe se sastaju svake nedelje i vežbaju tradicionalne srpske igre — od najmlađih do odraslih.",
     "groups.practice": "Vreme proba",
-    "groups.choreographer": "Koreograf",
+    "groups.artisticDirector": "Umetnički direktor",
+    "groups.instructor": "Instruktor",
     "groups.interested": "Želite da se pridružite?",
     "groups.contact": "Javite nam se da saznate više o našim grupama i kako možete da se uključite.",
     
@@ -378,7 +379,8 @@ const translations = {
     // Groups Page
     "groups.subtitle": "Наше групе се састају сваке недеље и вежбају традиционалне српске игре — од најмлађих до одраслих.",
     "groups.practice": "Време проба",
-    "groups.choreographer": "Кореограф",
+    "groups.artisticDirector": "Уметнички директор",
+    "groups.instructor": "Инструктор",
     "groups.interested": "Желите да се придружите?",
     "groups.contact": "Јавите нам се да сазнате више о нашим групама и како можете да се укључите.",
     
@@ -583,7 +585,8 @@ const translations = {
     // Groups Page
     "groups.subtitle": "Our groups meet weekly to practice traditional Serbian dances, from the youngest to adults.",
     "groups.practice": "Practice Time",
-    "groups.choreographer": "Choreographer",
+    "groups.artisticDirector": "Artistic Director",
+    "groups.instructor": "Instructor",
     "groups.interested": "Interested in Joining?",
     "groups.contact": "Contact us to learn more about our groups and how you can get involved.",
     
