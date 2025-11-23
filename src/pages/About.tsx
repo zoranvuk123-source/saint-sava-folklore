@@ -19,16 +19,31 @@ const About = () => {
   }, []);
 
   const teamMembers = [
-    { role: t("about.president"), name: "TBA" },
-    { role: t("about.vicePresident"), name: "TBA" },
-    { role: t("about.treasurer"), name: "TBA" },
-    { role: t("about.secretary"), name: "TBA" },
+    { role: t("about.president"), name: "Vanja Luboje" },
+    { role: t("about.vicePresident"), name: "Julie Vukasovic" },
+    { role: t("about.treasurer"), name: "Marija Banakos" },
+    { role: t("about.secretary"), name: "Angelina Racic I Lara Marinkovic" },
   ];
 
   const choreographers = [
     { 
-      name: "TBA", 
-      background: t("about.choreographer.tba"),
+      name: "Desa Dzonin", 
+      background: t("about.choreographer.desa"),
+      groups: t("about.choreographer.groups")
+    },
+    { 
+      name: "Ivan Stanisic", 
+      background: t("about.choreographer.ivan"),
+      groups: t("about.choreographer.groups")
+    },
+    { 
+      name: "Teodora Vojovic", 
+      background: t("about.choreographer.teodora"),
+      groups: t("about.choreographer.groups")
+    },
+    { 
+      name: "Angelika Janic Jakopovic", 
+      background: t("about.choreographer.angelika"),
       groups: t("about.choreographer.groups")
     }
   ];
