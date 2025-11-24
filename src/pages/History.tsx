@@ -38,7 +38,7 @@ const History = () => {
               {t("history.intro.p3")}
             </p>
 
-            <div className="my-8 rounded-xl overflow-hidden shadow-elegant">
+            <div className="my-8 rounded-xl overflow-hidden shadow-elegant max-w-[25%] mx-auto">
               <img 
                 src="https://svetisavaoplenac.ca/wp-content/uploads/2024/09/History1.png" 
                 alt="Saint Sava Oplenac historical photo"
