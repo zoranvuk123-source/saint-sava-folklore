@@ -6,6 +6,7 @@ import koloDancers from "@/assets/kolo-dancers.png";
 import snaznoIgra from "@/assets/snazno-igra.png";
 import tradicija from "@/assets/tradicija.png";
 import zaigrajmoVeselo from "@/assets/zaigramo-veselo.png";
+import silverShirtMockup from "@/assets/silver-sponsor-shirt-mockup.png";
 
 const Sponsorships = () => {
   const { t } = useLanguage();
@@ -162,11 +163,12 @@ const Sponsorships = () => {
                             </div>
                           )}
                           {tier.visual === "tshirt-back" && (
-                            <div className="relative">
-                              <Shirt className={`w-24 h-24 ${tier.accentColor}`} />
-                              <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="text-[8px] font-bold bg-background/90 px-2 py-1 rounded">LOGO</div>
-                              </div>
+                            <div className="relative w-full">
+                              <img 
+                                src={silverShirtMockup} 
+                                alt="Silver sponsor shirt mockup showing logo placement on upper back"
+                                className="w-full h-full object-cover rounded"
+                              />
                               <div className="text-xs font-mono text-center mt-2 opacity-60">T-SHIRT BACK</div>
                             </div>
                           )}
