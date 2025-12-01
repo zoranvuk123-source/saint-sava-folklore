@@ -1,17 +1,14 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Mail, Heart, Upload } from "lucide-react";
+import { Mail, Heart } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const Gallery = () => {
   const { t } = useLanguage();
-  const navigate = useNavigate();
   const [selectedYear, setSelectedYear] = useState("all");
   const [storagePhotos, setStoragePhotos] = useState<{ src: string; alt: string; year: string }[]>([]);
   const [storageVideos, setStorageVideos] = useState<{ src: string; title: string; year: string }[]>([]);
@@ -345,17 +342,6 @@ const Gallery = () => {
                     {year}
                   </button>
                 ))}
-              </div>
-
-              {/* Upload Button */}
-              <div className="flex justify-center mb-6">
-                <Button
-                  onClick={() => navigate('/gallery/upload-video')}
-                  className="gap-2"
-                >
-                  <Upload className="w-4 h-4" />
-                  Upload Videos
-                </Button>
               </div>
 
               {/* Video Grid */}
