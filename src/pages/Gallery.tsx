@@ -34,7 +34,9 @@ const Gallery = () => {
       { src: "/gallery/2019/2019-02-25_1.mp4", title: "February 2019", year: "2019" }
     ],
     "2025": [
-      { src: "/gallery/2025/2025-05-24_1.mp4", title: "May 2025", year: "2025" }
+      { src: "/gallery/2025/2025-05-24_1.mp4", title: "May 2025", year: "2025" },
+      { src: "/gallery/2025/2025-05-25_1.mp4", title: "May 2025", year: "2025" },
+      { src: "/gallery/2025/2025-06-08_1.mp4", title: "June 2025", year: "2025" }
     ]
   };
 
