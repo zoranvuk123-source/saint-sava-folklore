@@ -9,6 +9,7 @@ import julieImg from "@/assets/team/julie.jpg";
 import marijaImg from "@/assets/team/marija.jpg";
 import angelinaImg from "@/assets/team/angelina.jpg";
 import laraImg from "@/assets/team/lara.jpg";
+import boardGroupImg from "@/assets/team/board-group-2025.jpg";
 
 const About = () => {
   const { t } = useLanguage();
@@ -116,6 +117,18 @@ const About = () => {
             <Users className="w-8 h-8 text-primary" />
             <h2 className="text-3xl font-bold">{t("about.team.title")}</h2>
           </div>
+          
+          {/* Group Photo */}
+          <div className="mb-8 flex justify-center">
+            <div className="relative w-full max-w-3xl rounded-xl overflow-hidden shadow-elegant">
+              <img 
+                src={boardGroupImg} 
+                alt="Sveti Sava Folklorna Grupa Board 2025" 
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {teamMembers.map((member, index) => (
               <Card key={index} className="border-0 shadow-card hover:shadow-elegant transition-all">
