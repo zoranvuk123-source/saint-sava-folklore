@@ -12,6 +12,11 @@ const Gallery = () => {
   const [selectedYear, setSelectedYear] = useState("all");
   const [storagePhotos, setStoragePhotos] = useState<{ src: string; alt: string; year: string }[]>([]);
   const [loading, setLoading] = useState(true);
+  const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
+
+  const handleImageError = (src: string) => {
+    setFailedImages(prev => new Set(prev).add(src));
+  };
 
   const years = ["2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016"];
 
@@ -232,20 +237,23 @@ const Gallery = () => {
                 </div>
               ) : (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {getFilteredPhotos().map((photo, index) => (
-                  <div
-                    key={index}
-                    className="group relative overflow-hidden rounded-lg aspect-square cursor-pointer transition-all duration-300 hover:shadow-elegant hover:-translate-y-1"
-                  >
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                    ))}
-                  </div>
-                )}
+                  {getFilteredPhotos()
+                    .filter(photo => !failedImages.has(photo.src))
+                    .map((photo, index) => (
+                    <div
+                      key={index}
+                      className="group relative overflow-hidden rounded-lg aspect-square cursor-pointer transition-all duration-300 hover:shadow-elegant hover:-translate-y-1"
+                    >
+                      <img
+                        src={photo.src}
+                        alt={photo.alt}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        onError={() => handleImageError(photo.src)}
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
               </TabsContent>
 
             {/* Videos Section */}
