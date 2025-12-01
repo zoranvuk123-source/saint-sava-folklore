@@ -7,8 +7,7 @@ import { useEffect, useState } from "react";
 import vanjaImg from "@/assets/team/vanja.jpg";
 import julieImg from "@/assets/team/julie.jpg";
 import marijaImg from "@/assets/team/marija.jpg";
-import angelinaImg from "@/assets/team/angelina.jpg";
-import laraImg from "@/assets/team/lara.jpg";
+import angelinaLaraImg from "@/assets/team/angelina-lara-combined.jpg";
 import boardGroupImg from "@/assets/team/board-group-2025.jpg";
 
 const About = () => {
@@ -28,7 +27,7 @@ const About = () => {
     { role: t("about.president"), name: "Vanja Luboje", image: vanjaImg },
     { role: t("about.vicePresident"), name: "Julie Vukasovic", image: julieImg },
     { role: t("about.treasurer"), name: "Marija Banakos", image: marijaImg },
-    { role: t("about.secretary"), name: "Angelina Racic I Lara Marinkovic", images: [angelinaImg, laraImg] },
+    { role: t("about.secretary"), name: "Angelina Racic I Lara Marinkovic", image: angelinaLaraImg },
   ];
 
   const choreographers = [
@@ -134,24 +133,11 @@ const About = () => {
               <Card key={index} className="border-0 shadow-card hover:shadow-elegant transition-all">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4">
-                    {member.images ? (
-                      <div className="flex gap-2 flex-shrink-0">
-                        {member.images.map((img, i) => (
-                          <img 
-                            key={i}
-                            src={img} 
-                            alt={member.name.split(' I ')[i]} 
-                            className="w-20 h-20 rounded-full object-cover transition-transform hover:scale-105"
-                          />
-                        ))}
-                      </div>
-                    ) : member.image && (
-                      <img 
-                        src={member.image} 
-                        alt={member.name} 
-                        className="w-20 h-20 rounded-full object-cover flex-shrink-0 transition-transform hover:scale-105"
-                      />
-                    )}
+                    <img 
+                      src={member.image} 
+                      alt={member.name} 
+                      className="w-32 h-20 rounded-lg object-cover flex-shrink-0 transition-transform hover:scale-105"
+                    />
                     <div className="flex-1 min-w-0">
                       <h3 className="text-lg font-semibold mb-1">{member.role}</h3>
                       <p className="text-muted-foreground">{member.name}</p>
