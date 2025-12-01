@@ -130,7 +130,10 @@ const Gallery = () => {
       { src: "/gallery/2023/2023-02-05_1.jpg", alt: "February 2023" },
       { src: "/gallery/2023/2023-05-28_1.jpg", alt: "May 2023" },
       { src: "/gallery/2023/2023-05-31_1.jpg", alt: "May 2023" },
-      { src: "/gallery/2023/2023-06-04_1.jpg", alt: "June 2023" }
+      { src: "/gallery/2023/2023-06-04_1.jpg", alt: "June 2023" },
+      { src: "/gallery/2023/2023-11-14_1.jpg", alt: "November 2023" },
+      { src: "/gallery/2023/2023-11-14_2.jpg", alt: "November 2023" },
+      { src: "/gallery/2023/2023-11-14_3.jpg", alt: "November 2023" }
     ],
     "2024": [
       { src: "/gallery/2024/2024-02-04_1.jpg", alt: "February 2024" },
