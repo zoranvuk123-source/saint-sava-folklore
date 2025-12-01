@@ -87,21 +87,18 @@ const JoinUs = () => {
                   <div className="aspect-square overflow-hidden">
                     <img src={groupImages[index]} alt={`${group.name} dancers`} className={`w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110 ${index === 0 ? 'object-top' : ''}`} />
                   </div>
-                  <div className={`aspect-square flex items-center justify-center bg-gradient-to-br ${group.color}`}>
-                    <img src={folkIcons[index]} alt={group.iconLabel} className="w-16 h-16 object-contain" />
+                  <div className={`aspect-square flex flex-col items-center justify-center bg-gradient-to-br ${group.color} p-4`}>
+                    <h3 className="text-xl md:text-2xl font-bold text-center leading-tight mb-2">{group.name}</h3>
+                    <p className="text-base md:text-lg font-semibold text-center">{group.ageRange}</p>
                   </div>
                 </div>
               </div>
-              <CardHeader className="p-4 pb-2">
-                <CardTitle className="text-lg font-bold leading-tight">{group.name}</CardTitle>
-                <p className="text-xs text-muted-foreground font-semibold">{group.ageRange}</p>
-              </CardHeader>
-              <CardContent className="p-4 pt-0 space-y-2">
-                <div className="flex items-start gap-1.5">
-                  <Clock className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  <p className="text-xs font-semibold leading-tight">{group.time}</p>
+              <CardContent className="p-6 space-y-3">
+                <div className="flex items-start gap-2">
+                  <Clock className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                  <p className="text-base md:text-lg font-semibold leading-snug">{group.time}</p>
                 </div>
-                <p className="text-xs text-muted-foreground leading-tight">{group.note}</p>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{group.note}</p>
               </CardContent>
             </Card>
           ))}
