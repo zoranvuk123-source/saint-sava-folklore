@@ -130,7 +130,7 @@ const About = () => {
                           key={i}
                           src={img} 
                           alt={member.name.split(' I ')[i]} 
-                          className="w-16 h-16 rounded-full object-cover grayscale hover:grayscale-0 transition-all"
+                          className="w-24 h-24 rounded-full object-cover grayscale hover:grayscale-0 transition-all"
                         />
                       ))}
                     </div>
@@ -138,7 +138,7 @@ const About = () => {
                     <img 
                       src={member.image} 
                       alt={member.name} 
-                      className="w-16 h-16 rounded-full object-cover grayscale hover:grayscale-0 transition-all"
+                      className="w-24 h-24 rounded-full object-cover grayscale hover:grayscale-0 transition-all"
                     />
                   )}
                   <p className="text-muted-foreground text-center">{member.name}</p>
