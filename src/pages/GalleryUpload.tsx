@@ -19,7 +19,7 @@ const GalleryUpload = () => {
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const files = Array.from(e.target.files);
-      const maxFileSizeMB = 100;
+      const maxFileSizeMB = 20;
       const maxFileSizeBytes = maxFileSizeMB * 1024 * 1024;
       const tooLarge = files.find((file) => file.size > maxFileSizeBytes);
 
@@ -122,7 +122,7 @@ const GalleryUpload = () => {
                 disabled={uploading}
               />
               <p className="text-sm text-muted-foreground">
-                Select one or more images (JPEG, PNG, WEBP). Max 100MB per file. Larger files should be compressed first.
+                Select one or more images (JPEG, PNG, WEBP). Max 20MB per file.
               </p>
             </div>
 
