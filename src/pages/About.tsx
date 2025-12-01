@@ -106,7 +106,7 @@ const About = () => {
         </Card>
 
         {/* Current Team */}
-        <section className="mb-12">
+        <section className="mb-12 p-8 bg-muted/30 rounded-xl">
           <div className="flex items-center gap-3 mb-6">
             <Users className="w-8 h-8 text-primary" />
             <h2 className="text-3xl font-bold">{t("about.team.title")}</h2>
@@ -129,7 +129,7 @@ const About = () => {
         </section>
 
         {/* Choreographers */}
-        <section className="mb-12">
+        <section className="mb-12 p-8 bg-muted/30 rounded-xl">
           <div className="flex items-center gap-3 mb-6">
             <Music className="w-8 h-8 text-primary" />
             <h2 className="text-3xl font-bold">{t("about.choreographers.title")}</h2>
@@ -150,7 +150,7 @@ const About = () => {
         </section>
 
         {/* Practice Schedule */}
-        <section>
+        <section className="p-8 bg-muted/30 rounded-xl">
           <div className="flex items-center gap-3 mb-6">
             <Calendar className="w-8 h-8 text-primary" />
             <h2 className="text-3xl font-bold">{t("about.practice.title")}</h2>
