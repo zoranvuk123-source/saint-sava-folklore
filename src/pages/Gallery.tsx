@@ -20,6 +20,20 @@ const Gallery = () => {
 
   const years = ["2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016"];
 
+  // Video data organized by year
+  const videoData = {
+    "2019": [
+      { src: "/gallery/2019/2019-02-25_video.mp4", title: "February 2019", year: "2019" }
+    ]
+  };
+
+  const getFilteredVideos = () => {
+    if (selectedYear === "all") {
+      return Object.values(videoData).flat();
+    }
+    return videoData[selectedYear as keyof typeof videoData] || [];
+  };
+
   // Fetch images from Supabase storage
   useEffect(() => {
     const fetchStorageImages = async () => {
@@ -271,11 +285,64 @@ const Gallery = () => {
 
             {/* Videos Section */}
             <TabsContent value="videos" className="space-y-8">
-              <div className="text-center py-12">
-                <p className="text-muted-foreground text-lg">
-                  Video gallery coming soon
-                </p>
+              {/* Year Filter */}
+              <div className="flex flex-wrap justify-center gap-3 mb-8">
+                <button
+                  onClick={() => setSelectedYear("all")}
+                  className={`px-6 py-2 rounded-full font-semibold transition-all ${
+                    selectedYear === "all"
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-muted hover:bg-muted/80"
+                  }`}
+                >
+                  {t("photos.all")}
+                </button>
+                {years.map((year) => (
+                  <button
+                    key={year}
+                    onClick={() => setSelectedYear(year)}
+                    className={`px-6 py-2 rounded-full font-semibold transition-all ${
+                      selectedYear === year
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted hover:bg-muted/80"
+                    }`}
+                  >
+                    {year}
+                  </button>
+                ))}
               </div>
+
+              {/* Video Grid */}
+              {getFilteredVideos().length === 0 ? (
+                <div className="text-center py-12">
+                  <p className="text-muted-foreground text-lg">
+                    {selectedYear === "all" 
+                      ? "No videos available yet" 
+                      : `No videos from ${selectedYear}`}
+                  </p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {getFilteredVideos().map((video, index) => (
+                    <div
+                      key={index}
+                      className="group relative overflow-hidden rounded-lg bg-muted/30 transition-all duration-300 hover:shadow-elegant hover:-translate-y-1"
+                    >
+                      <video
+                        src={video.src}
+                        controls
+                        className="w-full h-auto"
+                        preload="metadata"
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                      <div className="p-4">
+                        <p className="text-sm font-medium text-foreground">{video.title}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </TabsContent>
           </Tabs>
 
