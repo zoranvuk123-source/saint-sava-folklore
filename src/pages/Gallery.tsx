@@ -131,7 +131,14 @@ const Gallery = () => {
       { src: "/gallery/2025/2025-02-24_2.jpg", alt: "February 2025" },
       { src: "/gallery/2025/2025-03-15_1.jpg", alt: "March 2025" },
       { src: "/gallery/2025/2025-03-15_2.jpg", alt: "March 2025" },
-      { src: "/gallery/2025/2025-03-15_3.jpg", alt: "March 2025" }
+      { src: "/gallery/2025/2025-03-15_3.jpg", alt: "March 2025" },
+      { src: "/gallery/2025/2025-03-15_4.jpg", alt: "March 2025" },
+      { src: "/gallery/2025/2025-05-13_1.jpg", alt: "May 2025" },
+      { src: "/gallery/2025/2025-05-13_2.jpg", alt: "May 2025" },
+      { src: "/gallery/2025/2025-05-27_1.jpg", alt: "May 2025" },
+      { src: "/gallery/2025/2025-05-27_2.jpg", alt: "May 2025" },
+      { src: "/gallery/2025/2025-05-27_3.jpg", alt: "May 2025" },
+      { src: "/gallery/2025/2025-05-27_4.jpg", alt: "May 2025" }
     ]
   };
 
