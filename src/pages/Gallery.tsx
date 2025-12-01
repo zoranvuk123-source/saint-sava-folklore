@@ -215,7 +215,11 @@ const Gallery = () => {
       { src: "/gallery/2025/2025-06-01_2.jpg", alt: "June 2025" },
       { src: "/gallery/2025/2025-06-01_3.jpg", alt: "June 2025" },
       { src: "/gallery/2025/2025-06-01_4.jpg", alt: "June 2025" },
-      { src: "/gallery/2025/2025-06-01_5.jpg", alt: "June 2025" }
+      { src: "/gallery/2025/2025-06-01_5.jpg", alt: "June 2025" },
+      { src: "/gallery/2025/2025-06-16_1.jpg", alt: "June 2025" },
+      { src: "/gallery/2025/2025-08-24_1.jpg", alt: "August 2025" },
+      { src: "/gallery/2025/2025-08-24_2.jpg", alt: "August 2025" },
+      { src: "/gallery/2025/2025-08-24_3.jpg", alt: "August 2025" }
     ]
   };
 
