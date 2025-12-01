@@ -128,19 +128,21 @@ const About = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {teamMembers.map((member, index) => (
               <Card key={index} className="border-0 shadow-card hover:shadow-elegant transition-all">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-4">
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-6">
                     <img 
                       src={member.image} 
                       alt={member.name} 
-                      className="w-32 h-20 rounded-lg object-cover flex-shrink-0 transition-transform hover:scale-105"
+                      className={`rounded-lg object-cover flex-shrink-0 transition-transform hover:scale-105 ${
+                        member.name.includes('I') ? 'w-48 h-32' : 'w-32 h-32 rounded-full'
+                      }`}
                     />
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-lg font-semibold mb-1">{member.role}</h3>
-                      <p className="text-muted-foreground">{member.name}</p>
+                      <h3 className="text-xl font-semibold mb-2">{member.role}</h3>
+                      <p className="text-muted-foreground text-base">{member.name}</p>
                     </div>
                   </div>
                 </CardContent>
