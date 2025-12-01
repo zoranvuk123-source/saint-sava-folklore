@@ -121,7 +121,11 @@ const Gallery = () => {
       { src: "/gallery/2024/2024-06-02_1.jpg", alt: "June 2024" }
     ],
     "2025": [
-      { src: "/gallery/2025/2025-02-02_1.jpg", alt: "February 2025" }
+      { src: "/gallery/2025/2025-02-02_1.jpg", alt: "February 2025" },
+      { src: "/gallery/2025/2025-02-24_2.jpg", alt: "February 2025" },
+      { src: "/gallery/2025/2025-03-15_1.jpg", alt: "March 2025" },
+      { src: "/gallery/2025/2025-03-15_2.jpg", alt: "March 2025" },
+      { src: "/gallery/2025/2025-03-15_3.jpg", alt: "March 2025" }
     ]
   };
 
