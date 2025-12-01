@@ -18,10 +18,25 @@ const GalleryUpload = () => {
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
+      const files = Array.from(e.target.files);
+      const maxFileSizeMB = 100;
+      const maxFileSizeBytes = maxFileSizeMB * 1024 * 1024;
+      const tooLarge = files.find((file) => file.size > maxFileSizeBytes);
+
+      if (tooLarge) {
+        toast({
+          title: "File too large",
+          description: `"${tooLarge.name}" is larger than the ${maxFileSizeMB}MB limit. Please compress it before uploading.`,
+          variant: "destructive",
+        });
+        e.target.value = "";
+        setSelectedFiles(null);
+        return;
+      }
+
       setSelectedFiles(e.target.files);
     }
   };
-
   const handleUpload = async () => {
     if (!selectedFiles || selectedFiles.length === 0) {
       toast({
@@ -107,7 +122,7 @@ const GalleryUpload = () => {
                 disabled={uploading}
               />
               <p className="text-sm text-muted-foreground">
-                Select one or more images (JPEG, PNG, WEBP). Max 10MB per file.
+                Select one or more images (JPEG, PNG, WEBP). Max 100MB per file. Larger files should be compressed first.
               </p>
             </div>
 
