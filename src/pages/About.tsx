@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Music, Calendar } from "lucide-react";
 import { useEffect, useState } from "react";
-import folklorScene from "@/assets/serbian-folklore-scene.png";
 
 const About = () => {
   const { t } = useLanguage();
@@ -105,15 +104,6 @@ const About = () => {
             </p>
           </CardContent>
         </Card>
-
-        {/* Animated Folklore Illustration */}
-        <div className="mb-12 flex justify-center">
-          <img 
-            src={folklorScene}
-            alt="Serbian folklore dancers scene with church"
-            className="animate-dance hover:animate-bounce-subtle transition-all max-w-full h-auto rounded-xl shadow-elegant"
-          />
-        </div>
 
         {/* Current Team */}
         <section className="mb-12">
