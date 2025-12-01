@@ -27,6 +27,7 @@ const Gallery = () => {
       { src: "/gallery/2017/2017-01-30_1.mp4", title: "January 2017", year: "2017" }
     ],
     "2018": [
+      { src: "/gallery/2018/2018-05-14_1.mp4", title: "May 2018", year: "2018" },
       { src: "/gallery/2018/2018-05-22_1.mp4", title: "May 2018", year: "2018" }
     ],
     "2019": [
