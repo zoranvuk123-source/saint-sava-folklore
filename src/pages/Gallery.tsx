@@ -232,8 +232,7 @@ const Gallery = () => {
   };
 
   const getAllPhotos = () => {
-    const localPhotos = Object.values(galleryData).flat();
-    return [...localPhotos, ...storagePhotos];
+    return Object.values(galleryData).flat();
   };
 
   const getFilteredPhotos = () => {
@@ -241,13 +240,7 @@ const Gallery = () => {
       return getAllPhotos();
     }
     
-    // Filter local photos by year from galleryData keys
-    const localFiltered = galleryData[selectedYear as keyof typeof galleryData] || [];
-    
-    // Filter storage photos by their year property
-    const storageFiltered = storagePhotos.filter(photo => photo.year === selectedYear);
-    
-    return [...localFiltered, ...storageFiltered];
+    return galleryData[selectedYear as keyof typeof galleryData] || [];
   };
 
   return (
