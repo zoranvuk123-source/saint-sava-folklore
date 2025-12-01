@@ -22,8 +22,14 @@ const Gallery = () => {
 
   // Video data organized by year
   const videoData = {
+    "2017": [
+      { src: "/gallery/2017/2017-01-30_1.mp4", title: "January 2017", year: "2017" }
+    ],
+    "2018": [
+      { src: "/gallery/2018/2018-05-22_1.mp4", title: "May 2018", year: "2018" }
+    ],
     "2019": [
-      { src: "/gallery/2019/2019-02-25_video.mp4", title: "February 2019", year: "2019" }
+      { src: "/gallery/2019/2019-02-25_1.mp4", title: "February 2019", year: "2019" }
     ]
   };
 
