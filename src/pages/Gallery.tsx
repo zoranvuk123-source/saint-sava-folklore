@@ -1,16 +1,20 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Mail, Heart } from "lucide-react";
+import { Mail, Heart, Upload } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const Gallery = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   const [selectedYear, setSelectedYear] = useState("all");
   const [storagePhotos, setStoragePhotos] = useState<{ src: string; alt: string; year: string }[]>([]);
+  const [storageVideos, setStorageVideos] = useState<{ src: string; title: string; year: string }[]>([]);
   const [loading, setLoading] = useState(true);
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
 
@@ -34,49 +38,70 @@ const Gallery = () => {
   };
 
   const getFilteredVideos = () => {
-    if (selectedYear === "all") {
-      return Object.values(videoData).flat();
-    }
-    return videoData[selectedYear as keyof typeof videoData] || [];
+    const localVideos = selectedYear === "all" 
+      ? Object.values(videoData).flat()
+      : videoData[selectedYear as keyof typeof videoData] || [];
+    
+    const storageFiltered = selectedYear === "all"
+      ? storageVideos
+      : storageVideos.filter(video => video.year === selectedYear);
+    
+    return [...localVideos, ...storageFiltered];
   };
 
-  // Fetch images from Supabase storage
+  // Fetch images and videos from Supabase storage
   useEffect(() => {
-    const fetchStorageImages = async () => {
+    const fetchStorageMedia = async () => {
       try {
+        // Fetch all files from storage
         const { data, error } = await supabase.storage
           .from('gallery-images')
           .list('', { sortBy: { column: 'name', order: 'desc' } });
 
         if (error) throw error;
 
-        const photos = await Promise.all(
-          data.map(async (file) => {
-            const { data: publicUrl } = supabase.storage
-              .from('gallery-images')
-              .getPublicUrl(file.name);
-            
-            // Extract year from filename (assuming format: YYYY-MM-DD_N.jpg or YYYY/)
-            const yearMatch = file.name.match(/^(\d{4})/);
-            const year = yearMatch ? yearMatch[1] : "2025";
-            
-            return {
+        const photos: { src: string; alt: string; year: string }[] = [];
+        const videos: { src: string; title: string; year: string }[] = [];
+
+        data.forEach((file) => {
+          const { data: publicUrl } = supabase.storage
+            .from('gallery-images')
+            .getPublicUrl(file.name);
+          
+          // Extract year from filename (assuming format: YYYY-MM-DD_N.ext)
+          const yearMatch = file.name.match(/^(\d{4})/);
+          const year = yearMatch ? yearMatch[1] : "2025";
+          
+          // Check if it's a video or photo based on file extension
+          const ext = file.name.split('.').pop()?.toLowerCase();
+          const videoExtensions = ['mp4', 'webm', 'mov', 'avi'];
+          const imageExtensions = ['jpg', 'jpeg', 'png', 'webp'];
+          
+          if (ext && videoExtensions.includes(ext)) {
+            videos.push({
+              src: publicUrl.publicUrl,
+              title: `Gallery ${file.name}`,
+              year
+            });
+          } else if (ext && imageExtensions.includes(ext)) {
+            photos.push({
               src: publicUrl.publicUrl,
               alt: `Gallery ${file.name}`,
               year
-            };
-          })
-        );
+            });
+          }
+        });
 
         setStoragePhotos(photos);
+        setStorageVideos(videos);
       } catch (error) {
-        console.error('Error fetching images:', error);
+        console.error('Error fetching media:', error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchStorageImages();
+    fetchStorageMedia();
   }, []);
 
   // Gallery data organized by year
@@ -316,6 +341,17 @@ const Gallery = () => {
                     {year}
                   </button>
                 ))}
+              </div>
+
+              {/* Upload Button */}
+              <div className="flex justify-center mb-6">
+                <Button
+                  onClick={() => navigate('/gallery/upload-video')}
+                  className="gap-2"
+                >
+                  <Upload className="w-4 h-4" />
+                  Upload Videos
+                </Button>
               </div>
 
               {/* Video Grid */}
