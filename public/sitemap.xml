@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://svetisavaoplenac.ca/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://svetisavaoplenac.ca/" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://svetisavaoplenac.ca/" />
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://svetisavaoplenac.ca/about</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://svetisavaoplenac.ca/about" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://svetisavaoplenac.ca/about" />
+  </url>
+
+  <!-- History Page -->
+  <url>
+    <loc>https://svetisavaoplenac.ca/history</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://svetisavaoplenac.ca/history" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://svetisavaoplenac.ca/history" />
+  </url>
+
+  <!-- Join Page -->
+  <url>
+    <loc>https://svetisavaoplenac.ca/join</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://svetisavaoplenac.ca/join" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://svetisavaoplenac.ca/join" />
+  </url>
+
+  <!-- Groups Page -->
+  <url>
+    <loc>https://svetisavaoplenac.ca/groups</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://svetisavaoplenac.ca/groups" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://svetisavaoplenac.ca/groups" />
+  </url>
+
+  <!-- Community Page -->
+  <url>
+    <loc>https://svetisavaoplenac.ca/community</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://svetisavaoplenac.ca/community" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://svetisavaoplenac.ca/community" />
+  </url>
+
+  <!-- Calendar Page -->
+  <url>
+    <loc>https://svetisavaoplenac.ca/calendar</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://svetisavaoplenac.ca/calendar" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://svetisavaoplenac.ca/calendar" />
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://svetisavaoplenac.ca/contact</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://svetisavaoplenac.ca/contact" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://svetisavaoplenac.ca/contact" />
+  </url>
+
+  <!-- Gallery Page -->
+  <url>
+    <loc>https://svetisavaoplenac.ca/gallery</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://svetisavaoplenac.ca/gallery" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://svetisavaoplenac.ca/gallery" />
+  </url>
+
+  <!-- Sponsorships Page -->
+  <url>
+    <loc>https://svetisavaoplenac.ca/sponsorships</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://svetisavaoplenac.ca/sponsorships" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://svetisavaoplenac.ca/sponsorships" />
+  </url>
+
+</urlset>
