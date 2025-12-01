@@ -163,12 +163,25 @@ const Sponsorships = () => {
                             </div>
                           )}
                           {tier.visual === "tshirt-back" && (
-                            <div className="relative w-full">
-                              <img 
-                                src={silverShirtOutline} 
-                                alt="Silver sponsor shirt outline showing 6 logo placement spots on back"
-                                className="w-full h-full object-contain"
-                              />
+                            <div className="relative">
+                              <div className="relative">
+                                <Shirt className="w-24 h-24" style={{ color: '#B9BCC2' }} />
+                                {/* 2x3 grid of 6 sponsor placeholders */}
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                  <div className="grid grid-cols-2 gap-1.5 w-10">
+                                    {[...Array(6)].map((_, i) => (
+                                      <div
+                                        key={i}
+                                        className="aspect-square rounded"
+                                        style={{
+                                          backgroundColor: '#E6E6E6',
+                                          border: '1px solid #D0D0D0'
+                                        }}
+                                      />
+                                    ))}
+                                  </div>
+                                </div>
+                              </div>
                               <div className="text-xs font-mono text-center mt-2 opacity-60">T-SHIRT BACK</div>
                             </div>
                           )}
