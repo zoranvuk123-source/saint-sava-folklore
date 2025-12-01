@@ -21,7 +21,7 @@ const Gallery = () => {
 
   const years = ["2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016"];
 
-  // Video data organized by year
+  // Video data organized by year (local MP4 files)
   const videoData = {
     "2017": [
       { src: "/gallery/2017/2017-01-30_1.mp4", title: "January 2017", year: "2017" }
@@ -30,7 +30,11 @@ const Gallery = () => {
       { src: "/gallery/2018/2018-05-22_1.mp4", title: "May 2018", year: "2018" }
     ],
     "2019": [
-      { src: "/gallery/2019/2019-02-25_1.mp4", title: "February 2019", year: "2019" }
+      { src: "/gallery/2019/2019-02-25_1.mp4", title: "February 2019", year: "2019" },
+      { src: "/gallery/2019/2019-03-02_1.mp4", title: "March 2019", year: "2019" }
+    ],
+    "2025": [
+      { src: "/gallery/2025/2025-05-24_1.mp4", title: "May 2025", year: "2025" }
     ]
   };
 
