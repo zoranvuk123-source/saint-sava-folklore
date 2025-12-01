@@ -71,6 +71,7 @@ const Gallery = () => {
       { src: "/gallery/2017/2017-05-30_2.jpg", alt: "May 2017" },
       { src: "/gallery/2017/2017-05-30_3.jpg", alt: "May 2017" },
       { src: "/gallery/2017/2017-05-30_4.jpg", alt: "May 2017" },
+      { src: "/gallery/2017/2017-05-30_5.jpg", alt: "May 2017" },
       { src: "/gallery/2017/2017-06-01_1.jpg", alt: "June 2017" },
       { src: "/gallery/2017/2017-06-16_1.jpg", alt: "June 2017" },
       { src: "/gallery/2017/2017-08-11_1.jpg", alt: "August 2017" },
@@ -86,12 +87,15 @@ const Gallery = () => {
       { src: "/gallery/2018/2018-05-22_1.jpg", alt: "May 2018" },
       { src: "/gallery/2018/2018-05-28_1.jpg", alt: "May 2018" },
       { src: "/gallery/2018/2018-05-28_2.jpg", alt: "May 2018" },
+      { src: "/gallery/2018/2018-05-28_3.jpg", alt: "May 2018" },
       { src: "/gallery/2018/2018-06-05_1.jpg", alt: "June 2018" },
       { src: "/gallery/2018/2018-11-16_1.jpg", alt: "November 2018" }
     ],
     "2019": [
       { src: "/gallery/2019/2019-02-05_1.jpg", alt: "February 2019" },
+      { src: "/gallery/2019/2019-03-04_1.jpg", alt: "March 2019" },
       { src: "/gallery/2019/2019-04-14_1.jpg", alt: "April 2019" },
+      { src: "/gallery/2019/2019-05-17_1.jpg", alt: "May 2019" },
       { src: "/gallery/2019/2019-05-28_1.jpg", alt: "May 2019" },
       { src: "/gallery/2019/2019-05-30_1.jpg", alt: "May 2019" },
       { src: "/gallery/2019/2019-06-03_1.jpg", alt: "June 2019" },
@@ -110,6 +114,8 @@ const Gallery = () => {
       { src: "/gallery/2022/2022-05-30_1.jpg", alt: "May 2022" }
     ],
     "2023": [
+      { src: "/gallery/2023/2023-02-04_2.jpg", alt: "February 2023" },
+      { src: "/gallery/2023/2023-02-04_3.jpg", alt: "February 2023" },
       { src: "/gallery/2023/2023-02-05_1.jpg", alt: "February 2023" },
       { src: "/gallery/2023/2023-05-28_1.jpg", alt: "May 2023" },
       { src: "/gallery/2023/2023-05-31_1.jpg", alt: "May 2023" },
