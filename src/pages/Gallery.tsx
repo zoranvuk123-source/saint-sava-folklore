@@ -58,6 +58,7 @@ const Gallery = () => {
   const galleryData = {
     "2016": [
       { src: "/gallery/2016/2016-12-25_1.jpg", alt: "December 2016" },
+      { src: "/gallery/2016/2016-12-25_2.jpg", alt: "December 2016" },
       { src: "/gallery/2016/2016-12-27_1.jpg", alt: "December 2016" },
       { src: "/gallery/2016/2016-12-30_1.jpg", alt: "December 2016" }
     ],
@@ -81,6 +82,8 @@ const Gallery = () => {
     "2018": [
       { src: "/gallery/2018/2018-02-04_1.jpg", alt: "February 2018" },
       { src: "/gallery/2018/2018-02-06_1.jpg", alt: "February 2018" },
+      { src: "/gallery/2018/2018-02-06_2.jpg", alt: "February 2018" },
+      { src: "/gallery/2018/2018-02-06_3.jpg", alt: "February 2018" },
       { src: "/gallery/2018/2018-04-14_1.jpg", alt: "April 2018" },
       { src: "/gallery/2018/2018-05-14_1.jpg", alt: "May 2018" },
       { src: "/gallery/2018/2018-05-14_2.jpg", alt: "May 2018" },
@@ -93,6 +96,7 @@ const Gallery = () => {
     ],
     "2019": [
       { src: "/gallery/2019/2019-02-05_1.jpg", alt: "February 2019" },
+      { src: "/gallery/2019/2019-02-27_1.jpg", alt: "February 2019" },
       { src: "/gallery/2019/2019-03-04_1.jpg", alt: "March 2019" },
       { src: "/gallery/2019/2019-04-14_1.jpg", alt: "April 2019" },
       { src: "/gallery/2019/2019-05-17_1.jpg", alt: "May 2019" },
