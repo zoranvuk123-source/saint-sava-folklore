@@ -101,6 +101,15 @@ const About = () => {
       
       <div className="container mx-auto px-4 py-12 max-w-6xl">
         
+        {/* Church Affiliation Introduction */}
+        <Card className="mb-8 border-0 shadow-card bg-primary/5">
+          <CardContent className="p-8">
+            <p className="text-lg leading-relaxed text-center">
+              {t("about.church.intro")}
+            </p>
+          </CardContent>
+        </Card>
+
         {/* Mission Statement */}
         <Card className="mb-12 border-0 shadow-card">
           <CardContent className="p-8">
