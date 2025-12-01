@@ -154,7 +154,7 @@ const translations = {
     "nav.contact": "Kontakt",
     
     // About Page
-    "about.church.intro": "Sveti Sava Oplenac je deo Sabora srpskih svetitelja, kao pridružena organizacija. Već decenijama smo sastavni deo zajednice. Mi smo neprofitna grupa sastavljena od volontera. To je jedna od stvari koja nas čini jedinstvenim i različitim od drugih ovakvih organizacija koje nisu povezane sa crkvom. Otvoreni smo za sve i pozdravljamo vas da budete deo Sveti Sava Oplenac.",
+    "about.church.intro": "Sveti Sava Oplenac je deo Sabora srpskih svetitelja, kao pridružena organizacija. Već decenijama smo sastavni deo zajednice. Mi smo neprofitna grupa sastavljena od volontera - što je jedna od stvari koja nas čini jedinstvenim i različitim od drugih ovakvih organizacija koje nisu povezane sa crkvom. Kao volonterska organizacija, pružamo jedinstvenu priliku članovima da se pridruže i daju od sebe, grade veze, stiču nova iskustva i doprinose izgradnji zajednice. Kroz to gradimo tradiciju, prijateljstva i kontinuiran legat - nastavljamo tamo gde je prethodna generacija stala i prenosimo ga na sledeću. Otvoreni smo za sve i pozdravljamo vas da budete deo Sveti Sava Oplenac.",
     "about.mission": "Čuvamo srpsku kulturnu tradiciju kroz igru, muziku i zajednicu. Želimo da sve generacije mogu da uče, rastu i slave naše nasleđe.",
     "about.team.title": "Trenutni tim",
     "about.president": "Predsednik",
@@ -361,7 +361,7 @@ const translations = {
     "nav.contact": "Контакт",
     
     // About Page
-    "about.church.intro": "Свети Сава Опленац је део Сабора српских светитеља, као придружена организација. Већ деценијама смо саставни део заједнице. Ми смо непрофитна група састављена од волонтера. То је једна од ствари која нас чини јединственим и различитим од других оваквих организација које нису повезане са црквом. Отворени смо за све и поздрављамо вас да будете део Свети Сава Опленац.",
+    "about.church.intro": "Свети Сава Опленац је део Сабора српских светитеља, као придружена организација. Већ деценијама смо саставни део заједнице. Ми смо непрофитна група састављена од волонтера - што је једна од ствари која нас чини јединственим и различитим од других оваквих организација које нису повезане са црквом. Као волонтерска организација, пружамо јединствену прилику члановима да се придруже и дају од себе, граде везе, стичу нова искуства и доприносе изградњи заједнице. Кроз то градимо традицију, пријатељства и континуиран легат - настављамо тамо где је претходна генерација стала и преносимо га на следећу. Отворени смо за све и поздрављамо вас да будете део Свети Сава Опленац.",
     "about.mission": "Чувамо српску културну традицију кроз игру, музику и заједницу. Желимо да све генерације могу да уче, расту и славе наше наслеђе.",
     "about.team.title": "Тренутни тим",
     "about.president": "Председник",
@@ -568,7 +568,7 @@ const translations = {
     "nav.contact": "Contact",
     
     // About Page
-    "about.church.intro": "Sveti Sava Oplenac is a part of All Saints Serbian Orthodox Church, as an affiliate organization. We have been an integral part of the community for decades. We are a non-profit group, made up of volunteers. It is one of the things that makes us unique and different from other such organizations, which are non-church affiliated. We are open to all and welcome you to be a part of Sveti Sava Oplenac.",
+    "about.church.intro": "Sveti Sava Oplenac is a part of All Saints Serbian Orthodox Church, as an affiliate organization. We have been an integral part of the community for decades. We are a non-profit group, made up of volunteers - which is one of the things that makes us unique and different from other such organizations that are non-church affiliated. As a volunteer organization, we provide a unique opportunity for members to join and give of themselves, build connections, gain new experiences, and contribute to building a community. Through this, we build tradition, friendships, and a continuing legacy - picking up where the previous generation left off and passing it on to the next one. We are open to all and welcome you to be a part of Sveti Sava Oplenac.",
     "about.mission": "We nurture Serbian cultural traditions through dance, music, and community, providing a space where all generations can learn, grow, and celebrate our heritage.",
     "about.team.title": "Current Team",
     "about.president": "President",
