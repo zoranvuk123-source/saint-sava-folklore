@@ -116,32 +116,34 @@ const About = () => {
             <Users className="w-8 h-8 text-primary" />
             <h2 className="text-3xl font-bold">{t("about.team.title")}</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {teamMembers.map((member, index) => (
               <Card key={index} className="border-0 shadow-card hover:shadow-elegant transition-all">
-                <CardHeader>
-                  <CardTitle className="text-lg">{member.role}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col items-center gap-3">
-                  {member.images ? (
-                    <div className="flex gap-2">
-                      {member.images.map((img, i) => (
-                        <img 
-                          key={i}
-                          src={img} 
-                          alt={member.name.split(' I ')[i]} 
-                          className="w-24 h-24 rounded-full object-cover grayscale hover:grayscale-0 transition-all"
-                        />
-                      ))}
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-4">
+                    {member.images ? (
+                      <div className="flex gap-2 flex-shrink-0">
+                        {member.images.map((img, i) => (
+                          <img 
+                            key={i}
+                            src={img} 
+                            alt={member.name.split(' I ')[i]} 
+                            className="w-20 h-20 rounded-full object-cover transition-transform hover:scale-105"
+                          />
+                        ))}
+                      </div>
+                    ) : member.image && (
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="w-20 h-20 rounded-full object-cover flex-shrink-0 transition-transform hover:scale-105"
+                      />
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg font-semibold mb-1">{member.role}</h3>
+                      <p className="text-muted-foreground">{member.name}</p>
                     </div>
-                  ) : member.image && (
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
-                      className="w-24 h-24 rounded-full object-cover grayscale hover:grayscale-0 transition-all"
-                    />
-                  )}
-                  <p className="text-muted-foreground text-center">{member.name}</p>
+                  </div>
                 </CardContent>
               </Card>
             ))}
