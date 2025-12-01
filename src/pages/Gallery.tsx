@@ -13,11 +13,6 @@ const Gallery = () => {
   const [storagePhotos, setStoragePhotos] = useState<{ src: string; alt: string; year: string }[]>([]);
   const [storageVideos, setStorageVideos] = useState<{ src: string; title: string; year: string }[]>([]);
   const [loading, setLoading] = useState(true);
-  const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
-
-  const handleImageError = (src: string) => {
-    setFailedImages(prev => new Set(prev).add(src));
-  };
 
   const years = ["2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016"];
 
@@ -313,7 +308,7 @@ const Gallery = () => {
                         src={photo.src}
                         alt={photo.alt}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        onError={() => handleImageError(photo.src)}
+                        loading="lazy"
                       />
                     </div>
                   ))}
