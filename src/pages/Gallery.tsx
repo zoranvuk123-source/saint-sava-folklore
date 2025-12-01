@@ -312,6 +312,10 @@ const Gallery = () => {
                         alt={photo.alt}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         loading="lazy"
+                        onError={(e) => {
+                          // Hide images that fail to load so captions don't float alone
+                          e.currentTarget.style.display = "none";
+                        }}
                       />
                     </div>
                   ))}
