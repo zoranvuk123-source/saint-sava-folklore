@@ -4,6 +4,11 @@ import Header from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Music, Calendar } from "lucide-react";
 import { useEffect, useState } from "react";
+import vanjaImg from "@/assets/team/vanja.jpg";
+import julieImg from "@/assets/team/julie.jpg";
+import marijaImg from "@/assets/team/marija.jpg";
+import angelinaImg from "@/assets/team/angelina.jpg";
+import laraImg from "@/assets/team/lara.jpg";
 
 const About = () => {
   const { t } = useLanguage();
@@ -19,10 +24,10 @@ const About = () => {
   }, []);
 
   const teamMembers = [
-    { role: t("about.president"), name: "Vanja Luboje" },
-    { role: t("about.vicePresident"), name: "Julie Vukasovic" },
-    { role: t("about.treasurer"), name: "Marija Banakos" },
-    { role: t("about.secretary"), name: "Angelina Racic I Lara Marinkovic" },
+    { role: t("about.president"), name: "Vanja Luboje", image: vanjaImg },
+    { role: t("about.vicePresident"), name: "Julie Vukasovic", image: julieImg },
+    { role: t("about.treasurer"), name: "Marija Banakos", image: marijaImg },
+    { role: t("about.secretary"), name: "Angelina Racic I Lara Marinkovic", images: [angelinaImg, laraImg] },
   ];
 
   const choreographers = [
@@ -117,8 +122,26 @@ const About = () => {
                 <CardHeader>
                   <CardTitle className="text-lg">{member.role}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{member.name}</p>
+                <CardContent className="flex flex-col items-center gap-3">
+                  {member.images ? (
+                    <div className="flex gap-2">
+                      {member.images.map((img, i) => (
+                        <img 
+                          key={i}
+                          src={img} 
+                          alt={member.name.split(' I ')[i]} 
+                          className="w-16 h-16 rounded-full object-cover grayscale hover:grayscale-0 transition-all"
+                        />
+                      ))}
+                    </div>
+                  ) : member.image && (
+                    <img 
+                      src={member.image} 
+                      alt={member.name} 
+                      className="w-16 h-16 rounded-full object-cover grayscale hover:grayscale-0 transition-all"
+                    />
+                  )}
+                  <p className="text-muted-foreground text-center">{member.name}</p>
                 </CardContent>
               </Card>
             ))}
