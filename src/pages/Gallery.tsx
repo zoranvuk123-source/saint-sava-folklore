@@ -134,11 +134,17 @@ const Gallery = () => {
     ],
     "2024": [
       { src: "/gallery/2024/2024-02-04_1.jpg", alt: "February 2024" },
+      { src: "/gallery/2024/2024-02-04_2.jpg", alt: "February 2024" },
+      { src: "/gallery/2024/2024-02-12_1.jpg", alt: "February 2024" },
+      { src: "/gallery/2024/2024-02-12_2.jpg", alt: "February 2024" },
+      { src: "/gallery/2024/2024-02-12_3.jpg", alt: "February 2024" },
       { src: "/gallery/2024/2024-05-26_1.jpg", alt: "May 2024" },
-      { src: "/gallery/2024/2024-06-02_1.jpg", alt: "June 2024" }
+      { src: "/gallery/2024/2024-06-02_1.jpg", alt: "June 2024" },
+      { src: "/gallery/2024/2024-11-25_1.jpg", alt: "November 2024" }
     ],
     "2025": [
       { src: "/gallery/2025/2025-02-02_1.jpg", alt: "February 2025" },
+      { src: "/gallery/2025/2025-02-24_1.jpg", alt: "February 2025" },
       { src: "/gallery/2025/2025-02-24_2.jpg", alt: "February 2025" },
       { src: "/gallery/2025/2025-03-15_1.jpg", alt: "March 2025" },
       { src: "/gallery/2025/2025-03-15_2.jpg", alt: "March 2025" },
