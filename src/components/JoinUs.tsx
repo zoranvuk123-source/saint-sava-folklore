@@ -79,7 +79,7 @@ const JoinUs = () => {
           <p className="text-muted-foreground">{t("join.location.description")}</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {groups.map((group, index) => (
             <Card key={index} className="overflow-hidden border-0 shadow-card hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 group/card">
               <div className="relative">
