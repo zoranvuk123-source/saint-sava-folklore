@@ -252,9 +252,7 @@ const Gallery = () => {
                 </div>
               ) : (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {getFilteredPhotos()
-                    .filter(photo => !failedImages.has(photo.src))
-                    .map((photo, index) => (
+                  {getFilteredPhotos().map((photo, index) => (
                     <div
                       key={index}
                       className="group relative overflow-hidden rounded-lg aspect-square cursor-pointer transition-all duration-300 hover:shadow-elegant hover:-translate-y-1"
