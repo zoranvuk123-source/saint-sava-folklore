@@ -107,6 +107,8 @@ const Gallery = () => {
       { src: "/gallery/2019/2019-11-03_1.jpg", alt: "November 2019" }
     ],
     "2020": [
+      { src: "/gallery/2020/2020-01-26_1.jpg", alt: "January 2020" },
+      { src: "/gallery/2020/2020-01-26_2.jpg", alt: "January 2020" },
       { src: "/gallery/2020/2020-02-11_1.jpg", alt: "February 2020" }
     ],
     "2021": [
