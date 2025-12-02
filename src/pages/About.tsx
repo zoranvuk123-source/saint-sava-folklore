@@ -9,6 +9,7 @@ import julieImg from "@/assets/team/julie.jpg";
 import marijaImg from "@/assets/team/marija.jpg";
 import angelinaLaraImg from "@/assets/team/angelina-lara-combined.jpg";
 import boardGroupImg from "@/assets/team/board-group-2025.jpg";
+import desaDjoninImg from "@/assets/team/desa-djonin.jpg";
 
 const About = () => {
   const { t } = useLanguage();
@@ -32,9 +33,10 @@ const About = () => {
 
   const choreographers = [
     { 
-      name: "Desa Dzonin", 
+      name: "Desa Djonin", 
       background: t("about.choreographer.desa"),
-      groups: t("about.choreographer.groups")
+      groups: t("about.choreographer.groups"),
+      image: desaDjoninImg
     },
     { 
       name: "Ivan Stanisic", 
@@ -172,11 +174,18 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {choreographers.map((choreo, index) => (
               <Card key={index} className="border-0 shadow-card">
-                <CardHeader>
-                  <CardTitle>{choreo.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <p className="text-sm">{choreo.background}</p>
+                <CardContent className="p-6">
+                  {choreo.image && (
+                    <div className="flex justify-center mb-4">
+                      <img 
+                        src={choreo.image} 
+                        alt={choreo.name} 
+                        className="w-32 h-32 object-cover rounded-full"
+                      />
+                    </div>
+                  )}
+                  <h3 className="text-xl font-semibold mb-3 text-center">{choreo.name}</h3>
+                  <p className="text-sm mb-2">{choreo.background}</p>
                   <p className="text-sm text-muted-foreground">{choreo.groups}</p>
                 </CardContent>
               </Card>
