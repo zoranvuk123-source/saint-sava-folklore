@@ -10,6 +10,7 @@ import marijaImg from "@/assets/team/marija.jpg";
 import angelinaLaraImg from "@/assets/team/angelina-lara-combined.jpg";
 import boardGroupImg from "@/assets/team/board-group-2025.jpg";
 import desaDjoninImg from "@/assets/team/desa-djonin.jpg";
+import ivanStanisicImg from "@/assets/team/ivan-stanisic.jpg";
 
 const About = () => {
   const { t } = useLanguage();
@@ -41,7 +42,8 @@ const About = () => {
     { 
       name: "Ivan Stanisic", 
       background: t("about.choreographer.ivan"),
-      groups: t("about.choreographer.groups")
+      groups: t("about.choreographer.groups"),
+      image: ivanStanisicImg
     },
     { 
       name: "Teodora Vojovic", 
