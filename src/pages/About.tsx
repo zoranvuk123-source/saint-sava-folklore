@@ -183,7 +183,7 @@ const About = () => {
                 <CardContent className="p-6">
                   {choreo.image && (
                     <div className="flex justify-center mb-4">
-                      <div className="w-40 h-40 rounded-full bg-white p-2 flex items-center justify-center">
+                      <div className="w-40 h-40 rounded-full bg-white p-2 flex items-center justify-center border-2 border-primary/30">
                         <img 
                           src={choreo.image} 
                           alt={choreo.name} 
