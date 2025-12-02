@@ -12,6 +12,7 @@ import boardGroupImg from "@/assets/team/board-group-2025.jpg";
 import desaDjoninImg from "@/assets/team/desa-djonin.jpg";
 import ivanStanisicImg from "@/assets/team/ivan-stanisic.jpg";
 import angelikaJanicImg from "@/assets/team/angelika-janic-jakopovic.jpg";
+import teodoraVojovicImg from "@/assets/team/teodora-vojovic.jpg";
 
 const About = () => {
   const { t } = useLanguage();
@@ -49,7 +50,8 @@ const About = () => {
     { 
       name: "Teodora Vojovic", 
       background: t("about.choreographer.teodora"),
-      groups: t("about.choreographer.groups")
+      groups: t("about.choreographer.groups"),
+      image: teodoraVojovicImg
     },
     { 
       name: "Angelika Janic Jakopovic", 
@@ -181,12 +183,14 @@ const About = () => {
                 <CardContent className="p-6">
                   {choreo.image && (
                     <div className="flex justify-center mb-4">
-                      <img 
-                        src={choreo.image} 
-                        alt={choreo.name} 
-                        className="w-40 h-40 object-cover rounded-full"
-                        style={{ imageRendering: 'auto' }}
-                      />
+                      <div className="w-40 h-40 rounded-full bg-white p-2 flex items-center justify-center">
+                        <img 
+                          src={choreo.image} 
+                          alt={choreo.name} 
+                          className="w-full h-full object-cover rounded-full"
+                          style={{ imageRendering: 'auto' }}
+                        />
+                      </div>
                     </div>
                   )}
                   <h3 className="text-xl font-semibold mb-3 text-center">{choreo.name}</h3>
