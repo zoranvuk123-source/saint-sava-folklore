@@ -11,6 +11,7 @@ import angelinaLaraImg from "@/assets/team/angelina-lara-combined.jpg";
 import boardGroupImg from "@/assets/team/board-group-2025.jpg";
 import desaDjoninImg from "@/assets/team/desa-djonin.jpg";
 import ivanStanisicImg from "@/assets/team/ivan-stanisic.jpg";
+import angelikaJanicImg from "@/assets/team/angelika-janic-jakopovic.jpg";
 
 const About = () => {
   const { t } = useLanguage();
@@ -53,7 +54,8 @@ const About = () => {
     { 
       name: "Angelika Janic Jakopovic", 
       background: t("about.choreographer.angelika"),
-      groups: t("about.choreographer.groups")
+      groups: t("about.choreographer.groups"),
+      image: angelikaJanicImg
     }
   ];
 
