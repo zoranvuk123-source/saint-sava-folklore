@@ -13,6 +13,7 @@ import desaDjoninImg from "@/assets/team/desa-djonin.jpg";
 import ivanStanisicImg from "@/assets/team/ivan-stanisic.jpg";
 import angelikaJanicImg from "@/assets/team/angelika-janic-jakopovic.jpg";
 import teodoraVojovicImg from "@/assets/team/teodora-vojovic.jpg";
+import acoDosenImg from "@/assets/team/aco-dosen.jpg";
 
 const About = () => {
   const { t } = useLanguage();
@@ -32,6 +33,7 @@ const About = () => {
     { role: t("about.vicePresident"), name: "Julie Vukasovic", image: julieImg },
     { role: t("about.treasurer"), name: "Marija Banakos", image: marijaImg },
     { role: t("about.secretary"), name: "Angelina Racic I Lara Marinkovic", image: angelinaLaraImg },
+    { role: t("about.recruitmentCoordinator"), name: "Aco Dosen", image: acoDosenImg },
   ];
 
   const choreographers = [
