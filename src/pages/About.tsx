@@ -44,19 +44,19 @@ const About = () => {
     { 
       name: "Ivan Stanisic", 
       background: t("about.choreographer.ivan"),
-      groups: t("about.choreographer.groups"),
+      groups: t("join.group1"),
       image: ivanStanisicImg
     },
     { 
       name: "Teodora Vojovic", 
       background: t("about.choreographer.teodora"),
-      groups: t("about.choreographer.groups"),
+      groups: t("join.group3"),
       image: teodoraVojovicImg
     },
     { 
       name: "Angelika Janic Jakopovic", 
       background: t("about.choreographer.angelika"),
-      groups: t("about.choreographer.groups"),
+      groups: t("join.group2"),
       image: angelikaJanicImg
     }
   ];
