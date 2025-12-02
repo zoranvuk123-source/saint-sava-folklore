@@ -184,7 +184,8 @@ const About = () => {
                       <img 
                         src={choreo.image} 
                         alt={choreo.name} 
-                        className="w-32 h-32 object-cover rounded-full"
+                        className="w-40 h-40 object-cover rounded-full"
+                        style={{ imageRendering: 'auto' }}
                       />
                     </div>
                   )}
