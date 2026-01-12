@@ -44,6 +44,8 @@ const Header = () => {
     { path: "/contact", label: t("nav.contact") },
   ];
 
+  const storeUrl = "https://sveti-sava-folklore.printify.me/";
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -71,6 +73,14 @@ const Header = () => {
               {item.label}
             </Link>
           ))}
+          <a
+            href={storeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
+          >
+            {t("nav.store")}
+          </a>
           
           {/* Desktop Language Toggle */}
           <DropdownMenu>
@@ -136,6 +146,15 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
+            <a
+              href={storeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
+            >
+              {t("nav.store")}
+            </a>
             
             {/* Mobile Language Toggle */}
             <div className="pt-2 border-t">

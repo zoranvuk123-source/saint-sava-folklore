@@ -152,6 +152,7 @@ const translations = {
     "nav.community": "Zajednica",
     "nav.calendar": "Kalendar",
     "nav.contact": "Kontakt",
+    "nav.store": "Prodavnica",
     
     // About Page
     "about.church.intro": "Sveti Sava Oplenac je deo Sabora srpskih svetitelja, kao pridružena organizacija. Već decenijama smo sastavni deo zajednice. Mi smo neprofitna grupa sastavljena od volontera - što je jedna od stvari koja nas čini jedinstvenim i različitim od drugih ovakvih organizacija koje nisu povezane sa crkvom. Kao volonterska organizacija, pružamo jedinstvenu priliku članovima da se pridruže i daju od sebe, grade veze, stiču nova iskustva i doprinose izgradnji zajednice. Kroz to gradimo tradiciju, prijateljstva i kontinuiran legat - nastavljamo tamo gde je prethodna generacija stala i prenosimo ga na sledeću. Otvoreni smo za sve i pozdravljamo vas da budete deo Sveti Sava Oplenac.",
@@ -360,6 +361,7 @@ const translations = {
     "nav.community": "Заједница",
     "nav.calendar": "Календар",
     "nav.contact": "Контакт",
+    "nav.store": "Продавница",
     
     // About Page
     "about.church.intro": "Свети Сава Опленац је део Сабора српских светитеља, као придружена организација. Већ деценијама смо саставни део заједнице. Ми смо непрофитна група састављена од волонтера - што је једна од ствари која нас чини јединственим и различитим од других оваквих организација које нису повезане са црквом. Као волонтерска организација, пружамо јединствену прилику члановима да се придруже и дају од себе, граде везе, стичу нова искуства и доприносе изградњи заједнице. Кроз то градимо традицију, пријатељства и континуиран легат - настављамо тамо где је претходна генерација стала и преносимо га на следећу. Отворени смо за све и поздрављамо вас да будете део Свети Сава Опленац.",
@@ -568,6 +570,7 @@ const translations = {
     "nav.community": "Community",
     "nav.calendar": "Calendar",
     "nav.contact": "Contact",
+    "nav.store": "Store",
     
     // About Page
     "about.church.intro": "Sveti Sava Oplenac is a part of All Saints Serbian Orthodox Church, as an affiliate organization. We have been an integral part of the community for decades. We are a non-profit group, made up of volunteers - which is one of the things that makes us unique and different from other such organizations that are non-church affiliated. As a volunteer organization, we provide a unique opportunity for members to join and give of themselves, build connections, gain new experiences, and contribute to building a community. Through this, we build tradition, friendships, and a continuing legacy - picking up where the previous generation left off and passing it on to the next one. We are open to all and welcome you to be a part of Sveti Sava Oplenac.",
