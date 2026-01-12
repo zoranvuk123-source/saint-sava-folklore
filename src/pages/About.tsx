@@ -9,7 +9,7 @@ import julieImg from "@/assets/team/julie.jpg";
 import marijaImg from "@/assets/team/marija.jpg";
 import angelinaLaraImg from "@/assets/team/angelina-lara-combined.jpg";
 import boardGroupImg from "@/assets/team/board-group-2025.jpg";
-import desaDjoninImg from "@/assets/team/desa-djonin.jpg";
+
 import ivanStanisicImg from "@/assets/team/ivan-stanisic.jpg";
 import angelikaJanicImg from "@/assets/team/angelika-janic-jakopovic.jpg";
 import teodoraVojovicImg from "@/assets/team/teodora-vojovic.jpg";
@@ -37,12 +37,6 @@ const About = () => {
   ];
 
   const choreographers = [
-    { 
-      name: "Desa Djonin", 
-      background: t("about.choreographer.desa"),
-      groups: t("about.choreographer.groups"),
-      image: desaDjoninImg
-    },
     { 
       name: "Ivan Stanisic", 
       background: t("about.choreographer.ivan"),
