@@ -1,0 +1,28 @@
+name: Deploy to GoDaddy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+
+    - name: 🔨 Build Site
+      run: |
+        npm install
+        npm run build
+
+    - name: 📂 Sync to GoDaddy
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./dist/
+        server-dir: ./
