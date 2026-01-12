@@ -78,6 +78,7 @@ const VideoThumbnail = ({ videoId, title }: { videoId: string; title: string }) 
       alt={`${title} - Serbian kolo dance performance video thumbnail`}
       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
       onError={handleError}
+      loading="lazy"
     />
   );
 };

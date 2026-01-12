@@ -85,7 +85,7 @@ const JoinUs = () => {
               <div className="relative">
                 <div className="grid grid-cols-2 gap-0.5">
                   <div className="aspect-square overflow-hidden">
-                    <img src={groupImages[index]} alt={`${group.name} dancers`} className={`w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110 ${index === 0 ? 'object-top' : ''}`} />
+                    <img src={groupImages[index]} alt={`${group.name} - Serbian folklore dancers in traditional costumes Toronto`} className={`w-full h-full object-cover transition-transform duration-500 group-hover/card:scale-110 ${index === 0 ? 'object-top' : ''}`} loading="lazy" />
                   </div>
                   <div className={`aspect-square flex flex-col items-center justify-center bg-gradient-to-br ${group.color} p-4`}>
                     <h3 className="text-xl md:text-2xl font-bold text-center leading-tight mb-2">{group.name}</h3>
@@ -106,7 +106,7 @@ const JoinUs = () => {
 
         <div className="relative overflow-hidden bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-2xl">
           <div className="absolute inset-0">
-            <img src="https://svetisavaoplenac.ca/wp-content/uploads/2024/10/IMG_3983-scaled-600x400.jpg" alt="Serbian Folklore Dancers" className="w-full h-full object-cover opacity-20" />
+            <img src="https://svetisavaoplenac.ca/wp-content/uploads/2024/10/IMG_3983-scaled-600x400.jpg" alt="Serbian Folklore Dancers performing traditional kolo dance" className="w-full h-full object-cover opacity-20" loading="lazy" />
           </div>
           <div className="relative z-10 p-8 md:p-12 text-center">
             <Users className="w-16 h-16 mx-auto mb-4" />
