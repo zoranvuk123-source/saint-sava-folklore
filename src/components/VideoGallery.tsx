@@ -1,11 +1,12 @@
 import { Play } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useState } from "react";
 
 interface Video {
   title: string;
   url: string;
-  thumbnail: string;
+  videoId: string;
   category: string;
 }
 
@@ -13,40 +14,73 @@ const videos: Video[] = [
   {
     title: "Group 1 Kriva Reka Performance",
     url: "https://www.youtube.com/watch?v=JNq9Z4KbN4A",
-    thumbnail: "https://img.youtube.com/vi/JNq9Z4KbN4A/maxresdefault.jpg",
+    videoId: "JNq9Z4KbN4A",
     category: "Dance"
   },
   {
     title: "Group 1 Igre iz Bujanovca",
-    url: "https://youtu.be/Gc9jhgSfoPU?si=yX0CiI55yNK5JLpL",
-    thumbnail: "https://img.youtube.com/vi/Gc9jhgSfoPU/maxresdefault.jpg",
+    url: "https://youtu.be/Gc9jhgSfoPU",
+    videoId: "Gc9jhgSfoPU",
     category: "Dance"
   },
   {
     title: "Group 2 Sumadija Performance",
     url: "https://youtu.be/Vk_WxtYyDao",
-    thumbnail: "https://img.youtube.com/vi/Vk_WxtYyDao/maxresdefault.jpg",
+    videoId: "Vk_WxtYyDao",
     category: "Dance"
   },
   {
     title: "Pavilion Serbia",
     url: "https://www.youtube.com/watch?v=CdPAdGP1VO4",
-    thumbnail: "https://img.youtube.com/vi/CdPAdGP1VO4/maxresdefault.jpg",
+    videoId: "CdPAdGP1VO4",
     category: "Carassauga Festival"
   },
   {
     title: "Festival Performance",
     url: "https://youtu.be/wZV5mekOx2s",
-    thumbnail: "https://img.youtube.com/vi/wZV5mekOx2s/maxresdefault.jpg",
+    videoId: "wZV5mekOx2s",
     category: "Carassauga Festival"
   },
   {
     title: "Costumes Fashion Show",
-    url: "https://youtu.be/4-Yx_ZaXi-k?si=KUeFk3sR4uXd3uBs",
-    thumbnail: "https://img.youtube.com/vi/4-Yx_ZaXi-k/maxresdefault.jpg",
+    url: "https://youtu.be/4-Yx_ZaXi-k",
+    videoId: "4-Yx_ZaXi-k",
     category: "Carassauga Festival"
   }
 ];
+
+// Helper to get YouTube thumbnail with fallback
+const getYouTubeThumbnail = (videoId: string, quality: 'maxres' | 'hq' | 'mq' | 'sd' = 'hq') => {
+  const qualityMap = {
+    maxres: 'maxresdefault',
+    hq: 'hqdefault',
+    mq: 'mqdefault',
+    sd: 'sddefault'
+  };
+  return `https://img.youtube.com/vi/${videoId}/${qualityMap[quality]}.jpg`;
+};
+
+const VideoThumbnail = ({ videoId, title }: { videoId: string; title: string }) => {
+  const [imgSrc, setImgSrc] = useState(getYouTubeThumbnail(videoId, 'maxres'));
+  const [fallbackIndex, setFallbackIndex] = useState(0);
+  const fallbacks = ['hq', 'mq', 'sd'] as const;
+
+  const handleError = () => {
+    if (fallbackIndex < fallbacks.length) {
+      setImgSrc(getYouTubeThumbnail(videoId, fallbacks[fallbackIndex]));
+      setFallbackIndex(prev => prev + 1);
+    }
+  };
+
+  return (
+    <img
+      src={imgSrc}
+      alt={`${title} - Serbian kolo dance performance video thumbnail`}
+      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+      onError={handleError}
+    />
+  );
+};
 
 const VideoGallery = () => {
   const { t } = useLanguage();
@@ -75,11 +109,7 @@ const VideoGallery = () => {
               <Card className="video-card overflow-hidden border-0">
                 <CardContent className="p-0 relative">
                   <div className="relative aspect-video overflow-hidden">
-                    <img
-                      src={video.thumbnail}
-                      alt={video.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
+                    <VideoThumbnail videoId={video.videoId} title={video.title} />
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     
