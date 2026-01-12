@@ -162,7 +162,8 @@ const About = () => {
                         imageRendering: 'auto',
                         filter: 'contrast(1.02) brightness(1.01)',
                         WebkitBackfaceVisibility: 'hidden',
-                        backfaceVisibility: 'hidden'
+                        backfaceVisibility: 'hidden',
+                        objectPosition: member.name.includes('Marija') ? 'top' : 'center'
                       }}
                       loading="eager"
                     />
