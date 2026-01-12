@@ -11,8 +11,8 @@ interface LanguageContextType {
 const translations = {
   "sr-latin": {
     // Hero
-    "hero.headline1": "Srpski Folklor",
-    "hero.headline2": "u Srcu Ontarija",
+    "hero.headline1": "Proslavite",
+    "hero.headline2": "Srpsku Kulturu",
     "hero.tagline": "Sveti Sava Oplenac — Dobrodošli u našu folklornu porodicu",
     "hero.subtitle": "Kolo ples i srpska tradicija u Torontu, Mississaugi i GTA. Časovi za sve uzraste.",
     "hero.explore": "Pogledajte galeriju",
@@ -221,8 +221,8 @@ const translations = {
   },
   "sr-cyrillic": {
     // Hero
-    "hero.headline1": "Српски Фолклор",
-    "hero.headline2": "у Срцу Онтарија",
+    "hero.headline1": "Прославите",
+    "hero.headline2": "Српску Културу",
     "hero.tagline": "Свети Сава Опленац — Добродошли у нашу фолклорну породицу",
     "hero.subtitle": "Коло плес и српска традиција у Торонту, Мисисауги и GTA. Часови за све узрасте.",
     "hero.explore": "Погледајте галерију",
@@ -431,8 +431,8 @@ const translations = {
   },
   en: {
     // Hero
-    "hero.headline1": "Celebrating Serbian Culture",
-    "hero.headline2": "in the Heart of Ontario",
+    "hero.headline1": "Celebrate",
+    "hero.headline2": "Serbian Culture",
     "hero.tagline": "Sveti Sava Oplenac — Welcome to Our Folklore Family",
     "hero.subtitle": "Kolo dance classes & Serbian traditions in Toronto, Mississauga & the GTA. All ages welcome.",
     "hero.explore": "Explore Gallery",
