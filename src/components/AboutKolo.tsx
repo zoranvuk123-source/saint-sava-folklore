@@ -10,8 +10,9 @@ const AboutKolo = () => {
       <div className="absolute inset-0">
         <img 
           src="https://svetisavaoplenac.ca/wp-content/uploads/2023/11/Carassauga-May-2023-600x400.jpg"
-          alt="Kolo dance background"
+          alt="Serbian kolo dance background - traditional folk dance performance"
           className="w-full h-full object-cover opacity-5"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-muted/80 via-background/95 to-background" />
       </div>
@@ -40,8 +41,9 @@ const AboutKolo = () => {
             <div className="relative">
               <img 
                 src={serbianPattern} 
-                alt="Serbian Traditional Pattern" 
+                alt="Serbian Traditional Pattern - decorative folk art motif" 
                 className="w-80 h-80 drop-shadow-2xl"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl -z-10" />
             </div>

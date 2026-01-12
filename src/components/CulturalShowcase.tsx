@@ -57,8 +57,9 @@ const CulturalShowcase = () => {
                 <div className="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden shadow-card hover:shadow-elegant transition-all duration-300 hover:scale-105 bg-transparent">
                   <img
                     src={row.badge}
-                    alt={row.title}
+                    alt={`${row.title} - Serbian folklore cultural value badge`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -73,8 +74,9 @@ const CulturalShowcase = () => {
                     <div className="w-full h-full overflow-hidden">
                       <img
                         src={photo}
-                        alt={`${row.title} ${photoIndex + 1}`}
+                        alt={`${row.title} - Serbian folklore dancers Toronto performance ${photoIndex + 1}`}
                         className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy"
                       />
                     </div>
                   </div>
