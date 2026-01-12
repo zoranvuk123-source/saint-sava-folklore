@@ -11,9 +11,10 @@ interface LanguageContextType {
 const translations = {
   "sr-latin": {
     // Hero
-    "hero.celebrate": "Proslavite",
-    "hero.serbian.culture": "Srpsku Kulturu",
-    "hero.subtitle": "Otkrijte bogate tradicije folklorne grupe Sveti Sava Oplenac kroz igru, muziku i zajednicu",
+    "hero.headline1": "Srpski Folklor",
+    "hero.headline2": "u Srcu Ontarija",
+    "hero.tagline": "Sveti Sava Oplenac — Dobrodošli u našu folklornu porodicu",
+    "hero.subtitle": "Kolo ples i srpska tradicija u Torontu, Mississaugi i GTA. Časovi za sve uzraste.",
     "hero.explore": "Pogledajte galeriju",
     "hero.photos": "Prelistajte fotografije",
     
@@ -220,9 +221,10 @@ const translations = {
   },
   "sr-cyrillic": {
     // Hero
-    "hero.celebrate": "Прославите",
-    "hero.serbian.culture": "Српску Културу",
-    "hero.subtitle": "Откријте богате традиције фолклорне групе Свети Сава Опленац кроз игру, музику и заједницу",
+    "hero.headline1": "Српски Фолклор",
+    "hero.headline2": "у Срцу Онтарија",
+    "hero.tagline": "Свети Сава Опленац — Добродошли у нашу фолклорну породицу",
+    "hero.subtitle": "Коло плес и српска традиција у Торонту, Мисисауги и GTA. Часови за све узрасте.",
     "hero.explore": "Погледајте галерију",
     "hero.photos": "Прелистајте фотографије",
     
@@ -429,9 +431,10 @@ const translations = {
   },
   en: {
     // Hero
-    "hero.celebrate": "Celebrate",
-    "hero.serbian.culture": "Serbian Culture",
-    "hero.subtitle": "Explore the vibrant traditions of Sv Sava Oplenac Folklorna Grupa through dance, music, and community",
+    "hero.headline1": "Celebrating Serbian Culture",
+    "hero.headline2": "in the Heart of Ontario",
+    "hero.tagline": "Sveti Sava Oplenac — Welcome to Our Folklore Family",
+    "hero.subtitle": "Kolo dance classes & Serbian traditions in Toronto, Mississauga & the GTA. All ages welcome.",
     "hero.explore": "Explore Gallery",
     "hero.photos": "View Photos",
     

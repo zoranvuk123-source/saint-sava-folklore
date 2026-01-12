@@ -65,14 +65,17 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto">
           {/* Text Content */}
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up">
-              {t("hero.celebrate")}
-              <span className="block text-primary">{t("hero.serbian.culture")}</span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up">
+              {t("hero.headline1")}
+              <span className="block text-primary">{t("hero.headline2")}</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-foreground/80 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            <p className="text-lg md:text-xl mb-2 text-foreground/90 font-medium animate-fade-in" style={{ animationDelay: "0.2s" }}>
+              {t("hero.tagline")}
+            </p>
+            <p className="text-base md:text-lg mb-8 text-foreground/70 animate-fade-in" style={{ animationDelay: "0.3s" }}>
               {t("hero.subtitle")}
             </p>
-            <div className="flex flex-wrap gap-4 justify-center animate-fade-in" style={{ animationDelay: "0.4s" }}>
+            <div className="flex flex-wrap gap-4 justify-center animate-fade-in" style={{ animationDelay: "0.5s" }}>
               <button
                 onClick={scrollToGallery}
                 className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:shadow-elegant transition-all hover:scale-105"
