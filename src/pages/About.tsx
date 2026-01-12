@@ -158,6 +158,13 @@ const About = () => {
                       className={`rounded-lg object-cover flex-shrink-0 transition-transform hover:scale-105 ${
                         member.name.includes('I') ? 'w-48 h-32' : 'w-32 h-32 rounded-full'
                       }`}
+                      style={{ 
+                        imageRendering: 'auto',
+                        filter: 'contrast(1.02) brightness(1.01)',
+                        WebkitBackfaceVisibility: 'hidden',
+                        backfaceVisibility: 'hidden'
+                      }}
+                      loading="eager"
                     />
                     <div className="flex-1 min-w-0">
                       <h3 className="text-xl font-semibold mb-2">{member.role}</h3>
