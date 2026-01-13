@@ -85,6 +85,11 @@ const PhotoGallery = () => {
                 alt={photo.alt}
                 className="w-full h-full object-cover"
                 loading="lazy"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.onerror = null;
+                  target.src = "/hero-fallback.png";
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
                 <p className="text-white text-sm font-medium">{photo.alt}</p>
