@@ -53,7 +53,7 @@ const Header = () => {
           <img 
             src={logo} 
             alt="Sveti Sava Oplenac"
-            className="h-12 w-auto transition-opacity hover:opacity-80"
+            className="h-14 w-auto transition-opacity hover:opacity-80"
           />
         </Link>
 
