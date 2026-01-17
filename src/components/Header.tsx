@@ -9,15 +9,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import logoLatin from "@/assets/logo-latin.png";
-import logoCyrillic from "@/assets/logo-cyrillic.png";
+import logo from "@/assets/logo-new.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { t, language, setLanguage } = useLanguage();
   
-  const logo = language === "sr-cyrillic" ? logoCyrillic : logoLatin;
+  
 
   const getLanguageLabel = () => {
     switch (language) {
