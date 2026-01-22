@@ -9,7 +9,7 @@ const AboutKolo = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img 
-          src="https://svetisavaoplenac.ca/wp-content/uploads/2023/11/Carassauga-May-2023-600x400.jpg"
+          src="/gallery/2023/2023-05-28_1.jpg"
           alt="Serbian kolo dance background - traditional folk dance performance"
           className="w-full h-full object-cover opacity-5"
           loading="lazy"

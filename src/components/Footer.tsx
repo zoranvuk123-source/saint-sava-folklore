@@ -23,7 +23,7 @@ const Footer = () => {
         {/* Background Image */}
         <div className="absolute inset-0">
         <img 
-          src="https://svetisavaoplenac.ca/wp-content/uploads/2023/11/ChurchHallAllGrps-600x400.jpg"
+          src="/gallery/2024/2024-06-02_1.jpg"
           alt="Folklorna Grupa Group Photo"
           className="w-full h-full object-cover opacity-10"
         />

@@ -12,9 +12,9 @@ const JoinUs = () => {
   
   const groupImages = [
     group3Photo,
-    "https://svetisavaoplenac.ca/wp-content/uploads/2024/10/IMG_3982-scaled-600x400.jpg",
-    "https://svetisavaoplenac.ca/wp-content/uploads/2023/11/Carassauga-May-2023-Dj-1-e1699570872787-600x400.jpg",
-    "https://svetisavaoplenac.ca/wp-content/uploads/2023/10/IMG_0645-1-scaled-600x400.jpg"
+    "/gallery/2024/2024-05-26_1.jpg",
+    "/gallery/2023/2023-06-04_1.jpg",
+    "/gallery/2022/2022-05-30_1.jpg"
   ];
 
   const folkIcons = [opankeIcon, sajkacaIcon, serbianFlagIcon, koloCircleIcon];
@@ -106,7 +106,7 @@ const JoinUs = () => {
 
         <div className="relative overflow-hidden bg-gradient-to-r from-primary to-secondary text-primary-foreground rounded-2xl">
           <div className="absolute inset-0">
-            <img src="https://svetisavaoplenac.ca/wp-content/uploads/2024/10/IMG_3983-scaled-600x400.jpg" alt="Serbian Folklore Dancers performing traditional kolo dance" className="w-full h-full object-cover opacity-20" loading="lazy" />
+            <img src="/gallery/2025/2025-05-27_1.jpg" alt="Serbian Folklore Dancers performing traditional kolo dance" className="w-full h-full object-cover opacity-20" loading="lazy" />
           </div>
           <div className="relative z-10 p-8 md:p-12 text-center">
             <Users className="w-16 h-16 mx-auto mb-4" />

@@ -40,7 +40,7 @@ const History = () => {
 
             <div className="my-8 rounded-xl overflow-hidden shadow-elegant max-w-[25%] mx-auto">
               <img 
-                src="https://svetisavaoplenac.ca/wp-content/uploads/2024/09/History1.png" 
+                src="/gallery/2017/2017-06-01_1.jpg" 
                 alt="Saint Sava Oplenac historical photo"
                 className="w-full"
               />
@@ -66,7 +66,7 @@ const History = () => {
 
             <div className="my-8 rounded-xl overflow-hidden shadow-elegant">
               <img 
-                src="https://svetisavaoplenac.ca/wp-content/uploads/2024/09/History2-1.png" 
+                src="/gallery/2019/2019-05-30_1.jpg" 
                 alt="Historical performance photo"
                 className="w-full"
               />
@@ -78,7 +78,7 @@ const History = () => {
 
             <div className="my-8 rounded-xl overflow-hidden shadow-elegant">
               <img 
-                src="https://svetisavaoplenac.ca/wp-content/uploads/2024/09/History2.png" 
+                src="/gallery/2023/2023-05-28_1.jpg" 
                 alt="Caravan festival photo"
                 className="w-full"
               />
