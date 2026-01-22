@@ -10,25 +10,27 @@ interface Photo {
 }
 
 const photos: Photo[] = [
-  // 2025 Photos
-  { url: "/gallery/2025/2025-08-24_1.jpg", alt: "Performance 2025", category: "Performance" },
-  { url: "/gallery/2025/2025-08-24_2.jpg", alt: "Group Dance 2025", category: "Performance" },
-  { url: "/gallery/2025/2025-06-01_1.jpg", alt: "Festival 2025", category: "Festival" },
-  { url: "/gallery/2025/2025-06-01_2.jpg", alt: "Community Event 2025", category: "Community" },
-  { url: "/gallery/2025/2025-05-27_1.jpg", alt: "Traditional Dance 2025", category: "Performance" },
-  { url: "/gallery/2025/2025-05-27_2.jpg", alt: "Costumes 2025", category: "Costumes" },
-  { url: "/gallery/2025/2025-05-27_3.jpg", alt: "Stage Performance 2025", category: "Performance" },
-  { url: "/gallery/2025/2025-05-13_1.jpg", alt: "Rehearsal 2025", category: "Behind the Scenes" },
+  // 2025 Photos - verified files
+  { url: "/gallery/2025/2025-02-02_1.jpg", alt: "Winter Performance 2025", category: "Performance" },
+  { url: "/gallery/2025/2025-02-24_1.jpg", alt: "Community Event 2025", category: "Community" },
+  { url: "/gallery/2025/2025-03-15_1.jpg", alt: "Spring Festival 2025", category: "Festival" },
   { url: "/gallery/2025/2025-04-27_1.jpg", alt: "Group Photo 2025", category: "Community" },
-  { url: "/gallery/2025/2025-03-15_1.jpg", alt: "Cultural Event 2025", category: "Festival" },
-  // 2024 Photos
-  { url: "/gallery/2024/2024-06-02_1.jpg", alt: "Performance 2024", category: "Performance" },
-  { url: "/gallery/2024/2024-05-26_1.jpg", alt: "Festival 2024", category: "Festival" },
-  { url: "/gallery/2024/2024-02-12_1.jpg", alt: "Community Gathering 2024", category: "Community" },
+  // 2024 Photos - verified files
   { url: "/gallery/2024/2024-02-04_1.jpg", alt: "Celebration 2024", category: "Festival" },
-  // 2023 Photos
-  { url: "/gallery/2023/2023-06-04_1.jpg", alt: "Summer Performance 2023", category: "Performance" },
+  { url: "/gallery/2024/2024-02-12_1.jpg", alt: "Community Gathering 2024", category: "Community" },
+  { url: "/gallery/2024/2024-05-26_1.jpg", alt: "Carassauga 2024", category: "Festival" },
+  { url: "/gallery/2024/2024-06-02_1.jpg", alt: "Summer Performance 2024", category: "Performance" },
+  // 2023 Photos - verified files
+  { url: "/gallery/2023/2023-02-04_2.jpg", alt: "Winter Celebration 2023", category: "Festival" },
   { url: "/gallery/2023/2023-05-28_1.jpg", alt: "Carassauga 2023", category: "Festival" },
+  { url: "/gallery/2023/2023-06-04_1.jpg", alt: "Summer Performance 2023", category: "Performance" },
+  { url: "/gallery/2023/2023-11-14_1.jpg", alt: "Fall Event 2023", category: "Community" },
+  // 2022 Photos - verified files
+  { url: "/gallery/2022/2022-02-13_1.jpg", alt: "Winter 2022", category: "Community" },
+  { url: "/gallery/2022/2022-05-22_1.jpg", alt: "Spring Performance 2022", category: "Performance" },
+  { url: "/gallery/2022/2022-05-30_1.jpg", alt: "Festival 2022", category: "Festival" },
+  // 2019 Photos - verified files
+  { url: "/gallery/2019/2019-05-17_1.jpg", alt: "Spring Performance 2019", category: "Performance" },
 ];
 
 const PhotoGallery = () => {
