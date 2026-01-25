@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
@@ -35,14 +35,34 @@ const shuffleArray = <T,>(array: T[]): T[] => {
   return shuffled;
 };
 
+const getUniqueSelection = (pool: Photo[], count: number): Photo[] => {
+  const uniqueByUrl = new Map<string, Photo>();
+  for (const p of pool) uniqueByUrl.set(p.url, p);
+  return shuffleArray(Array.from(uniqueByUrl.values())).slice(0, count);
+};
+
 const PhotoGallery = () => {
   const { t } = useLanguage();
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
-  // Randomize and pick 8 photos for 2 rows of 4
-  const displayPhotos = useMemo(() => {
-    return shuffleArray(brightPhotos).slice(0, 8);
-  }, []);
+  // Randomize and pick 8 photos for 2 rows of 4 (guaranteed unique)
+  const initialSelection = useMemo(() => getUniqueSelection(brightPhotos, 8), []);
+  const [displayPhotos, setDisplayPhotos] = useState<Photo[]>(initialSelection);
+
+  const handleImageError = useCallback(
+    (failedIndex: number) => {
+      setDisplayPhotos((prev) => {
+        const used = new Set(prev.map((p) => p.url));
+        const replacement = shuffleArray(brightPhotos).find((p) => !used.has(p.url));
+        if (!replacement) return prev; // no available replacement
+
+        const next = [...prev];
+        next[failedIndex] = replacement;
+        return next;
+      });
+    },
+    []
+  );
 
   return (
     <section id="photos" className="py-20 px-4 bg-background">
@@ -70,9 +90,9 @@ const PhotoGallery = () => {
                 className="w-full h-full object-cover"
                 loading="lazy"
                 onError={(e) => {
-                  const target = e.currentTarget;
-                  target.onerror = null;
-                  target.src = "/hero-fallback.png";
+                  // Prevent repeated placeholders; replace with another unused photo.
+                  e.currentTarget.onerror = null;
+                  handleImageError(index);
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-4">
