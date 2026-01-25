@@ -61,25 +61,58 @@ const getYouTubeThumbnail = (videoId: string, quality: 'maxres' | 'hq' | 'mq' | 
 };
 
 const VideoThumbnail = ({ videoId, title }: { videoId: string; title: string }) => {
-  const [imgSrc, setImgSrc] = useState(getYouTubeThumbnail(videoId, 'maxres'));
+  const [imgSrc, setImgSrc] = useState(getYouTubeThumbnail(videoId, 'hq'));
   const [fallbackIndex, setFallbackIndex] = useState(0);
-  const fallbacks = ['hq', 'mq', 'sd'] as const;
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+  const fallbacks = ['mq', 'sd', 'default'] as const;
 
   const handleError = () => {
     if (fallbackIndex < fallbacks.length) {
-      setImgSrc(getYouTubeThumbnail(videoId, fallbacks[fallbackIndex]));
+      const quality = fallbacks[fallbackIndex];
+      const qualityMap: Record<string, string> = {
+        mq: 'mqdefault',
+        sd: 'sddefault',
+        default: 'default'
+      };
+      setImgSrc(`https://img.youtube.com/vi/${videoId}/${qualityMap[quality]}.jpg`);
       setFallbackIndex(prev => prev + 1);
+    } else {
+      setHasError(true);
     }
   };
 
+  const handleLoad = () => {
+    setIsLoaded(true);
+  };
+
   return (
-    <img
-      src={imgSrc}
-      alt={`${title} - Serbian kolo dance performance video thumbnail`}
-      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-      onError={handleError}
-      loading="lazy"
-    />
+    <div className="w-full h-full relative">
+      {!isLoaded && !hasError && (
+        <div className="absolute inset-0 bg-muted animate-pulse flex items-center justify-center">
+          <div className="w-12 h-12 rounded-full bg-primary/20" />
+        </div>
+      )}
+      {hasError ? (
+        <div className="w-full h-full bg-muted flex items-center justify-center">
+          <div className="text-center text-muted-foreground">
+            <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
+              <Play className="w-8 h-8 text-primary" />
+            </div>
+            <span className="text-sm">{title}</span>
+          </div>
+        </div>
+      ) : (
+        <img
+          src={imgSrc}
+          alt={`${title} - Serbian kolo dance performance video thumbnail`}
+          className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-110 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+          onError={handleError}
+          onLoad={handleLoad}
+          loading="lazy"
+        />
+      )}
+    </div>
   );
 };
 
