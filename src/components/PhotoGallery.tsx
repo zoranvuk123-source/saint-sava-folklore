@@ -1,55 +1,48 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { X } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 interface Photo {
   url: string;
   alt: string;
-  category: string;
 }
 
-const photos: Photo[] = [
-  // 2025 Photos - verified files
-  { url: "/gallery/2025/2025-02-02_1.jpg", alt: "Winter Performance 2025", category: "Performance" },
-  { url: "/gallery/2025/2025-02-24_1.jpg", alt: "Community Event 2025", category: "Community" },
-  { url: "/gallery/2025/2025-03-15_1.jpg", alt: "Spring Festival 2025", category: "Festival" },
-  { url: "/gallery/2025/2025-04-27_1.jpg", alt: "Group Photo 2025", category: "Community" },
-  // 2024 Photos - verified files
-  { url: "/gallery/2024/2024-02-04_1.jpg", alt: "Celebration 2024", category: "Festival" },
-  { url: "/gallery/2024/2024-02-12_1.jpg", alt: "Community Gathering 2024", category: "Community" },
-  { url: "/gallery/2024/2024-05-26_1.jpg", alt: "Carassauga 2024", category: "Festival" },
-  { url: "/gallery/2024/2024-06-02_1.jpg", alt: "Summer Performance 2024", category: "Performance" },
-  // 2023 Photos - verified files
-  { url: "/gallery/2023/2023-02-04_2.jpg", alt: "Winter Celebration 2023", category: "Festival" },
-  { url: "/gallery/2023/2023-05-28_1.jpg", alt: "Carassauga 2023", category: "Festival" },
-  { url: "/gallery/2023/2023-06-04_1.jpg", alt: "Summer Performance 2023", category: "Performance" },
-  { url: "/gallery/2023/2023-11-14_1.jpg", alt: "Fall Event 2023", category: "Community" },
-  // 2022 Photos - verified files
-  { url: "/gallery/2022/2022-02-13_1.jpg", alt: "Winter 2022", category: "Community" },
-  { url: "/gallery/2022/2022-05-22_1.jpg", alt: "Spring Performance 2022", category: "Performance" },
-  { url: "/gallery/2022/2022-05-30_1.jpg", alt: "Festival 2022", category: "Festival" },
-  // 2019 Photos - verified files
-  { url: "/gallery/2019/2019-05-17_1.jpg", alt: "Spring Performance 2019", category: "Performance" },
+// Curated bright and happy photos for the homepage gallery
+const brightPhotos: Photo[] = [
+  { url: "/gallery/2025/2025-05-27_1.jpg", alt: "Carassauga Festival 2025" },
+  { url: "/gallery/2025/2025-06-01_1.jpg", alt: "Summer Performance 2025" },
+  { url: "/gallery/2025/2025-05-13_1.jpg", alt: "Spring Celebration 2025" },
+  { url: "/gallery/2024/2024-05-26_1.jpg", alt: "Carassauga 2024" },
+  { url: "/gallery/2024/2024-06-02_1.jpg", alt: "Summer Festival 2024" },
+  { url: "/gallery/2023/2023-05-28_1.jpg", alt: "Carassauga 2023" },
+  { url: "/gallery/2023/2023-06-04_1.jpg", alt: "Summer Performance 2023" },
+  { url: "/gallery/2022/2022-05-30_1.jpg", alt: "Festival Performance 2022" },
+  { url: "/gallery/2019/2019-05-17_1.jpg", alt: "Spring Performance 2019" },
+  { url: "/gallery/2025/2025-05-27_2.jpg", alt: "Festival Joy 2025" },
+  { url: "/gallery/2025/2025-06-01_2.jpg", alt: "Dance Celebration 2025" },
+  { url: "/gallery/2025/2025-04-27_1.jpg", alt: "Community Event 2025" },
 ];
+
+// Fisher-Yates shuffle
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
 
 const PhotoGallery = () => {
   const { t } = useLanguage();
-  const [selectedCategory, setSelectedCategory] = useState("All");
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
-  const categories = [
-    { key: "All", label: t("photos.all") },
-    { key: "Performance", label: t("photos.performance") },
-    { key: "Festival", label: "Festival" },
-    { key: "Costumes", label: t("photos.costumes") },
-    { key: "Community", label: t("photos.community") },
-    { key: "Behind the Scenes", label: t("photos.behind") }
-  ];
-
-  const filteredPhotos = selectedCategory === "All" 
-    ? photos 
-    : photos.filter(photo => photo.category === selectedCategory);
+  // Randomize and pick 8 photos for 2 rows of 4
+  const displayPhotos = useMemo(() => {
+    return shuffleArray(brightPhotos).slice(0, 8);
+  }, []);
 
   return (
     <section id="photos" className="py-20 px-4 bg-background">
@@ -58,31 +51,17 @@ const PhotoGallery = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             {t("photos.title")} <span className="text-primary">{t("photos.gallery")}</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             {t("photos.subtitle")}
           </p>
-
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {categories.map((category) => (
-              <Badge
-                key={category.key}
-                variant={selectedCategory === category.key ? "default" : "outline"}
-                className="cursor-pointer px-4 py-2 text-sm transition-all hover:scale-105"
-                onClick={() => setSelectedCategory(category.key)}
-              >
-                {category.label}
-              </Badge>
-            ))}
-          </div>
         </div>
 
-        {/* Photo Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {filteredPhotos.map((photo, index) => (
+        {/* Photo Grid - 2 rows of 4 */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          {displayPhotos.map((photo, index) => (
             <div
               key={index}
-              className="gallery-item aspect-[4/3]"
+              className="gallery-item aspect-[4/3] cursor-pointer"
               onClick={() => setLightboxImage(photo.url)}
             >
               <img
@@ -101,6 +80,17 @@ const PhotoGallery = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* View All Link */}
+        <div className="text-center">
+          <Link 
+            to="/gallery" 
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold transition-colors group"
+          >
+            {t("photos.viewAll")}
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
       </div>
 
