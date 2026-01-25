@@ -20,7 +20,7 @@ const brightPhotos: Photo[] = [
   { url: "/gallery/2023/2023-05-28_1.jpg", alt: "Carassauga 2023" },
   { url: "/gallery/2023/2023-06-04_1.jpg", alt: "Summer Performance 2023" },
   { url: "/gallery/2025/2025-05-27_5.jpg", alt: "Dance Performance 2025" },
-  { url: "/gallery/2025/2025-05-27_7.jpg", alt: "Festival Joy 2025" },
+  { url: "/gallery/2025/2025-festival-joy.jpg", alt: "Festival Joy 2025" },
   { url: "/gallery/2025/2025-04-27_1.jpg", alt: "Community Event 2025" },
   { url: "/gallery/2019/2019-05-17_1.jpg", alt: "Spring Performance 2019" },
 ];
