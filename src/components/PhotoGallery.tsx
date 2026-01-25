@@ -9,8 +9,9 @@ interface Photo {
   alt: string;
 }
 
-// Curated bright and happy photos for the homepage gallery
+// Curated bright and happy photos - all unique, no duplicates
 const brightPhotos: Photo[] = [
+  { url: "/gallery/2025/2025-05-27_3.jpg", alt: "Flute Player with Dancers 2025" },
   { url: "/gallery/2025/2025-05-27_1.jpg", alt: "Carassauga Festival 2025" },
   { url: "/gallery/2025/2025-06-01_1.jpg", alt: "Summer Performance 2025" },
   { url: "/gallery/2025/2025-05-13_1.jpg", alt: "Spring Celebration 2025" },
@@ -18,11 +19,10 @@ const brightPhotos: Photo[] = [
   { url: "/gallery/2024/2024-06-02_1.jpg", alt: "Summer Festival 2024" },
   { url: "/gallery/2023/2023-05-28_1.jpg", alt: "Carassauga 2023" },
   { url: "/gallery/2023/2023-06-04_1.jpg", alt: "Summer Performance 2023" },
-  { url: "/gallery/2022/2022-05-30_1.jpg", alt: "Festival Performance 2022" },
-  { url: "/gallery/2019/2019-05-17_1.jpg", alt: "Spring Performance 2019" },
-  { url: "/gallery/2025/2025-05-27_2.jpg", alt: "Festival Joy 2025" },
-  { url: "/gallery/2025/2025-06-01_2.jpg", alt: "Dance Celebration 2025" },
+  { url: "/gallery/2025/2025-05-27_5.jpg", alt: "Dance Performance 2025" },
+  { url: "/gallery/2025/2025-05-27_7.jpg", alt: "Festival Joy 2025" },
   { url: "/gallery/2025/2025-04-27_1.jpg", alt: "Community Event 2025" },
+  { url: "/gallery/2019/2019-05-17_1.jpg", alt: "Spring Performance 2019" },
 ];
 
 // Fisher-Yates shuffle
