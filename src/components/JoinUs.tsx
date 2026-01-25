@@ -11,10 +11,10 @@ const JoinUs = () => {
   const { t } = useLanguage();
   
   const groupImages = [
-    group3Photo,
-    "/gallery/2024/2024-05-26_1.jpg",
-    "/gallery/2023/2023-06-04_1.jpg",
-    "/gallery/2022/2022-05-30_1.jpg"
+    group3Photo,                           // Group 3 (ages 3-7) - imported asset
+    "/gallery/2025/2025-05-27_5.jpg",      // Group 2 (ages 8-12) - children dancers
+    "/gallery/2025/2025-06-01_1.jpg",      // Group 1 (ages 13+) - teen/adult dancers
+    "/gallery/2025/2025-festival-joy.jpg"  // Recreational (all ages) - ballroom scene
   ];
 
   const folkIcons = [opankeIcon, sajkacaIcon, serbianFlagIcon, koloCircleIcon];
