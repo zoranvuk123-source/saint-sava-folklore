@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import illustrationFrontPage from "@/assets/illustration-front-page.png";
+import heroVideoAsset from "@/assets/hero-folklore-video.mp4";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useState } from "react";
 
