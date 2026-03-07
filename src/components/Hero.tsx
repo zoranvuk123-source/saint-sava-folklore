@@ -1,6 +1,5 @@
 import { ChevronDown } from "lucide-react";
 import illustrationFrontPage from "@/assets/illustration-front-page.png";
-import heroVideoAsset from "@/assets/hero-folklore-video.mp4";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useState } from "react";
 
@@ -34,7 +33,7 @@ const Hero = () => {
         onLoadedData={() => setVideoLoaded(true)}
         poster="/hero-fallback.png"
       >
-        <source src={heroVideoAsset} type="video/mp4" />
+        <source src="/hero-folklore-video.mp4" type="video/mp4" />
       </video>
 
       {/* Fallback Image */}
