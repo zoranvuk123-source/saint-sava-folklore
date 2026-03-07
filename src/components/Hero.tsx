@@ -42,8 +42,7 @@ const Hero = () => {
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center"
           style={{ 
-            backgroundImage: "url('/hero-fallback.png')",
-            filter: "grayscale(100%) blur(3px)"
+            backgroundImage: "url('/hero-fallback.png')"
           }}
         />
       )}
