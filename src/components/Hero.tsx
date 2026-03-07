@@ -33,7 +33,7 @@ const Hero = () => {
         onLoadedData={() => setVideoLoaded(true)}
         poster="/hero-fallback.png"
       >
-        <source src={heroVideoAsset} type="video/mp4" />
+        <source src="/src/assets/hero-folklore-video.mp4" type="video/mp4" />
       </video>
 
       {/* Fallback Image */}
