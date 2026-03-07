@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import illustrationFrontPage from "@/assets/illustration-front-page.png";
+import heroVideoAsset from "@/assets/hero-folklore-video.mp4";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useEffect, useState } from "react";
 
@@ -30,11 +31,10 @@ const Hero = () => {
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ filter: "grayscale(100%) blur(3px)" }}
         onLoadedData={() => setVideoLoaded(true)}
         poster="/hero-fallback.png"
       >
-        <source src="/hero-video.mp4" type="video/mp4" />
+        <source src={heroVideoAsset} type="video/mp4" />
       </video>
 
       {/* Fallback Image */}
@@ -42,8 +42,7 @@ const Hero = () => {
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center"
           style={{ 
-            backgroundImage: "url('/hero-fallback.png')",
-            filter: "grayscale(100%) blur(3px)"
+            backgroundImage: "url('/hero-fallback.png')"
           }}
         />
       )}
