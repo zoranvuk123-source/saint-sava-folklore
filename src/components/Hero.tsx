@@ -31,11 +31,10 @@ const Hero = () => {
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ filter: "grayscale(100%) blur(3px)" }}
         onLoadedData={() => setVideoLoaded(true)}
         poster="/hero-fallback.png"
       >
-        <source src="/hero-video.mp4" type="video/mp4" />
+        <source src={heroVideoAsset} type="video/mp4" />
       </video>
 
       {/* Fallback Image */}
