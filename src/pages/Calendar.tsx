@@ -2,7 +2,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar as CalendarIcon, Clock, MapPin } from "lucide-react";
+import { Calendar as CalendarIcon, Clock, MapPin, Download, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Calendar = () => {
   const { t } = useLanguage();
@@ -39,13 +40,16 @@ const Calendar = () => {
       name: "Carassauga Festival",
       date: t("calendar.carassauga.date"),
       location: t("calendar.carassauga.location"),
+      locationUrl: "https://www.google.com/maps/search/?api=1&query=Mississauga+ON+Canada",
       description: t("calendar.carassauga.description")
     },
     {
       name: t("calendar.folkorama.name"),
       date: t("calendar.folkorama.date"),
       location: t("calendar.folkorama.location"),
-      description: t("calendar.folkorama.description")
+      locationUrl: "https://www.google.com/maps/search/?api=1&query=Toronto+ON+Canada",
+      description: t("calendar.folkorama.description"),
+      sponsorLink: true
     }
   ];
 
