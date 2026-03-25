@@ -1,64 +1,36 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Heart, Users, Sparkles, Calendar, Shirt, Award } from "lucide-react";
-import koloDancers from "@/assets/kolo-dancers.png";
-import snaznoIgra from "@/assets/snazno-igra.png";
-import tradicija from "@/assets/tradicija.png";
-import zaigrajmoVeselo from "@/assets/zaigramo-veselo.png";
-import silverShirtOutline from "@/assets/silver-sponsor-shirt-outline.png";
+import { Heart, Download, Calendar } from "lucide-react";
 
 const Sponsorships = () => {
   const { t } = useLanguage();
 
-  const sponsorshipTiers = [
+  const tiers = [
     {
-      id: "supporter",
-      level: "01",
-      name: t("sponsorships.bronze.title"),
-      amount: "$100",
-      spots: 25,
-      placement: t("sponsorships.bronze.placement"),
-      visual: "donor-wall",
-      color: "border-amber-700/20 bg-amber-50/5",
-      accentColor: "text-amber-600",
-      backgroundImage: zaigrajmoVeselo,
-    },
-    {
-      id: "silver",
-      level: "02",
-      name: t("sponsorships.silver.title"),
-      amount: "$500",
-      spots: 6,
-      placement: t("sponsorships.silver.placement"),
-      visual: "tshirt-back",
-      color: "border-gray-500/20 bg-gray-50/5",
-      accentColor: "text-gray-600",
-      backgroundImage: tradicija,
-    },
-    {
-      id: "gold",
-      level: "03",
-      name: t("sponsorships.gold.title"),
-      amount: "$1,000",
-      spots: 2,
-      placement: t("sponsorships.gold.placement"),
-      visual: "tshirt-sleeve",
-      color: "border-yellow-600/20 bg-yellow-50/5",
-      accentColor: "text-yellow-600",
-      backgroundImage: snaznoIgra,
-    },
-    {
-      id: "title",
-      level: "04",
       name: t("sponsorships.platinum.title"),
-      amount: "$5,000",
-      spots: 1,
-      placement: t("sponsorships.platinum.placement"),
-      visual: "everything",
-      color: "border-purple-600/20 bg-purple-50/5",
-      accentColor: "text-purple-600",
-      backgroundImage: koloDancers,
+      amount: "$2,500",
+      marketing: t("sponsorships.platinum.marketing"),
+      experience: t("sponsorships.platinum.experience"),
+      highlight: true,
+    },
+    {
+      name: t("sponsorships.gold.title"),
+      amount: "$1,500",
+      marketing: t("sponsorships.gold.marketing"),
+      experience: t("sponsorships.gold.experience"),
+    },
+    {
+      name: t("sponsorships.silver.title"),
+      amount: "$1,000",
+      marketing: t("sponsorships.silver.marketing"),
+      experience: t("sponsorships.silver.experience"),
+    },
+    {
+      name: t("sponsorships.bronze.title"),
+      amount: "$500",
+      marketing: t("sponsorships.bronze.marketing"),
+      experience: t("sponsorships.bronze.experience"),
     },
   ];
 
@@ -67,14 +39,12 @@ const Sponsorships = () => {
       <Header />
       
       <main className="flex-1 pt-24 pb-16">
-        {/* Hero Section - Magazine Style */}
+        {/* Hero Section */}
         <div className="container mx-auto px-6 md:px-8 max-w-6xl mb-20">
           <div className="text-center space-y-6 animate-fade-in">
-            <div className="inline-block">
-              <span className="text-sm uppercase tracking-widest text-muted-foreground font-light">
-                {t("sponsorships.support")}
-              </span>
-            </div>
+            <span className="text-sm uppercase tracking-widest text-muted-foreground font-light">
+              {t("sponsorships.support")}
+            </span>
             <h1 className="text-5xl md:text-7xl font-bold leading-tight">
               {t("sponsorships.title")}
             </h1>
@@ -85,7 +55,25 @@ const Sponsorships = () => {
           </div>
         </div>
 
-        {/* Thank You Message - Editorial Style */}
+        {/* Event Banner */}
+        <div className="bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10 py-10 mb-16">
+          <div className="container mx-auto px-6 md:px-8 max-w-4xl text-center">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <Calendar className="w-5 h-5 text-primary" />
+              <span className="text-sm font-semibold text-primary uppercase tracking-wider">
+                {t("sponsorships.event.date")}
+              </span>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              {t("sponsorships.event.title")}
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              {t("sponsorships.event.description")}
+            </p>
+          </div>
+        </div>
+
+        {/* Thank You Section */}
         <div className="bg-gradient-to-br from-primary/5 to-secondary/5 py-16 mb-20">
           <div className="container mx-auto px-6 md:px-8 max-w-4xl">
             <div className="flex items-center justify-center mb-8">
@@ -106,124 +94,88 @@ const Sponsorships = () => {
         </div>
 
         <div className="container mx-auto px-6 md:px-8 max-w-6xl">
-          {/* Sponsorship Tiers - Magazine Layout */}
+          {/* Partnership Table */}
           <div className="mb-20">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
               {t("sponsorships.levels.title")}
             </h2>
-            <p className="text-center text-muted-foreground mb-16 text-lg">
+            <p className="text-center text-muted-foreground mb-12 text-lg">
               {t("sponsorships.levels.subtitle")}
             </p>
 
-            <div className="space-y-12">
-              {sponsorshipTiers.map((tier, index) => (
+            {/* Desktop Table */}
+            <div className="hidden md:block overflow-hidden rounded-lg border-2 border-border">
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-primary text-primary-foreground">
+                    <th className="text-left px-6 py-4 font-semibold">{t("sponsorships.col.level")}</th>
+                    <th className="text-left px-6 py-4 font-semibold">{t("sponsorships.col.investment")}</th>
+                    <th className="text-left px-6 py-4 font-semibold">{t("sponsorships.col.marketing")}</th>
+                    <th className="text-left px-6 py-4 font-semibold">{t("sponsorships.col.experience")}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tiers.map((tier, index) => (
+                    <tr
+                      key={index}
+                      className={`border-t border-border transition-colors hover:bg-muted/50 ${
+                        tier.highlight ? "bg-primary/5" : ""
+                      }`}
+                    >
+                      <td className="px-6 py-5 font-bold text-lg">{tier.name}</td>
+                      <td className="px-6 py-5 text-xl font-bold text-primary">{tier.amount}</td>
+                      <td className="px-6 py-5 text-sm text-muted-foreground leading-relaxed">{tier.marketing}</td>
+                      <td className="px-6 py-5 text-sm text-muted-foreground">{tier.experience}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Mobile Cards */}
+            <div className="md:hidden space-y-6">
+              {tiers.map((tier, index) => (
                 <div
-                  key={tier.id}
-                  className={`relative border-2 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in`}
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  key={index}
+                  className={`rounded-lg border-2 p-6 space-y-3 ${
+                    tier.highlight ? "border-primary bg-primary/5" : "border-border"
+                  }`}
                 >
-                  {/* Background Image with Overlay */}
-                  <div className="absolute inset-0">
-                    <img 
-                      src={tier.backgroundImage} 
-                      alt="Dancers" 
-                      className="w-full h-full object-cover opacity-5"
-                    />
-                    <div className={`absolute inset-0 ${tier.color}`}></div>
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-bold">{tier.name}</h3>
+                    <span className="text-2xl font-bold text-primary">{tier.amount}</span>
                   </div>
-
-                  {/* Content */}
-                  <div className="relative z-10 p-8 md:p-12">
-                    <div className="grid md:grid-cols-3 gap-8 items-center">
-                      {/* Left: Tier Info */}
-                      <div className="space-y-4">
-                        <span className={`text-sm font-mono ${tier.accentColor} opacity-60`}>
-                          LEVEL {tier.level}
-                        </span>
-                        <h3 className="text-3xl md:text-4xl font-bold">
-                          {tier.name}
-                        </h3>
-                        <div className={`text-5xl md:text-6xl font-bold ${tier.accentColor}`}>
-                          {tier.amount}
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Users className="w-4 h-4" />
-                          <span>{tier.spots} {t("sponsorships.spots.available")}</span>
-                        </div>
-                      </div>
-
-                      {/* Middle: Visual Representation */}
-                      <div className="md:col-span-1">
-                        <div className="relative aspect-square bg-gradient-to-br from-background/90 to-muted/90 backdrop-blur-sm rounded-lg p-6 flex items-center justify-center border-2 border-border">
-                          {tier.visual === "donor-wall" && (
-                            <div className="text-center space-y-2">
-                              <Award className={`w-16 h-16 mx-auto ${tier.accentColor}`} />
-                              <div className="text-xs font-mono opacity-60">DONOR WALL</div>
-                              <div className="text-sm font-semibold">Your Name Here</div>
-                            </div>
-                          )}
-                          {tier.visual === "tshirt-back" && (
-                            <div className="relative">
-                              <div className="relative">
-                                <Shirt className="w-24 h-24" style={{ color: '#B9BCC2' }} />
-                                {/* 2x3 grid of 6 sponsor placeholders */}
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                  <div className="grid grid-cols-2 gap-1.5 w-10">
-                                    {[...Array(6)].map((_, i) => (
-                                      <div
-                                        key={i}
-                                        className="aspect-square rounded"
-                                        style={{
-                                          backgroundColor: '#E6E6E6',
-                                          border: '1px solid #D0D0D0'
-                                        }}
-                                      />
-                                    ))}
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="text-xs font-mono text-center mt-2 opacity-60">T-SHIRT BACK</div>
-                            </div>
-                          )}
-                          {tier.visual === "tshirt-sleeve" && (
-                            <div className="relative">
-                              <Shirt className={`w-24 h-24 ${tier.accentColor}`} />
-                              <div className="absolute top-2 right-0">
-                                <div className="text-[8px] font-bold bg-background/90 px-1.5 py-0.5 rounded">LOGO</div>
-                              </div>
-                              <div className="text-xs font-mono text-center mt-2 opacity-60">T-SHIRT SLEEVE</div>
-                            </div>
-                          )}
-                          {tier.visual === "everything" && (
-                            <div className="text-center space-y-3">
-                              <Sparkles className={`w-20 h-20 mx-auto ${tier.accentColor}`} />
-                              <div className="space-y-1">
-                                <div className="text-[10px] font-mono opacity-60">CALENDARS</div>
-                                <div className="text-[10px] font-mono opacity-60">WEBSITE</div>
-                                <div className="text-[10px] font-mono opacity-60">EVENTS</div>
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Right: Placement Details */}
-                      <div className="space-y-4">
-                        <div className="flex items-start gap-3">
-                          <Calendar className={`w-5 h-5 mt-1 ${tier.accentColor}`} />
-                          <p className="text-sm leading-relaxed">
-                            {tier.placement}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">
+                      {t("sponsorships.col.marketing")}
+                    </p>
+                    <p className="text-sm text-muted-foreground">{tier.marketing}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">
+                      {t("sponsorships.col.experience")}
+                    </p>
+                    <p className="text-sm text-muted-foreground">{tier.experience}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Call to Action - Editorial Style */}
+          {/* Download Letter Button */}
+          <div className="text-center mb-16">
+            <a
+              href="/sponsorship-letter.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 border-2 border-primary text-primary font-semibold rounded-md hover:bg-primary hover:text-primary-foreground transition-colors text-lg"
+            >
+              <Download className="w-5 h-5" />
+              {t("sponsorships.download.letter")}
+            </a>
+          </div>
+
+          {/* Call to Action */}
           <div className="bg-primary text-primary-foreground rounded-lg p-12 md:p-16 text-center relative overflow-hidden">
             <div className="absolute inset-0 opacity-10">
               <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
