@@ -50,7 +50,7 @@ const About = () => {
       image: teodoraVojovicImg
     },
     { 
-      name: "Angelika Janic Jakopovic", 
+      name: "Angelika Janjić-Jakopović", 
       background: t("about.choreographer.angelika"),
       groups: t("join.group2"),
       image: angelikaJanicImg
