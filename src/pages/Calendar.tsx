@@ -140,7 +140,7 @@ const Calendar = () => {
                         className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
                       >
                         <Heart className="w-4 h-4" />
-                        {t("nav.sponsorships")}
+                        {t("sponsorships.title")}
                       </Link>
                       <a
                         href="/sponsorship-letter.pdf"
