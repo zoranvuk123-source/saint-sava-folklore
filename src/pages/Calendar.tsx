@@ -122,9 +122,37 @@ const Calendar = () => {
                   </div>
                   <div className="flex items-start gap-2 text-sm">
                     <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>{event.location}</span>
+                    <a
+                      href={event.locationUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline flex items-center gap-1"
+                    >
+                      {event.location}
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
                   </div>
                   <p className="text-muted-foreground">{event.description}</p>
+                  {event.sponsorLink && (
+                    <div className="flex flex-wrap gap-3 pt-2">
+                      <Link
+                        to="/sponsorships"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                      >
+                        <Heart className="w-4 h-4" />
+                        {t("nav.sponsorships")}
+                      </Link>
+                      <a
+                        href="/sponsorship-letter.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                      >
+                        <Download className="w-4 h-4" />
+                        {t("sponsorships.download.letter")}
+                      </a>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             ))}
