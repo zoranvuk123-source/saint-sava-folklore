@@ -214,9 +214,9 @@ const translations = {
     "calendar.carassauga.location": "Mississauga, ON",
     "calendar.carassauga.description": "Godišnji multikulturalni festival gde nastupamo i predstavljamo srpsku kulturu.",
     "calendar.folkorama.name": "Spring Folklorama: A Legacy in Motion",
-    "calendar.folkorama.date": "25. april 2026.",
-    "calendar.folkorama.location": "Toronto, ON",
-    "calendar.folkorama.description": "Proslava kulture sa nastupima i tradicionalnom hranom.",
+    "calendar.folkorama.date": "Subota, 25. april 2026.",
+    "calendar.folkorama.location": "2520 Dixie Road, Mississauga, ON L4Y 4G4",
+    "calendar.folkorama.description": "Veče posvećeno očuvanju tradicije i novoj generaciji talenata — sa 16 folklornih grupa iz Kanade i Sjedinjenih Država, tradicionalnom hranom i živim nastupima. Očekuje se preko 800 posetilaca.",
     "calendar.more": "Pratite nas za najave o novim događajima!",
     
     // Contact Page
