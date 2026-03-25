@@ -2,7 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar as CalendarIcon, Clock, MapPin, Download, ExternalLink } from "lucide-react";
+import { Calendar as CalendarIcon, Clock, MapPin, Download, ExternalLink, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Calendar = () => {
