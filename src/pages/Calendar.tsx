@@ -47,7 +47,7 @@ const Calendar = () => {
       name: t("calendar.folkorama.name"),
       date: t("calendar.folkorama.date"),
       location: t("calendar.folkorama.location"),
-      locationUrl: "https://www.google.com/maps/search/?api=1&query=Toronto+ON+Canada",
+      locationUrl: "https://www.google.com/maps/search/?api=1&query=2520+Dixie+Road+Mississauga+ON+L4Y+4G4",
       description: t("calendar.folkorama.description"),
       sponsorLink: true
     }
