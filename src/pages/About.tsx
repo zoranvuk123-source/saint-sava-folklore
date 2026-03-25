@@ -44,7 +44,7 @@ const About = () => {
       image: ivanStanisicImg
     },
     { 
-      name: "Teodora Vojovic", 
+      name: "Teodora Gojovic", 
       background: t("about.choreographer.teodora"),
       groups: t("join.group3"),
       image: teodoraVojovicImg
