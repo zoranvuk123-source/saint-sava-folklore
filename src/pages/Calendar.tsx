@@ -57,16 +57,21 @@ const Calendar = () => {
     <main className="min-h-screen bg-background">
       <Header />
       
-      <div className="container mx-auto px-4 py-12 max-w-6xl">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-          {t("nav.calendar")}
-        </h1>
-        <p className="text-xl text-muted-foreground text-center mb-12">
-          {t("calendar.subtitle")}
-        </p>
+      {/* Page Title */}
+      <div className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4 max-w-6xl text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            {t("nav.calendar")}
+          </h1>
+          <p className="text-xl text-muted-foreground">
+            {t("calendar.subtitle")}
+          </p>
+        </div>
+      </div>
 
-        {/* Practice Schedule */}
-        <section className="mb-12">
+      {/* Practice Schedule */}
+      <section className="py-12 bg-background">
+        <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex items-center gap-3 mb-6">
             <Clock className="w-8 h-8 text-primary" />
             <h2 className="text-3xl font-bold">{t("calendar.practice.title")}</h2>
@@ -101,10 +106,12 @@ const Calendar = () => {
               </div>
             </CardContent>
           </Card>
-        </section>
+        </div>
+      </section>
 
-        {/* Upcoming Events */}
-        <section>
+      {/* Upcoming Events */}
+      <section className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex items-center gap-3 mb-6">
             <CalendarIcon className="w-8 h-8 text-primary" />
             <h2 className="text-3xl font-bold">{t("calendar.events.title")}</h2>
@@ -164,8 +171,8 @@ const Calendar = () => {
               </p>
             </CardContent>
           </Card>
-        </section>
-      </div>
+        </div>
+      </section>
 
       <Footer />
     </main>
