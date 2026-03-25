@@ -44,13 +44,13 @@ const About = () => {
       image: ivanStanisicImg
     },
     { 
-      name: "Teodora Vojovic", 
+      name: "Teodora Gojovic", 
       background: t("about.choreographer.teodora"),
       groups: t("join.group3"),
       image: teodoraVojovicImg
     },
     { 
-      name: "Angelika Janic Jakopovic", 
+      name: "Angelika Janjić-Jakopović", 
       background: t("about.choreographer.angelika"),
       groups: t("join.group2"),
       image: angelikaJanicImg

@@ -30,7 +30,7 @@ const Groups = () => {
       ageRange: t("join.ages.8to12"),
       time: t("join.group2.time"),
       artisticDirector: "Desa Djonin",
-      instructor: "Angelika Jakopovic",
+      instructor: "Angelika Janjić-Jakopović",
       description: t("join.group2.note"),
       color: "from-secondary/20 to-primary/20"
     },
