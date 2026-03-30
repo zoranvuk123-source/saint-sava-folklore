@@ -4,10 +4,10 @@ import Header from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar as CalendarIcon, Clock, MapPin, Download, ExternalLink, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
+import springFolkloramaFlyer from "@/assets/spring-folklorama-flyer.png";
 
 const Calendar = () => {
   const { t } = useLanguage();
-
   const practiceSchedule = [
     {
       group: t("join.group3"),
