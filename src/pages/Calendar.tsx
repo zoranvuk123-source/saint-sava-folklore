@@ -141,6 +141,15 @@ const Calendar = () => {
                     </a>
                   </div>
                   <p className="text-muted-foreground">{event.description}</p>
+                  {event.flyer && (
+                    <div className="mt-4">
+                      <img
+                        src={event.flyer}
+                        alt={event.name}
+                        className="w-full max-w-md rounded-lg shadow-card"
+                      />
+                    </div>
+                  )}
                   {event.sponsorLink && (
                     <div className="flex flex-wrap gap-3 pt-2">
                       <Link
