@@ -39,10 +39,11 @@ const Calendar = () => {
     {
       name: t("calendar.folkorama.name"),
       date: t("calendar.folkorama.date"),
-      location: t("calendar.folkorama.location"),
-      locationUrl: "https://www.google.com/maps/search/?api=1&query=2520+Dixie+Road+Mississauga+ON+L4Y+4G4",
+      location: "Anapilis Halls, 2185 Stavebank Rd, Mississauga, ON L5C 1T3",
+      locationUrl: "https://www.google.com/maps/search/?api=1&query=2185+Stavebank+Rd+Mississauga+ON+L5C+1T3",
       description: t("calendar.folkorama.description"),
-      sponsorLink: true
+      sponsorLink: true,
+      flyer: springFolkloramaFlyer
     },
     {
       name: "Carassauga Festival",
