@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { getAuthUser } from '@/lib/auth';
 import { sanitizeInput } from '@/lib/utils';
 
 const anthropic = new Anthropic({
@@ -8,6 +9,12 @@ const anthropic = new Anthropic({
 
 export async function POST(req: NextRequest) {
   try {
+    // Require authentication
+    const authResult = await getAuthUser(req);
+    if (!authResult) {
+      return NextResponse.json({ error: 'unauthorized' }, { status: 401 });
+    }
+
     const body = await req.json();
     const frameDescription = sanitizeInput(body.frame_description || '', 500);
     const artworkTitle = sanitizeInput(body.artwork_title || '', 200);

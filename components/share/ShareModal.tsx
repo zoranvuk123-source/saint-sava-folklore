@@ -7,6 +7,8 @@ interface Props {
   curatorName: string;
   curatorType: string;
   artworkTitle: string;
+  artworkArtist?: string;
+  artworkYear?: string;
   artworkImage?: string;
   artworkDescription?: string;
   onClose: () => void;
@@ -17,20 +19,34 @@ export default function ShareModal({
   curatorName,
   curatorType,
   artworkTitle,
+  artworkArtist,
+  artworkYear,
   artworkImage,
   artworkDescription,
   onClose,
 }: Props) {
   const [copied, setCopied] = useState(false);
 
-  const shareText = `${artworkTitle} — curated by ${curatorName} on EuroArt4.me`;
+  const shareText = `${artworkTitle}${artworkArtist ? ` by ${artworkArtist}` : ''} — curated by ${curatorName} on EuroArt4.me`;
   const encodedUrl = encodeURIComponent(showroomUrl);
   const encodedText = encodeURIComponent(shareText);
 
-  function handleCopyLink() {
-    navigator.clipboard.writeText(showroomUrl);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  async function handleCopyLink() {
+    try {
+      await navigator.clipboard.writeText(showroomUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Fallback for non-secure contexts
+      const textarea = document.createElement('textarea');
+      textarea.value = showroomUrl;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
     logShare('link');
   }
 
@@ -46,9 +62,13 @@ export default function ShareModal({
     logShare('twitter');
   }
 
-  function handleInstagram() {
+  async function handleInstagram() {
     const caption = `${shareText}\n\n${showroomUrl}`;
-    navigator.clipboard.writeText(caption);
+    try {
+      await navigator.clipboard.writeText(caption);
+    } catch {
+      // Silent fallback
+    }
     alert(
       'Caption and link copied to clipboard. Open Instagram and paste into your post caption.'
     );
@@ -71,7 +91,7 @@ export default function ShareModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-ink/50" onClick={onClose} />
       <div className="relative bg-white rounded-2xl shadow-xl max-w-md w-full overflow-hidden animate-fade-in">
-        {/* Share Card Preview */}
+        {/* Share Card Preview — matches spec: image, title, artist, year, description, curator, logo, URL */}
         <div className="bg-ink p-6">
           {artworkImage && (
             <img
@@ -81,6 +101,11 @@ export default function ShareModal({
             />
           )}
           <h3 className="font-heading text-xl text-white">{artworkTitle}</h3>
+          {(artworkArtist || artworkYear) && (
+            <p className="text-ice text-sm mt-1">
+              {artworkArtist}{artworkArtist && artworkYear ? ', ' : ''}{artworkYear}
+            </p>
+          )}
           {artworkDescription && (
             <p className="text-steel text-sm mt-2 line-clamp-2">
               {artworkDescription}
@@ -93,6 +118,7 @@ export default function ShareModal({
             </div>
             <p className="text-gold font-heading text-sm">EuroArt4.me</p>
           </div>
+          <p className="text-steel/60 text-xs mt-3 truncate">{showroomUrl}</p>
         </div>
 
         {/* Share Buttons */}

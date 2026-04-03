@@ -1,8 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase/server';
+import { getAuthUser } from '@/lib/auth';
+import { createAnonClient } from '@/lib/supabase/server';
 
 export async function POST(req: NextRequest) {
   try {
+    // Require authentication
+    const authResult = await getAuthUser(req);
+    if (!authResult) {
+      return NextResponse.json({ error: 'unauthorized' }, { status: 401 });
+    }
+
     const body = await req.json();
     const { collection_item_ids, shipping_address } = body;
 
@@ -10,9 +17,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const supabase = createServerClient();
+    // Use anon client with user's auth to enforce RLS
+    const supabase = createAnonClient();
 
-    // Fetch collection items with artwork data
+    // Fetch collection items — RLS ensures only visible items are returned
     const { data: items, error } = await supabase
       .from('collection_items')
       .select('*, artworks:artwork_id (*)')
@@ -22,12 +30,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Items not found' }, { status: 404 });
     }
 
-    // Build Prodigi order (placeholder — real integration requires Prodigi API key)
     const prodigiApiKey = process.env.PRODIGI_API_KEY;
     if (!prodigiApiKey) {
       return NextResponse.json({
         error: 'Prodigi integration not configured',
-        items: items.map((i) => ({
+        items: items.map((i: { id: string; prodigi_sku: string; unit_price_cad: number }) => ({
           id: i.id,
           sku: i.prodigi_sku,
           price: i.unit_price_cad,
@@ -35,7 +42,6 @@ export async function POST(req: NextRequest) {
       }, { status: 503 });
     }
 
-    // Call Prodigi API
     const prodigiResponse = await fetch('https://api.prodigi.com/v4.0/Orders', {
       method: 'POST',
       headers: {
@@ -56,20 +62,25 @@ export async function POST(req: NextRequest) {
             stateOrCounty: shipping_address.state || '',
           },
         },
-        items: items.map((item) => ({
+        items: items.map((item: { id: string; prodigi_sku: string; artworks: { prodigi_sku_base: string; image_url: string } }) => ({
           merchantReference: item.id,
-          sku: item.prodigi_sku || (item as unknown as { artworks: { prodigi_sku_base: string } }).artworks?.prodigi_sku_base,
+          sku: item.prodigi_sku || item.artworks?.prodigi_sku_base,
           copies: 1,
           sizing: 'fillPrintArea',
           assets: [
             {
               printArea: 'default',
-              url: (item as unknown as { artworks: { image_url: string } }).artworks?.image_url,
+              url: item.artworks?.image_url,
             },
           ],
         })),
       }),
     });
+
+    if (!prodigiResponse.ok) {
+      const errorData = await prodigiResponse.json();
+      return NextResponse.json({ error: 'Prodigi order failed', details: errorData }, { status: prodigiResponse.status });
+    }
 
     const prodigiData = await prodigiResponse.json();
     return NextResponse.json(prodigiData);

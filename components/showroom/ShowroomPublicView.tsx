@@ -50,6 +50,8 @@ export default function ShowroomPublicView({ user, collections }: Props) {
     artworkId?: string;
     collectionId?: string;
     title: string;
+    artist?: string;
+    year?: string;
     image?: string;
     description?: string;
   } | null>(null);
@@ -192,6 +194,8 @@ export default function ShowroomPublicView({ user, collections }: Props) {
                                 artworkId: art.id,
                                 collectionId: collection.id,
                                 title: art.title,
+                                artist: art.artist,
+                                year: art.year,
                                 image: art.image_url,
                                 description: art.description,
                               })
@@ -228,6 +232,8 @@ export default function ShowroomPublicView({ user, collections }: Props) {
           curatorName={user.name}
           curatorType={typeLabels[user.user_type] || user.user_type}
           artworkTitle={shareItem.title}
+          artworkArtist={shareItem.artist}
+          artworkYear={shareItem.year}
           artworkImage={shareItem.image}
           artworkDescription={shareItem.description}
           onClose={() => setShareItem(null)}

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
 import { createServerClient } from '@/lib/supabase/server';
+import { getAuthUserWithProfile } from '@/lib/auth';
 import { sanitizeInput } from '@/lib/utils';
 
 const anthropic = new Anthropic({
@@ -18,9 +19,14 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
+    // Authenticate user (optional — free tier uses session tokens)
+    const authResult = await getAuthUserWithProfile(req);
+    const userTier = authResult?.profile?.tier || 'free';
+    const userId = authResult?.user?.id || null;
+
     const supabase = createServerClient();
 
-    // Check / create AI session
+    // Check / create AI session — tie to user if authenticated
     let { data: session } = await supabase
       .from('ai_sessions')
       .select('*')
@@ -30,7 +36,12 @@ export async function POST(req: NextRequest) {
     if (!session) {
       const { data: newSession, error } = await supabase
         .from('ai_sessions')
-        .insert({ session_token: sessionToken, generation_count: 0, generation_limit: 30 })
+        .insert({
+          session_token: sessionToken,
+          user_id: userId,
+          generation_count: 0,
+          generation_limit: userTier === 'pro' ? null : 30,
+        })
         .select()
         .single();
       if (error) {
@@ -39,12 +50,12 @@ export async function POST(req: NextRequest) {
       session = newSession;
     }
 
-    // Enforce rate limit for free tier
-    if (
-      session.generation_limit !== null &&
-      session.generation_count >= session.generation_limit
-    ) {
-      return NextResponse.json({ error: 'generation_limit_reached' }, { status: 402 });
+    // Enforce rate limit: check tier + generation count
+    // Pro users (generation_limit = null) are unlimited
+    if (userTier === 'free' && session.generation_limit !== null) {
+      if (session.generation_count >= session.generation_limit) {
+        return NextResponse.json({ error: 'generation_limit_reached' }, { status: 402 });
+      }
     }
 
     // Fetch available artworks for context
@@ -54,7 +65,8 @@ export async function POST(req: NextRequest) {
       .eq('active', true);
 
     const artworkList = (artworks || [])
-      .map((a) => `- "${a.title}" by ${a.artist} (${a.year}) — Tags: ${a.tags.join(', ')}`)
+      .map((a: { title: string; artist: string; year: string; tags: string[] }) =>
+        `- "${a.title}" by ${a.artist} (${a.year}) — Tags: ${(a.tags || []).join(', ')}`)
       .join('\n');
 
     // Call Claude API
@@ -88,21 +100,23 @@ Only recommend artworks from the catalog list above. Use exact titles.`,
       ],
     });
 
-    // Increment generation count
-    await supabase
-      .from('ai_sessions')
-      .update({
-        generation_count: session.generation_count + 1,
-        last_used_at: new Date().toISOString(),
-      })
-      .eq('id', session.id);
+    // Atomic increment of generation count via raw SQL to prevent race conditions
+    await supabase.rpc('increment_generation_count', { session_id: session.id });
 
     const textContent = message.content.find((c) => c.type === 'text');
     if (!textContent || textContent.type !== 'text') {
       return NextResponse.json({ error: 'No response from AI' }, { status: 500 });
     }
 
-    const parsed = JSON.parse(textContent.text);
+    // Safe JSON parse with fallback
+    let parsed;
+    try {
+      const text = textContent.text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+      parsed = JSON.parse(text);
+    } catch {
+      return NextResponse.json({ error: 'Failed to parse AI response' }, { status: 500 });
+    }
+
     return NextResponse.json(parsed);
   } catch (error) {
     console.error('AI room curation error:', error);

@@ -20,13 +20,22 @@ export default function AdminPage() {
 
   useEffect(() => {
     async function checkAdmin() {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) {
+      // Use getUser() for server-verified auth (not spoofable like getSession)
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) {
         setIsAdmin(false);
         setLoading(false);
         return;
       }
-      // For V1, admin check is simplified — in production use service_role or custom claims
+
+      // Admin check: verify user email is in the admin allowlist
+      const ADMIN_EMAILS = ['admin@euroart4.me'];
+      if (!ADMIN_EMAILS.includes(user.email || '')) {
+        setIsAdmin(false);
+        setLoading(false);
+        return;
+      }
+
       setIsAdmin(true);
       await loadData();
       setLoading(false);
@@ -59,10 +68,14 @@ export default function AdminPage() {
 
   async function toggleTrade(user: User) {
     const newTier = user.tier === 'pro' ? 'free' : 'pro';
-    await supabase
+    const { error } = await supabase
       .from('users')
       .update({ tier: newTier, trade_approved: newTier === 'pro' })
       .eq('id', user.id);
+    if (error) {
+      alert(`Failed to update user: ${error.message}`);
+      return;
+    }
     setUsers((prev) =>
       prev.map((u) =>
         u.id === user.id
@@ -73,10 +86,14 @@ export default function AdminPage() {
   }
 
   async function toggleArtworkActive(artwork: Artwork) {
-    await supabase
+    const { error } = await supabase
       .from('artworks')
       .update({ active: !artwork.active })
       .eq('id', artwork.id);
+    if (error) {
+      alert(`Failed to update artwork: ${error.message}`);
+      return;
+    }
     setArtworks((prev) =>
       prev.map((a) => (a.id === artwork.id ? { ...a, active: !a.active } : a))
     );

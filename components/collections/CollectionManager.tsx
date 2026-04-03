@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { supabase } from '@/lib/supabase/client';
 import type { Collection } from '@/lib/types/database';
 
 interface CollectionItemWithArtwork {
   id: string;
+  collection_id: string;
   print_size: string;
   paper_type: string;
   frame_style: string;
@@ -27,16 +28,27 @@ interface Props {
 
 export default function CollectionManager({ collections, userId }: Props) {
   const [items, setItems] = useState<Record<string, CollectionItemWithArtwork[]>>({});
+  const [loading, setLoading] = useState(false);
+
+  // Stabilize dependency to avoid re-fetching on every render
+  const collectionIds = useMemo(
+    () => collections.map((c) => c.id).sort().join(','),
+    [collections]
+  );
 
   useEffect(() => {
     async function loadItems() {
-      const ids = collections.map((c) => c.id);
-      if (ids.length === 0) return;
+      const ids = collectionIds.split(',').filter(Boolean);
+      if (ids.length === 0) {
+        setItems({});
+        return;
+      }
 
+      setLoading(true);
       const { data } = await supabase
         .from('collection_items')
         .select(`
-          id, print_size, paper_type, frame_style, mat_size, sort_order,
+          id, collection_id, print_size, paper_type, frame_style, mat_size, sort_order,
           artworks:artwork_id (id, title, artist, year, image_url)
         `)
         .in('collection_id', ids)
@@ -44,33 +56,21 @@ export default function CollectionManager({ collections, userId }: Props) {
 
       if (data) {
         const grouped: Record<string, CollectionItemWithArtwork[]> = {};
-        // We need collection_id to group, let's re-query with it
-        const { data: fullData } = await supabase
-          .from('collection_items')
-          .select(`
-            id, collection_id, print_size, paper_type, frame_style, mat_size, sort_order,
-            artworks:artwork_id (id, title, artist, year, image_url)
-          `)
-          .in('collection_id', ids)
-          .order('sort_order');
-
-        if (fullData) {
-          for (const item of fullData) {
-            const cid = (item as unknown as { collection_id: string }).collection_id;
-            if (!grouped[cid]) grouped[cid] = [];
-            grouped[cid].push(item as unknown as CollectionItemWithArtwork);
-          }
+        for (const item of data as unknown as CollectionItemWithArtwork[]) {
+          const cid = item.collection_id;
+          if (!grouped[cid]) grouped[cid] = [];
+          grouped[cid].push(item);
         }
         setItems(grouped);
       }
+      setLoading(false);
     }
 
     loadItems();
-  }, [collections]);
+  }, [collectionIds]);
 
   async function removeItem(itemId: string) {
     await supabase.from('collection_items').delete().eq('id', itemId);
-    // Refresh
     setItems((prev) => {
       const next = { ...prev };
       for (const key of Object.keys(next)) {
@@ -94,6 +94,7 @@ export default function CollectionManager({ collections, userId }: Props) {
   return (
     <div className="space-y-8">
       <h2 className="font-heading text-2xl text-ink">Your Collections</h2>
+      {loading && <p className="text-steel text-sm">Loading collection items…</p>}
       {collections.map((col) => (
         <div key={col.id} className="bg-white rounded-xl border border-border p-6">
           <div className="flex items-baseline justify-between mb-4">

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient } from '@/lib/supabase/server';
+import { getAuthUser } from '@/lib/auth';
+import { createAnonClient } from '@/lib/supabase/server';
 
 export async function GET(req: NextRequest) {
   const userId = req.nextUrl.searchParams.get('user_id');
@@ -7,7 +8,8 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'user_id required' }, { status: 400 });
   }
 
-  const supabase = createServerClient();
+  // Use anon client so RLS is enforced — public collections are visible
+  const supabase = createAnonClient();
   const { data, error } = await supabase
     .from('collections')
     .select(`
@@ -18,6 +20,7 @@ export async function GET(req: NextRequest) {
       )
     `)
     .eq('user_id', userId)
+    .eq('is_public', true)
     .order('created_at', { ascending: false });
 
   if (error) {
@@ -28,13 +31,23 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const body = await req.json();
-  const supabase = createServerClient();
+  // Require authentication
+  const authResult = await getAuthUser(req);
+  if (!authResult) {
+    return NextResponse.json({ error: 'unauthorized' }, { status: 401 });
+  }
 
-  const { data, error } = await supabase
+  const body = await req.json();
+
+  // Enforce ownership — user can only create collections for themselves
+  if (body.user_id !== authResult.user.id) {
+    return NextResponse.json({ error: 'forbidden' }, { status: 403 });
+  }
+
+  const { data, error } = await authResult.supabase
     .from('collections')
     .insert({
-      user_id: body.user_id,
+      user_id: authResult.user.id,
       name: body.name,
       space_type: body.space_type,
       room_description: body.room_description || null,
