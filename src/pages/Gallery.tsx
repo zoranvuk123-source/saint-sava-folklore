@@ -225,6 +225,33 @@ const Gallery = () => {
     return galleryData[selectedYear as keyof typeof galleryData] || [];
   };
 
+  const filteredPhotos = getFilteredPhotos();
+
+  const closeLightbox = () => setLightboxIndex(null);
+  const showPrev = () =>
+    setLightboxIndex((i) =>
+      i === null ? null : (i - 1 + filteredPhotos.length) % filteredPhotos.length
+    );
+  const showNext = () =>
+    setLightboxIndex((i) =>
+      i === null ? null : (i + 1) % filteredPhotos.length
+    );
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      else if (e.key === "ArrowLeft") showPrev();
+      else if (e.key === "ArrowRight") showNext();
+    };
+    window.addEventListener("keydown", handleKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightboxIndex, filteredPhotos.length]);
+
   return (
     <main className="min-h-screen bg-background">
       <Header />
