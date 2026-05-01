@@ -30,6 +30,12 @@ const videos: Video[] = [
     category: "Dance"
   },
   {
+    title: "Spring Folklorama Performance",
+    url: "https://youtu.be/EHWhPqKZBBY",
+    videoId: "EHWhPqKZBBY",
+    category: "Dance"
+  },
+  {
     title: "Pavilion Serbia",
     url: "https://www.youtube.com/watch?v=CdPAdGP1VO4",
     videoId: "CdPAdGP1VO4",
