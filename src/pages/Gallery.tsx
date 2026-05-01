@@ -345,6 +345,22 @@ const Gallery = () => {
                 ))}
               </div>
 
+              {/* Sub-gallery breadcrumb */}
+              {activeSub && (
+                <div className="flex items-center justify-between mb-4">
+                  <button
+                    onClick={() => setActiveSubGallery(null)}
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted hover:bg-muted/80 font-semibold transition-all"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                    Back to {selectedYear}
+                  </button>
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground">
+                    {activeSub.title}
+                  </h3>
+                </div>
+              )}
+
               {/* Photo Grid */}
               {loading ? (
                 <div className="text-center py-12">
@@ -352,6 +368,35 @@ const Gallery = () => {
                 </div>
               ) : (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-2">
+                  {/* Sub-gallery tiles (only when a year is selected and no sub-gallery is active) */}
+                  {subGalleriesForYear.map((sub) => {
+                    const cover = sub.photos[0];
+                    return (
+                      <div
+                        key={sub.id}
+                        onClick={() => setActiveSubGallery(sub.id)}
+                        className="group relative overflow-hidden rounded-sm aspect-square cursor-pointer transition-all duration-300 hover:shadow-elegant hover:z-10"
+                      >
+                        {cover && (
+                          <img
+                            src={cover.src}
+                            alt={sub.title}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                          />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30 flex flex-col items-center justify-center text-center p-3">
+                          <FolderOpen className="w-8 h-8 md:w-10 md:h-10 text-white mb-2 drop-shadow" />
+                          <span className="text-white font-semibold text-sm md:text-base leading-tight drop-shadow">
+                            {sub.title}
+                          </span>
+                          <span className="mt-1 text-white/80 text-xs">
+                            {sub.photos.length} {sub.photos.length === 1 ? "photo" : "photos"}
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
                   {filteredPhotos.map((photo, index) => (
                     <div
                       key={`${photo.src}-${index}`}
