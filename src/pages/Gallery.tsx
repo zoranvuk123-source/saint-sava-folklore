@@ -311,7 +311,7 @@ const Gallery = () => {
                 </div>
               ) : (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-2">
-                  {getFilteredPhotos().map((photo, index) => (
+                  {filteredPhotos.map((photo, index) => (
                     <div
                       key={`${photo.src}-${index}`}
                       onClick={() => setLightboxIndex(index)}
@@ -423,6 +423,54 @@ const Gallery = () => {
       </div>
 
       <Footer />
+
+      {lightboxIndex !== null && filteredPhotos[lightboxIndex] && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center animate-fade-in"
+          onClick={closeLightbox}
+        >
+          <button
+            onClick={closeLightbox}
+            aria-label="Close"
+            className="absolute top-4 right-4 md:top-6 md:right-6 text-white/80 hover:text-white transition-colors p-2 rounded-full bg-black/40 hover:bg-black/60"
+          >
+            <X className="w-6 h-6 md:w-8 md:h-8" />
+          </button>
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              showPrev();
+            }}
+            aria-label="Previous"
+            className="absolute left-2 md:left-6 text-white/80 hover:text-white transition-colors p-2 md:p-3 rounded-full bg-black/40 hover:bg-black/60"
+          >
+            <ChevronLeft className="w-7 h-7 md:w-10 md:h-10" />
+          </button>
+
+          <img
+            src={filteredPhotos[lightboxIndex].src}
+            alt={filteredPhotos[lightboxIndex].alt}
+            onClick={(e) => e.stopPropagation()}
+            className="max-w-[92vw] max-h-[88vh] object-contain rounded-sm shadow-2xl"
+          />
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              showNext();
+            }}
+            aria-label="Next"
+            className="absolute right-2 md:right-6 text-white/80 hover:text-white transition-colors p-2 md:p-3 rounded-full bg-black/40 hover:bg-black/60"
+          >
+            <ChevronRight className="w-7 h-7 md:w-10 md:h-10" />
+          </button>
+
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/70 text-sm bg-black/40 px-3 py-1 rounded-full">
+            {lightboxIndex + 1} / {filteredPhotos.length}
+          </div>
+        </div>
+      )}
     </main>
   );
 };
