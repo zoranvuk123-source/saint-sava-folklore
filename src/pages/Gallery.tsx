@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Mail, Heart, X, ChevronLeft, ChevronRight, FolderOpen, ArrowLeft } from "lucide-react";
+import { Mail, Heart, X, ChevronLeft, ChevronRight, FolderOpen, ArrowLeft, Play } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const Gallery = () => {
