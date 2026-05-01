@@ -58,7 +58,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-6">
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -120,7 +120,7 @@ const Header = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="md:hidden"
+          className="lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -129,7 +129,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden border-t bg-background">
+        <div className="lg:hidden border-t bg-background">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             {navItems.map((item) => (
               <Link
