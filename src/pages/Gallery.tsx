@@ -1072,7 +1072,7 @@ const Gallery = () => {
               {/* Year Filter */}
               <div className="grid grid-cols-3 gap-3 mb-8 max-w-md mx-auto">
                 <button
-                  onClick={() => setSelectedYear("all")}
+                  onClick={() => { setSelectedYear("all"); setActiveSubGallery(null); }}
                   className={`px-6 py-2 rounded-full font-semibold transition-all ${
                     selectedYear === "all"
                       ? "bg-primary text-primary-foreground"
