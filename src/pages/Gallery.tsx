@@ -883,7 +883,14 @@ const Gallery = () => {
             { src: "/gallery/2026/spring-folklorama/A7405292.jpg", alt: "Spring Folklorama - April 25, 2026" },
             { src: "/gallery/2026/spring-folklorama/A7405293.jpg", alt: "Spring Folklorama - April 25, 2026" },
             { src: "/gallery/2026/spring-folklorama/A7405295.jpg", alt: "Spring Folklorama - April 25, 2026" },
-            { src: "/gallery/2026/spring-folklorama/A7405296.jpg", alt: "Spring Folklorama - April 25, 2026" }
+            { src: "/gallery/2026/spring-folklorama/A7405296.jpg", alt: "Spring Folklorama - April 25, 2026" },
+            { src: "/gallery/2026/spring-folklorama/A7405298.jpg", alt: "Spring Folklorama - April 25, 2026" },
+            { src: "/gallery/2026/spring-folklorama/A7405300.jpg", alt: "Spring Folklorama - April 25, 2026" },
+            { src: "/gallery/2026/spring-folklorama/A7405301.jpg", alt: "Spring Folklorama - April 25, 2026" },
+            { src: "/gallery/2026/spring-folklorama/A7405302.jpg", alt: "Spring Folklorama - April 25, 2026" },
+            { src: "/gallery/2026/spring-folklorama/A7405303.jpg", alt: "Spring Folklorama - April 25, 2026" },
+            { src: "/gallery/2026/spring-folklorama/A7405304.jpg", alt: "Spring Folklorama - April 25, 2026" },
+            { src: "/gallery/2026/spring-folklorama/A7405305.jpg", alt: "Spring Folklorama - April 25, 2026" }
           ]
         }
       ]
