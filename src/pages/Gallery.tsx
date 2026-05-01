@@ -141,9 +141,7 @@ const Gallery = () => {
       { src: "/gallery/2018/2018-05-22_1.jpg", alt: "May 2018" },
       { src: "/gallery/2018/2018-05-28_1.jpg", alt: "May 2018" },
       { src: "/gallery/2018/2018-05-28_2.jpg", alt: "May 2018" },
-      { src: "/gallery/2018/2018-05-28_3.jpg", alt: "May 2018" },
-      { src: "/gallery/2018/2018-06-05_1.jpg", alt: "June 2018" },
-      { src: "/gallery/2018/2018-11-16_1.jpg", alt: "November 2018" }
+      { src: "/gallery/2018/2018-05-28_3.jpg", alt: "May 2018" }
     ],
     "2019": [
       { src: "/gallery/2019/2019-02-05_1.jpg", alt: "February 2019" },
