@@ -1084,7 +1084,7 @@ const Gallery = () => {
                 {years.map((year) => (
                   <button
                     key={year}
-                    onClick={() => setSelectedYear(year)}
+                    onClick={() => { setSelectedYear(year); setActiveSubGallery(null); }}
                     className={`px-6 py-2 rounded-full font-semibold transition-all ${
                       selectedYear === year
                         ? "bg-primary text-primary-foreground"
