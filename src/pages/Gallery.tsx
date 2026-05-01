@@ -212,8 +212,6 @@ const Gallery = () => {
     ],
     "2026": {
       photos: [
-        { src: "/gallery/2026/2026_3.jpg", alt: "2026" },
-        { src: "/gallery/2026/2026_4.jpg", alt: "2026" }
       ],
       subGalleries: [
         {
