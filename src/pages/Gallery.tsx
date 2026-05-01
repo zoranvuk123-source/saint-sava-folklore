@@ -14,7 +14,7 @@ const Gallery = () => {
   const [storageVideos, setStorageVideos] = useState<{ src: string; title: string; year: string }[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const years = ["2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016"];
+  const years = ["2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016"];
 
   // Video data organized by year (local MP4 files)
   const videoData = {
@@ -229,6 +229,12 @@ const Gallery = () => {
       { src: "/gallery/2025/2025-08-24_1.jpg", alt: "August 2025" },
       { src: "/gallery/2025/2025-08-24_2.jpg", alt: "August 2025" },
       { src: "/gallery/2025/2025-08-24_3.jpg", alt: "August 2025" }
+    ],
+    "2026": [
+      { src: "/gallery/2026/2026_1.jpg", alt: "2026" },
+      { src: "/gallery/2026/2026_2.jpg", alt: "2026" },
+      { src: "/gallery/2026/2026_3.jpg", alt: "2026" },
+      { src: "/gallery/2026/2026_4.jpg", alt: "2026" }
     ]
   };
 
