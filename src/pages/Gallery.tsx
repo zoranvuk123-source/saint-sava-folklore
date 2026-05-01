@@ -144,16 +144,9 @@ const Gallery = () => {
       { src: "/gallery/2018/2018-05-28_3.jpg", alt: "May 2018" }
     ],
     "2019": [
-      { src: "/gallery/2019/2019-02-05_1.jpg", alt: "February 2019" },
       { src: "/gallery/2019/2019-02-27_1.jpg", alt: "February 2019" },
       { src: "/gallery/2019/2019-03-04_1.jpg", alt: "March 2019" },
-      { src: "/gallery/2019/2019-04-14_1.jpg", alt: "April 2019" },
-      { src: "/gallery/2019/2019-05-17_1.jpg", alt: "May 2019" },
-      { src: "/gallery/2019/2019-05-28_1.jpg", alt: "May 2019" },
-      { src: "/gallery/2019/2019-05-30_1.jpg", alt: "May 2019" },
-      { src: "/gallery/2019/2019-06-03_1.jpg", alt: "June 2019" },
-      { src: "/gallery/2019/2019-10-30_1.jpg", alt: "October 2019" },
-      { src: "/gallery/2019/2019-11-03_1.jpg", alt: "November 2019" }
+      { src: "/gallery/2019/2019-05-17_1.jpg", alt: "May 2019" }
     ],
     "2020": [
       { src: "/gallery/2020/2020-01-26_1.jpg", alt: "January 2020" },
