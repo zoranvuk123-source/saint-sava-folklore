@@ -1072,7 +1072,7 @@ const Gallery = () => {
               {/* Year Filter */}
               <div className="grid grid-cols-3 gap-3 mb-8 max-w-md mx-auto">
                 <button
-                  onClick={() => setSelectedYear("all")}
+                  onClick={() => { setSelectedYear("all"); setActiveSubGallery(null); }}
                   className={`px-6 py-2 rounded-full font-semibold transition-all ${
                     selectedYear === "all"
                       ? "bg-primary text-primary-foreground"
@@ -1084,7 +1084,7 @@ const Gallery = () => {
                 {years.map((year) => (
                   <button
                     key={year}
-                    onClick={() => setSelectedYear(year)}
+                    onClick={() => { setSelectedYear(year); setActiveSubGallery(null); }}
                     className={`px-6 py-2 rounded-full font-semibold transition-all ${
                       selectedYear === year
                         ? "bg-primary text-primary-foreground"
@@ -1096,16 +1096,9 @@ const Gallery = () => {
                 ))}
               </div>
 
-              {/* Sub-gallery breadcrumb */}
+              {/* Sub-gallery title */}
               {activeSub && (
-                <div className="flex items-center justify-between mb-4">
-                  <button
-                    onClick={() => setActiveSubGallery(null)}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted hover:bg-muted/80 font-semibold transition-all"
-                  >
-                    <ArrowLeft className="w-4 h-4" />
-                    Back to {selectedYear}
-                  </button>
+                <div className="flex items-center justify-center mb-4">
                   <h3 className="text-lg md:text-xl font-semibold text-foreground">
                     {activeSub.title}
                   </h3>
