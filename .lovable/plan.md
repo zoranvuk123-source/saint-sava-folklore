@@ -1,64 +1,28 @@
-## Add Sub-Galleries (Event Folders) inside Year Galleries
+## Goal
 
-### What changes
+Eliminate the large empty space under landscape video cards on `/gallery` (Nastupi tab) caused by tall portrait videos in the same row. Use a masonry layout so each card flows under the shortest column.
 
-Year galleries can contain named **sub-galleries** (events). Sub-galleries appear at the very top of the photo grid as tiles the same size as a normal thumbnail. Clicking one opens that sub-gallery using the exact same grid + lightbox layout (with a "Back" control to return to the year).
+## Approach
 
-We'll start by creating one sub-gallery in **2026**:
-- **Name:** Spring Folklorama - April 25, 2026
-- **Contents:** the first two images currently in the 2026 gallery (`2026_1.jpg`, `2026_2.jpg`)
+Use CSS multi-column layout (Tailwind `columns-*` + `break-inside-avoid`). This is the lightest-weight masonry approach — no extra dependencies, works with the existing markup, and naturally packs items of varying heights with no vertical gaps.
 
-Those two images will be **moved** into the sub-gallery (so they no longer show as loose thumbnails in the 2026 year view — they'll only appear inside the sub-gallery, behind its cover tile). The remaining 2026 photos stay where they are.
+Note: CSS columns flow top-to-bottom, then left-to-right (so reading order goes down column 1, then down column 2, etc.) rather than left-to-right row-by-row. This is the standard tradeoff for masonry without JS. The newest videos still appear first (top of column 1).
 
-### How it looks
+## Changes
 
-```
-2026 year view:
-┌────────┬────────┬────────┐
-│ [SUB]  │  pic3  │  pic4  │   <- sub-gallery tile uses pic1 as cover,
-│ Spring │        │        │      with a dark overlay + folder icon +
-│ Folkl. │        │        │      title "Spring Folklorama -
-└────────┴────────┴────────┘      April 25, 2026"
+**File:** `src/pages/Gallery.tsx` — videos grid block (~lines 1221–1250 inside the `Nastupi` TabsContent)
 
-Click sub-gallery -> shows just pic1, pic2 in the same grid,
-                     with a "← Back to 2026" button above the grid.
-                     Lightbox arrows scrub only within the sub-gallery.
-```
+Replace the current `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6` wrapper with a column-based container:
 
-### Behavior details
+- Wrapper: `columns-1 md:columns-2 lg:columns-3 gap-6`
+- Each card: add `mb-6 break-inside-avoid inline-block w-full` so cards stay intact across column breaks and stack tightly
+- Keep the existing card styling, hover effects, YouTube iframe (with `aspect-video`), and `<video>` element unchanged
+- Add `block` to the `<video>` element to remove the inline-baseline gap
 
-- Sub-gallery tiles render first, before regular photos, in the year grid.
-- Tile is the same square aspect as photo thumbnails, uses the first image as a cover, with a semi-transparent overlay and the sub-gallery title.
-- Inside a sub-gallery: same 2/3/4-column grid, same click-to-open lightbox, same arrow-key navigation (loops within the sub-gallery only).
-- A "← Back to 2026" link above the grid returns to the year view.
-- Switching the year filter (or to "All") exits the sub-gallery view.
-- "All" view: photos inside sub-galleries are still included so nothing disappears from the global feed; sub-gallery tiles do not appear in "All".
+The Foto (photos) tab is left untouched since photos are uniform thumbnails and don't have this whitespace issue.
 
-### Technical details
+## Result
 
-File edited: `src/pages/Gallery.tsx`
-
-1. Extend the data shape so each year can optionally have a `subGalleries` array:
-   ```ts
-   subGalleries?: { id: string; title: string; photos: { src; alt }[] }[]
-   ```
-   Add `subGalleries: [{ id: "spring-folklorama-2026", title: "Spring Folklorama - April 25, 2026", photos: [2026_1, 2026_2] }]` to the 2026 entry, and remove those two from 2026's top-level `photos` list.
-
-2. Add state `const [activeSubGallery, setActiveSubGallery] = useState<string | null>(null)`.
-
-3. Update `getFilteredPhotos()`:
-   - If `activeSubGallery` set → return that sub-gallery's photos.
-   - Else if a specific year selected → return that year's top-level photos (sub-gallery photos hidden behind tile).
-   - Else "all" → flatten top-level + all sub-gallery photos across years.
-
-4. In the photo grid, when a year is selected and no sub-gallery is active, render `subGalleries` tiles first, then `filteredPhotos`. Sub-gallery tile = same square `<div>` markup as a thumbnail with a dark gradient overlay + folder icon (lucide `FolderOpen`) + centered title.
-
-5. When `activeSubGallery` is active, render a small "← Back to {year}" button above the grid that clears `activeSubGallery`.
-
-6. Reset `activeSubGallery` to `null` whenever `selectedYear` changes (via `useEffect`).
-
-7. Lightbox already keys off `filteredPhotos` so it automatically scopes to the sub-gallery while one is open — no extra changes needed.
-
-Files added/moved: none. The two image files stay where they are on disk (`/public/gallery/2026/2026_1.jpg`, `2026_2.jpg`); only the data references change.
-
-No DB or backend changes.
+- Portrait videos (e.g. July 2025) sit alongside landscape videos with no empty filler space below
+- Cards pack tightly into 1 / 2 / 3 columns responsively (mobile / tablet / desktop)
+- No new dependencies, no JS layout logic
