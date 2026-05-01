@@ -1212,11 +1212,11 @@ const Gallery = () => {
                   </p>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="columns-1 md:columns-2 lg:columns-3 gap-6">
                   {getFilteredVideos().map((video, index) => (
                     <div
                       key={index}
-                      className="group relative overflow-hidden rounded-lg bg-muted/30 transition-all duration-300 hover:shadow-elegant hover:-translate-y-1"
+                      className="group relative overflow-hidden rounded-lg bg-muted/30 transition-all duration-300 hover:shadow-elegant hover:-translate-y-1 mb-6 break-inside-avoid inline-block w-full"
                     >
                       {(video as any).youtubeId ? (
                         <div className="aspect-video w-full">
@@ -1232,7 +1232,7 @@ const Gallery = () => {
                         <video
                           src={video.src}
                           controls
-                          className="w-full h-auto"
+                          className="w-full h-auto block"
                           preload="metadata"
                         >
                           Your browser does not support the video tag.
