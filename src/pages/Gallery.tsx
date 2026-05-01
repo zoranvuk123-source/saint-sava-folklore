@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Mail, Heart } from "lucide-react";
+import { Mail, Heart, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const Gallery = () => {
@@ -13,6 +13,7 @@ const Gallery = () => {
   const [storagePhotos, setStoragePhotos] = useState<{ src: string; alt: string; year: string }[]>([]);
   const [storageVideos, setStorageVideos] = useState<{ src: string; title: string; year: string }[]>([]);
   const [loading, setLoading] = useState(true);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const years = ["2026", "2025", "2024", "2023", "2020", "2019", "2018", "2017", "2016"];
 
@@ -286,6 +287,7 @@ const Gallery = () => {
                   {getFilteredPhotos().map((photo, index) => (
                     <div
                       key={`${photo.src}-${index}`}
+                      onClick={() => setLightboxIndex(index)}
                       className="group relative overflow-hidden rounded-sm aspect-square cursor-pointer transition-all duration-300 hover:shadow-elegant hover:z-10"
                     >
                       <img
