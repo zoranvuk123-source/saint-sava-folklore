@@ -311,14 +311,18 @@ const Gallery = () => {
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-2">
                   {getFilteredPhotos().map((photo, index) => (
                     <div
-                      key={index}
+                      key={`${photo.src}-${index}`}
                       className="group relative overflow-hidden rounded-sm aspect-square cursor-pointer transition-all duration-300 hover:shadow-elegant hover:z-10"
                     >
                       <img
+                        key={photo.src}
                         src={photo.src}
                         alt={photo.alt}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
+                        onLoad={(e) => {
+                          e.currentTarget.style.display = "";
+                        }}
                         onError={(e) => {
                           // Hide images that fail to load so captions don't float alone
                           e.currentTarget.style.display = "none";
