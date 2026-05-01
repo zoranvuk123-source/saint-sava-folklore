@@ -1216,14 +1216,26 @@ const Gallery = () => {
                       key={index}
                       className="group relative overflow-hidden rounded-lg bg-muted/30 transition-all duration-300 hover:shadow-elegant hover:-translate-y-1"
                     >
-                      <video
-                        src={video.src}
-                        controls
-                        className="w-full h-auto"
-                        preload="metadata"
-                      >
-                        Your browser does not support the video tag.
-                      </video>
+                      {(video as any).youtubeId ? (
+                        <div className="aspect-video w-full">
+                          <iframe
+                            src={`https://www.youtube.com/embed/${(video as any).youtubeId}`}
+                            title={video.title}
+                            className="w-full h-full"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                          />
+                        </div>
+                      ) : (
+                        <video
+                          src={video.src}
+                          controls
+                          className="w-full h-auto"
+                          preload="metadata"
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                      )}
                       <div className="p-4">
                         <p className="text-sm font-medium text-foreground">{video.title}</p>
                       </div>
