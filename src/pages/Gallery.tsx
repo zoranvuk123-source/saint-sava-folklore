@@ -15,6 +15,7 @@ const Gallery = () => {
   const [loading, setLoading] = useState(true);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [activeSubGallery, setActiveSubGallery] = useState<string | null>(null);
+  const [playingVideo, setPlayingVideo] = useState<string | null>(null);
 
   type Photo = { src: string; alt: string };
   type SubGallery = { id: string; title: string; photos: Photo[] };
