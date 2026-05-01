@@ -1177,7 +1177,7 @@ const Gallery = () => {
             {/* Videos Section */}
             <TabsContent value="videos" className="space-y-8">
               {/* Year Filter */}
-              <div className="flex flex-wrap justify-center gap-3 mb-8">
+              <div className="grid grid-cols-3 gap-3 mb-8 max-w-md mx-auto">
                 <button
                   onClick={() => setSelectedYear("all")}
                   className={`px-6 py-2 rounded-full font-semibold transition-all ${
