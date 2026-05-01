@@ -1299,7 +1299,7 @@ const Gallery = () => {
                 We invite all former and current members to contribute their photos and videos to our ongoing memorial collection. Help us preserve the rich history of Sv. Sava Oplenac through the years!
               </p>
               <a 
-                href="mailto:saintsavaoplenac@gmail.com?subject=Gallery Photo Submission"
+                href="mailto:saintsavaoplenac@gmail.com?subject=Sharing%20my%20memories"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-all hover:scale-105 shadow-lg"
               >
                 <Mail className="w-5 h-5" />
