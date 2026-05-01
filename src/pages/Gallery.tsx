@@ -14,7 +14,7 @@ const Gallery = () => {
   const [storageVideos, setStorageVideos] = useState<{ src: string; title: string; year: string }[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const years = ["2026", "2025", "2024", "2023", "2021", "2020", "2019", "2018", "2017", "2016"];
+  const years = ["2026", "2025", "2024", "2023", "2020", "2019", "2018", "2017", "2016"];
 
   // Video data organized by year (local MP4 files)
   const videoData = {
@@ -150,37 +150,25 @@ const Gallery = () => {
     ],
     "2020": [
       { src: "/gallery/2020/2020-01-26_1.jpg", alt: "January 2020" },
-      { src: "/gallery/2020/2020-01-26_2.jpg", alt: "January 2020" },
-      { src: "/gallery/2020/2020-02-11_1.jpg", alt: "February 2020" }
-    ],
-    "2021": [
-      { src: "/gallery/2021/2021-06-01_1.jpg", alt: "June 2021" }
+      { src: "/gallery/2020/2020-01-26_2.jpg", alt: "January 2020" }
     ],
     "2023": [
       { src: "/gallery/2023/2023-02-04_2.jpg", alt: "February 2023" },
       { src: "/gallery/2023/2023-02-04_3.jpg", alt: "February 2023" },
       { src: "/gallery/2023/2023-02-04_4.jpg", alt: "February 2023" },
       { src: "/gallery/2023/2023-02-04_5.jpg", alt: "February 2023" },
-      { src: "/gallery/2023/2023-02-05_1.jpg", alt: "February 2023" },
-      { src: "/gallery/2023/2023-05-28_1.jpg", alt: "May 2023" },
-      { src: "/gallery/2023/2023-05-31_1.jpg", alt: "May 2023" },
-      { src: "/gallery/2023/2023-06-04_1.jpg", alt: "June 2023" },
       { src: "/gallery/2023/2023-11-14_1.jpg", alt: "November 2023" },
       { src: "/gallery/2023/2023-11-14_2.jpg", alt: "November 2023" },
       { src: "/gallery/2023/2023-11-14_3.jpg", alt: "November 2023" }
     ],
     "2024": [
-      { src: "/gallery/2024/2024-02-04_1.jpg", alt: "February 2024" },
       { src: "/gallery/2024/2024-02-04_2.jpg", alt: "February 2024" },
       { src: "/gallery/2024/2024-02-12_1.jpg", alt: "February 2024" },
       { src: "/gallery/2024/2024-02-12_2.jpg", alt: "February 2024" },
       { src: "/gallery/2024/2024-02-12_3.jpg", alt: "February 2024" },
-      { src: "/gallery/2024/2024-05-26_1.jpg", alt: "May 2024" },
-      { src: "/gallery/2024/2024-06-02_1.jpg", alt: "June 2024" },
       { src: "/gallery/2024/2024-11-25_1.jpg", alt: "November 2024" }
     ],
     "2025": [
-      { src: "/gallery/2025/2025-02-02_1.jpg", alt: "February 2025" },
       { src: "/gallery/2025/2025-02-24_1.jpg", alt: "February 2025" },
       { src: "/gallery/2025/2025-02-24_2.jpg", alt: "February 2025" },
       { src: "/gallery/2025/2025-03-15_1.jpg", alt: "March 2025" },
