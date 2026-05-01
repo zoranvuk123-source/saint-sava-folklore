@@ -23,7 +23,7 @@ const Gallery = () => {
   const years = ["2026", "2025", "2024", "2023", "2020", "2019", "2018", "2017", "2016"];
 
   // Video data organized by year (local MP4 files)
-  const videoData = {
+  const videoData: Record<string, { src: string; title: string; year: string; youtubeId?: string }[]> = {
     "2017": [
       { src: "/gallery/2017/2017-01-30_1.mp4", title: "January 2017", year: "2017" }
     ],
@@ -40,6 +40,9 @@ const Gallery = () => {
       { src: "/gallery/2025/2025-05-25_1.mp4", title: "May 2025", year: "2025" },
       { src: "/gallery/2025/2025-06-08_1.mp4", title: "June 2025", year: "2025" },
       { src: "/gallery/2025/2025-07-14_1.mp4", title: "July 2025", year: "2025" }
+    ],
+    "2026": [
+      { src: "", youtubeId: "EHWhPqKZBBY", title: "Spring Folklorama - April 2026", year: "2026" }
     ]
   };
 
