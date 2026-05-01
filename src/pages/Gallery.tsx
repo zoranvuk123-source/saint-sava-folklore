@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Mail, Heart, X, ChevronLeft, ChevronRight, FolderOpen, ArrowLeft } from "lucide-react";
+import { Mail, Heart, X, ChevronLeft, ChevronRight, FolderOpen, ArrowLeft, Play } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const Gallery = () => {
@@ -15,6 +15,7 @@ const Gallery = () => {
   const [loading, setLoading] = useState(true);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [activeSubGallery, setActiveSubGallery] = useState<string | null>(null);
+  const [playingVideo, setPlayingVideo] = useState<string | null>(null);
 
   type Photo = { src: string; alt: string };
   type SubGallery = { id: string; title: string; photos: Photo[] };
@@ -1213,36 +1214,82 @@ const Gallery = () => {
                 </div>
               ) : (
                 <div className="columns-1 md:columns-2 lg:columns-3 gap-6">
-                  {getFilteredVideos().map((video, index) => (
-                    <div
-                      key={index}
-                      className="group relative overflow-hidden rounded-lg bg-muted/30 transition-all duration-300 hover:shadow-elegant hover:-translate-y-1 mb-6 break-inside-avoid inline-block w-full"
-                    >
-                      {(video as any).youtubeId ? (
-                        <div className="aspect-video w-full">
-                          <iframe
-                            src={`https://www.youtube.com/embed/${(video as any).youtubeId}`}
-                            title={video.title}
-                            className="w-full h-full"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                          />
+                  {getFilteredVideos().map((video, index) => {
+                    const videoKey = `${video.year}-${(video as any).youtubeId || video.src}-${index}`;
+                    const isPlaying = playingVideo === videoKey;
+                    const youtubeId = (video as any).youtubeId as string | undefined;
+                    const thumbnail = youtubeId
+                      ? `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`
+                      : undefined;
+
+                    return (
+                      <Card
+                        key={videoKey}
+                        className="video-card overflow-hidden border-0 mb-6 break-inside-avoid inline-block w-full group cursor-pointer"
+                        onClick={() => !isPlaying && setPlayingVideo(videoKey)}
+                      >
+                        <div className="relative">
+                          {isPlaying ? (
+                            youtubeId ? (
+                              <div className="aspect-video w-full">
+                                <iframe
+                                  src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1`}
+                                  title={video.title}
+                                  className="w-full h-full"
+                                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                  allowFullScreen
+                                />
+                              </div>
+                            ) : (
+                              <video
+                                src={video.src}
+                                controls
+                                autoPlay
+                                className="w-full h-auto block"
+                                preload="metadata"
+                              >
+                                Your browser does not support the video tag.
+                              </video>
+                            )
+                          ) : (
+                            <div className="relative overflow-hidden">
+                              {thumbnail ? (
+                                <img
+                                  src={thumbnail}
+                                  alt={video.title}
+                                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
+                                  loading="lazy"
+                                />
+                              ) : (
+                                <video
+                                  src={`${video.src}#t=0.1`}
+                                  className="w-full h-auto block transition-transform duration-500 group-hover:scale-110"
+                                  preload="metadata"
+                                  muted
+                                  playsInline
+                                />
+                              )}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="w-16 h-16 bg-primary/90 rounded-full flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110">
+                                  <Play className="w-8 h-8 text-white ml-1" fill="currentColor" />
+                                </div>
+                              </div>
+                            </div>
+                          )}
                         </div>
-                      ) : (
-                        <video
-                          src={video.src}
-                          controls
-                          className="w-full h-auto block"
-                          preload="metadata"
-                        >
-                          Your browser does not support the video tag.
-                        </video>
-                      )}
-                      <div className="p-4">
-                        <p className="text-sm font-medium text-foreground">{video.title}</p>
-                      </div>
-                    </div>
-                  ))}
+
+                        <div className="p-4 bg-card">
+                          <div className="text-xs font-semibold text-primary mb-2 uppercase tracking-wide">
+                            {video.year}
+                          </div>
+                          <h3 className="font-semibold text-lg line-clamp-2 group-hover:text-primary transition-colors">
+                            {video.title}
+                          </h3>
+                        </div>
+                      </Card>
+                    );
+                  })}
                 </div>
               )}
             </TabsContent>
