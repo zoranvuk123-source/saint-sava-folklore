@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Mail, Heart, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Mail, Heart, X, ChevronLeft, ChevronRight, FolderOpen, ArrowLeft } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
 const Gallery = () => {
@@ -14,6 +14,11 @@ const Gallery = () => {
   const [storageVideos, setStorageVideos] = useState<{ src: string; title: string; year: string }[]>([]);
   const [loading, setLoading] = useState(true);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [activeSubGallery, setActiveSubGallery] = useState<string | null>(null);
+
+  type Photo = { src: string; alt: string };
+  type SubGallery = { id: string; title: string; photos: Photo[] };
+  type YearEntry = Photo[] | { photos: Photo[]; subGalleries?: SubGallery[] };
 
   const years = ["2026", "2025", "2024", "2023", "2020", "2019", "2018", "2017", "2016"];
 
@@ -205,27 +210,63 @@ const Gallery = () => {
       { src: "/gallery/2025/2025-08-24_2.jpg", alt: "August 2025" },
       { src: "/gallery/2025/2025-08-24_3.jpg", alt: "August 2025" }
     ],
-    "2026": [
-      { src: "/gallery/2026/2026_1.jpg", alt: "2026" },
-      { src: "/gallery/2026/2026_2.jpg", alt: "2026" },
-      { src: "/gallery/2026/2026_3.jpg", alt: "2026" },
-      { src: "/gallery/2026/2026_4.jpg", alt: "2026" }
-    ]
-  };
-
-  const getAllPhotos = () => {
-    return Object.values(galleryData).flat();
-  };
-
-  const getFilteredPhotos = () => {
-    if (selectedYear === "all") {
-      return getAllPhotos();
+    "2026": {
+      photos: [
+        { src: "/gallery/2026/2026_3.jpg", alt: "2026" },
+        { src: "/gallery/2026/2026_4.jpg", alt: "2026" }
+      ],
+      subGalleries: [
+        {
+          id: "spring-folklorama-2026",
+          title: "Spring Folklorama - April 25, 2026",
+          photos: [
+            { src: "/gallery/2026/2026_1.jpg", alt: "Spring Folklorama - April 25, 2026" },
+            { src: "/gallery/2026/2026_2.jpg", alt: "Spring Folklorama - April 25, 2026" }
+          ]
+        }
+      ]
     }
-    
-    return galleryData[selectedYear as keyof typeof galleryData] || [];
+  } as Record<string, YearEntry>;
+
+  // Helpers to read year entries (which may be a plain array or an object with subGalleries)
+  const getYearPhotos = (year: string): Photo[] => {
+    const entry = galleryData[year];
+    if (!entry) return [];
+    return Array.isArray(entry) ? entry : entry.photos;
+  };
+  const getYearSubGalleries = (year: string): SubGallery[] => {
+    const entry = galleryData[year];
+    if (!entry || Array.isArray(entry)) return [];
+    return entry.subGalleries ?? [];
+  };
+  const getActiveSubGalleryObj = (): SubGallery | null => {
+    if (!activeSubGallery || selectedYear === "all") return null;
+    return getYearSubGalleries(selectedYear).find((s) => s.id === activeSubGallery) ?? null;
+  };
+
+  const getAllPhotos = (): Photo[] => {
+    return Object.keys(galleryData).flatMap((year) => [
+      ...getYearPhotos(year),
+      ...getYearSubGalleries(year).flatMap((s) => s.photos)
+    ]);
+  };
+
+  const getFilteredPhotos = (): Photo[] => {
+    if (selectedYear === "all") return getAllPhotos();
+    const sub = getActiveSubGalleryObj();
+    if (sub) return sub.photos;
+    return getYearPhotos(selectedYear);
   };
 
   const filteredPhotos = getFilteredPhotos();
+  const activeSub = getActiveSubGalleryObj();
+  const subGalleriesForYear =
+    selectedYear !== "all" && !activeSub ? getYearSubGalleries(selectedYear) : [];
+
+  // Reset sub-gallery when switching years
+  useEffect(() => {
+    setActiveSubGallery(null);
+  }, [selectedYear]);
 
   const closeLightbox = () => setLightboxIndex(null);
   const showPrev = () =>
@@ -304,6 +345,22 @@ const Gallery = () => {
                 ))}
               </div>
 
+              {/* Sub-gallery breadcrumb */}
+              {activeSub && (
+                <div className="flex items-center justify-between mb-4">
+                  <button
+                    onClick={() => setActiveSubGallery(null)}
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted hover:bg-muted/80 font-semibold transition-all"
+                  >
+                    <ArrowLeft className="w-4 h-4" />
+                    Back to {selectedYear}
+                  </button>
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground">
+                    {activeSub.title}
+                  </h3>
+                </div>
+              )}
+
               {/* Photo Grid */}
               {loading ? (
                 <div className="text-center py-12">
@@ -311,6 +368,35 @@ const Gallery = () => {
                 </div>
               ) : (
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-2">
+                  {/* Sub-gallery tiles (only when a year is selected and no sub-gallery is active) */}
+                  {subGalleriesForYear.map((sub) => {
+                    const cover = sub.photos[0];
+                    return (
+                      <div
+                        key={sub.id}
+                        onClick={() => setActiveSubGallery(sub.id)}
+                        className="group relative overflow-hidden rounded-sm aspect-square cursor-pointer transition-all duration-300 hover:shadow-elegant hover:z-10"
+                      >
+                        {cover && (
+                          <img
+                            src={cover.src}
+                            alt={sub.title}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                          />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30 flex flex-col items-center justify-center text-center p-3">
+                          <FolderOpen className="w-8 h-8 md:w-10 md:h-10 text-white mb-2 drop-shadow" />
+                          <span className="text-white font-semibold text-sm md:text-base leading-tight drop-shadow">
+                            {sub.title}
+                          </span>
+                          <span className="mt-1 text-white/80 text-xs">
+                            {sub.photos.length} {sub.photos.length === 1 ? "photo" : "photos"}
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
                   {filteredPhotos.map((photo, index) => (
                     <div
                       key={`${photo.src}-${index}`}
