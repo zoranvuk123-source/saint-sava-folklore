@@ -47,14 +47,16 @@ const Gallery = () => {
   };
 
   const getFilteredVideos = () => {
-    const localVideos = selectedYear === "all" 
-      ? Object.values(videoData).flat()
-      : videoData[selectedYear as keyof typeof videoData] || [];
-    
+    const localVideos = selectedYear === "all"
+      ? Object.keys(videoData)
+          .sort((a, b) => Number(b) - Number(a))
+          .flatMap((year) => [...(videoData[year] || [])].reverse())
+      : [...(videoData[selectedYear as keyof typeof videoData] || [])].reverse();
+
     const storageFiltered = selectedYear === "all"
       ? storageVideos
       : storageVideos.filter(video => video.year === selectedYear);
-    
+
     return [...localVideos, ...storageFiltered];
   };
 
