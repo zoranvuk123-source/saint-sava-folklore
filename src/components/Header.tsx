@@ -120,10 +120,10 @@ const Header = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="lg:hidden"
+          className="lg:hidden h-12 w-12"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {isOpen ? <X className="!h-8 !w-8" /> : <Menu className="!h-8 !w-8" />}
         </Button>
       </nav>
 
@@ -136,7 +136,7 @@ const Header = () => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-base font-medium transition-colors hover:text-primary ${
                   location.pathname === item.path
                     ? "text-primary"
                     : "text-muted-foreground"
@@ -150,7 +150,7 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
+              className="text-base font-medium transition-colors hover:text-primary text-muted-foreground"
             >
               {t("nav.store")}
             </a>
