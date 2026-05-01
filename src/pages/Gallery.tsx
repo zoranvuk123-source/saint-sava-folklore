@@ -1096,16 +1096,9 @@ const Gallery = () => {
                 ))}
               </div>
 
-              {/* Sub-gallery breadcrumb */}
+              {/* Sub-gallery title */}
               {activeSub && (
-                <div className="flex items-center justify-between mb-4">
-                  <button
-                    onClick={() => setActiveSubGallery(null)}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted hover:bg-muted/80 font-semibold transition-all"
-                  >
-                    <ArrowLeft className="w-4 h-4" />
-                    Back to {selectedYear}
-                  </button>
+                <div className="flex items-center justify-center mb-4">
                   <h3 className="text-lg md:text-xl font-semibold text-foreground">
                     {activeSub.title}
                   </h3>
