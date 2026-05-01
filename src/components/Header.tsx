@@ -136,7 +136,7 @@ const Header = () => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-base font-medium transition-colors hover:text-primary ${
                   location.pathname === item.path
                     ? "text-primary"
                     : "text-muted-foreground"
@@ -150,7 +150,7 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
+              className="text-base font-medium transition-colors hover:text-primary text-muted-foreground"
             >
               {t("nav.store")}
             </a>
