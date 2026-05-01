@@ -120,10 +120,10 @@ const Header = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="lg:hidden"
+          className="lg:hidden h-12 w-12"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {isOpen ? <X className="!h-8 !w-8" /> : <Menu className="!h-8 !w-8" />}
         </Button>
       </nav>
 
